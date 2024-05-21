@@ -8,7 +8,7 @@ ResumeRocket is an AI-powered resume builder specifically designed for individua
 - **Memory Mukonda =>** @mukoe2020
 - **Ote Ian =>** @Otelan
 
-# Features
+# Core Features(MVP)
 - **Interactive Questionnaire:** Users will be guided through a series of simple and interactive questions to determine the key features of their resume or CV. This ensures that the AI model has all the necessary information to create a compelling and personalized resume.
 
 - **Personalized Recommendations:** If a user lacks certain skills or experiences related to their desired job role, our AI model will suggest relevant certifications or trainings to help them upskill.
