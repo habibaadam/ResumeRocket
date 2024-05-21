@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const { Schema } = mongoose;
 
@@ -30,14 +30,10 @@ const userSchema = new Schema({
     minlength: 6,
     select: false, // Do not return the password field by default
     trim: true
-  },
-  timestamps: {
-    type: Date,
-    default: Date.now
   }
-});
+}, { timestamps: true});
 
-// hashing the password i ntend to move it once if we have to move it to the auth file
+// hashing the password intend to move it once if we have to move it to the auth file
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) {
     return next();
@@ -51,7 +47,7 @@ userSchema.pre('save', async function(next) {
   }
 });
 
-// this method compare the password 
+// this method compare the password
 userSchema.methods.comparePassword = function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
