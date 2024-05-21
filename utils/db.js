@@ -18,7 +18,22 @@ class DBClient {
     .then(() => console.log('Connected to Atlas Db'))
     .catch((err) => console.error('Database connection error', err));
   }
-
+}
+  const newUser = new User({
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'john.doe@example.com',
+    password: 'johnDoe123',
+  });
+try { //save new user to the db
+  await newUser.save();
+  console.log('User saved successfully', newUser);
+}
+catch (err) {
+  console.error('Error saving user', err);
+}
+finally {
+  mongoose.connection.close();
 }
 
 const datab = new DBClient();
