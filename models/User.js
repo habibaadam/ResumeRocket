@@ -37,7 +37,7 @@ const userSchema = new Schema({
   }
 });
 
-// Pre-save hook to hash the password before saving
+// hashing the password i ntend to move it once if we have to move it to the auth file
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) {
     return next();
@@ -51,12 +51,12 @@ userSchema.pre('save', async function(next) {
   }
 });
 
-// Method to compare password
+// this method compare the password 
 userSchema.methods.comparePassword = function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-// Create the User model
+// creating user model
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
