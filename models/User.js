@@ -36,6 +36,15 @@ const userSchema = new Schema({
     default: Date.now
   }
 });
+  /*example of the user model
+new User({
+firstName: 'John',
+lastName: 'Doe',
+  email: 'john.doe@example.com',
+  password: 'plainTextPassword123'
+});
+  */
+
 
 // hashing the password i ntend to move it once if we have to move it to the auth file
 userSchema.pre('save', async function(next) {
