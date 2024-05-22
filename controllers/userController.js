@@ -68,3 +68,10 @@ exports.forLogin = async function forLogin(req, res) {
   res.cookie('jwt', token, { httpOnly: true, secure: true});
   return res.send('Logged in sucessfully!');
 }
+
+// TO-DO: Test this with front-end
+exports.forLogout = async function forLogout(req, res) {
+  const jwt = req.cookies.jwt;
+  res.clearCookie(jwt);
+  return res.send('Logged out sucessfully!');
+}
