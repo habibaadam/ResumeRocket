@@ -36,7 +36,6 @@ exports.createNew  = async function createNew(req, res) {
     const token = generateToken(savedUser._id);
     // store cookie in httponly
     res.cookie('jwt', token, { httpOnly: true, secure: true });
-    console.log('Generated JWT token:', token);
     return res.status(200).json({
       message: 'Sucessfully signed up!',
       first_name: savedUser.firstName,
