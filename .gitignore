@@ -1,4 +1,5 @@
-node_modules/
-.env
+# Ignore node modules and configurations
+/node_modules
 *package.json
 *package-lock.json
+.env
