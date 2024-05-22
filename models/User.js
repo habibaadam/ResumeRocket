@@ -28,7 +28,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'Please add a password'],
     minlength: 6,
-    select: false, // Do not return the password field by default
+    select: true,
     trim: true
   }
 }, { timestamps: true});
