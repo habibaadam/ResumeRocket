@@ -9,30 +9,24 @@ class DBClient {
     const username = process.env.DB_USER;
     const password = process.env.DB_PASSWORD;
     this.database = 'resume_rocket';
+
     this.con = `mongodb+srv://${username}:${password}@cvrocket.e9mvlxq.mongodb.net/${this.database}?retryWrites=true&w=majority&appName=CVROCKET`;
   }
 
-  async connect() {
-    try {
-      await mongoose.connect(this.con, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      });
-      console.log('Connected to Atlas DB');
-    } catch (err) {
-      console.error('Database connection error', err);
-      process.exit(1); // Exit process with failure
-    }
+  connect = async() => {
+    await mongoose.connect(this.con)
+    .then(() => {
+      console.log('Connected to Atlas Db');
+      console.log('Connection details:');
+      console.log('Ready state:', mongoose.connection.readyState);
+      console.log('Host:', mongoose.connection.host);
+      console.log('Port:', mongoose.connection.port);
+      console.log('User:', mongoose.connection.user);
+      console.log('Database Name:', mongoose.connection.name);
+    })
+    .catch((err) => console.error('Database connection error', err));
   }
 
-  async disconnect() {
-    try {
-      await mongoose.connection.close();
-      console.log('Disconnected from Atlas DB');
-    } catch (err) {
-      console.error('Error disconnecting from database', err);
-    }
-  }
 }
 
 const datab = new DBClient();
