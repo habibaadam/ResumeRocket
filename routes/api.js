@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 const { createNew, forLogin, forLogout } = require('../controllers/userController');
 const router = express.Router();
 

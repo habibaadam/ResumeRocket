@@ -71,7 +71,7 @@ exports.forLogin = async function forLogin(req, res) {
 
 // TO-DO: Test this with front-end
 exports.forLogout = async function forLogout(req, res) {
-  const jwt = req.cookies.jwt;
-  res.clearCookie(jwt);
+  // const jwt = req.cookies.jwt;
+  res.clearCookie('jwt');
   return res.send('Logged out sucessfully!');
 }
