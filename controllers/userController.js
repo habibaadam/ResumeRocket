@@ -14,7 +14,7 @@ const generateToken = (userId) => {
   return jwt.sign(payload, secret, options);
 }
 
-exports.createNew  = async function createNew(req, res) {
+exports.createNewUser  = async function createNewUser(req, res) {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {
     return res.status(404).json({message: 'No user found'});
