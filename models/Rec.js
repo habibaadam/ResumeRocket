@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const recSchema = new Schema({
-    user: {
+    cv: {
         type: Schema.Types.ObjectId,
         ref: 'Rec',
         required: [true, 'Please add a CV Id']
