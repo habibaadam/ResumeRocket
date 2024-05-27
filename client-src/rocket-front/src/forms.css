@@ -4,3 +4,12 @@ background: url('https://img.freepik.com/premium-photo/futuristic-dark-backgroun
 height: 100vh;
 background-size: cover;
 }
+
+.containing {
+    max-width: 500px;
+    margin: 35px auto;
+    padding: 30px;
+    background-color: rgb(180, 174, 181);
+    border-radius: 16px;
+
+}

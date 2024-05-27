@@ -18,24 +18,53 @@ body {
   font-family: "Anta", sans-serif;
 }
 
-h1, h2, p, small {
+a.nav-link.left {
+  margin-left: 750px;
+}
+
+.navbar.navbar-expand-lg {
+  border-radius: 15px;
+  background-color: rgb(183, 165, 183);
+  padding: 20px;
+}
+
+.navbar-nav {
+  font-size: 18px;
+}
+
+a.nav-link {
+  font-size: 30px;
+}
+
+a.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 4px #c867eb;
+  transition: all 0.5s ease-in-out;
+}
+
+h1, h2, h3, p, small {
   color: var(--text);
 }
 
 h1 {
-  margin-top: 100px;
+  margin-top: 120px;
   font-size: 3rem;
+}
+
+h3 {
+  margin-top: 180px;
+  font-size: 2rem;
 }
 
 p {
   margin-bottom: 0px;
-  font-size: 12px;
+  font-size: 15px;
   color: #C0C0C0;
 }
 small {
   display: block;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   color: #C0C0C0;
 }
 
@@ -43,10 +72,11 @@ small {
   text-align: center;
 }
 .btn.btn-secondary {
-  background-color: rgb(213, 149, 213);
+  background-color: rgb(183, 165, 183);
   color: black;
   transition: all 0.5s ease-in-out;
   border-radius: 10px;
+  padding: 15px 20px;
 }
 
 .btn.btn-secondary:hover {
@@ -81,21 +111,51 @@ small {
   animation: fadeIn 3s, colorChange 5s;
 }
 
-a.nav-link.left {
-  margin-left: 900px;
-}
 
-.navbar-nav {
-  font-size: 18px;
-}
-
-a.nav-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 4px #c867eb;
-  transition: all 0.5s ease-in-out;
-}
 
 .route-links {
   text-decoration: none;
   color: black;
+}
+
+.scroll-downs {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.mousey {
+  width: 40px;
+  height: 70px;
+  border: 2px solid white;
+  border-radius: 25px;
+  position: relative;
+  animation: mousey 1s infinite;
+  margin: 0 auto;
+}
+
+.scroller {
+  width: 8px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  animation: scroller 1s infinite;
+}
+
+@keyframes mousey {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes scroller {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(15px); }
+  100% { transform: translateX(-50%) translateY(0); }
 }
