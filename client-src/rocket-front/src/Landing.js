@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 export default function Landing() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
+      <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
         <div className="container-fluid">
         <a className="navbar-brand" href="ahjsgjhdg">
       <img
         src={logo}
-        height="35"
+        height="40"
         alt="ResumeRocket Logo"
         loading="lazy"
       />
@@ -22,20 +22,27 @@ export default function Landing() {
     </button>
 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
-        <Link className="nav-link " to="/">ResumeRocket</Link>
-        <Link className="nav-link left" to="/signup">SignUp</Link>
-        <Link className="nav-link left-2" to="/login">Log In</Link>
-        <Link className="nav-link left-3" to="../">Contact</Link>
-        </div>
+        <Link className="nav-link resume " to="/">ResumeRocket</Link>
+        <Link className="nav-link left resume" to="/signup">SignUp</Link>
+        <Link className="nav-link left-2 resume" to="/login">Log In</Link>
+        <Link className="nav-link left-3 resume" to="../">Contact</Link>
+      </div>
 </div>
   </div>
 </nav>
           <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
           <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
           <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
-          <button type="button" className="mt-5 btn btn-secondary">
-            <Link className="route-links" to="/signup">Get Started</Link>
-          </button>
+          <div className="for-link">
+            <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
+            </div>
+
+            <h3 className="text-center resume">How Does ResumeRocket Work?</h3>
+            <div className="scroll-downs">
+              <div className="mousey">
+                <div className="scroller"></div>
+                </div>
+                </div>
       </div>
       );
 }
