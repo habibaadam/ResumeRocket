@@ -26,16 +26,16 @@ export default function Landing() {
         <Link className="nav-link left" to="/signup">SignUp</Link>
         <Link className="nav-link left-2" to="/login">Log In</Link>
         <Link className="nav-link left-3" to="../">Contact</Link>
-        </div>
+      </div>
 </div>
   </div>
 </nav>
           <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
           <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
           <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
-          <button type="button" className="mt-5 btn btn-secondary">
-            <Link className="route-links" to="/signup">Get Started</Link>
-          </button>
+          <div className="for-link">
+            <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
+            </div>
       </div>
       );
 }

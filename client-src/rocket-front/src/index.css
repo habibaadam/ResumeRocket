@@ -24,6 +24,7 @@ h1, h2, p, small {
 
 h1 {
   margin-top: 100px;
+  font-size: 3rem;
 }
 
 p {
@@ -38,16 +39,17 @@ small {
   color: #C0C0C0;
 }
 
-.btn-secondary {
-  display: block;
-  margin: 0px auto;
+.for-link {
+  text-align: center;
+}
+.btn.btn-secondary {
   background-color: rgb(213, 149, 213);
   color: black;
   transition: all 0.5s ease-in-out;
-  border-radius: 7px;
+  border-radius: 10px;
 }
 
-.btn-secondary:hover {
+.btn.btn-secondary:hover {
   transform: translateY(-3px);
   color: #04050F;
   background-color: #b252d5;
@@ -80,8 +82,11 @@ small {
 }
 
 a.nav-link.left {
-  margin-left: 650px;
+  margin-left: 900px;
+}
 
+.navbar-nav {
+  font-size: 18px;
 }
 
 a.nav-link:hover {
