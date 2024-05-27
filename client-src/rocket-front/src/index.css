@@ -89,3 +89,8 @@ a.nav-link:hover {
   box-shadow: 0 0 4px #c867eb;
   transition: all 0.5s ease-in-out;
 }
+
+.route-links {
+  text-decoration: none;
+  color: black;
+}
