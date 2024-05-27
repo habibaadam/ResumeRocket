@@ -1,13 +1,13 @@
 const express = require('express');
 
 
-const { createNewUser, forLogin, forLogout, getUser } = require('../controllers/userController');
+const { createNew, forLogin, forLogout, getUser } = require('../controllers/userController');
 const { createNewCv, getCv } = require('../controllers/cvController');
 const { createNewRec, getRec } = require('../controllers/recController');
 
 const router = express.Router();
 
-router.post('/signup', createNewUser); // handler for signingUp
+router.post('/signup', createNew); // handler for signingUp
 router.post('/login', forLogin); // handler for logging in
 router.post('/logout', forLogout); // handler for logging out
 router.get('/user/:id', getUser); // handler for getting a user
