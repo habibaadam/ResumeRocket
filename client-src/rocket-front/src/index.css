@@ -1,6 +1,6 @@
 :root {
   --primary-color: #050915;
-  --text : #e4deed;
+  --text : #C0C0C0;
 }
 
 .resume {
@@ -29,23 +29,63 @@ h1 {
 p {
   margin-bottom: 0px;
   font-size: 12px;
+  color: #C0C0C0;
 }
 small {
   display: block;
   text-align: center;
   font-size: 12px;
+  color: #C0C0C0;
 }
 
 .btn-secondary {
   display: block;
   margin: 0px auto;
-  color: #04050F;
-  background-color: #b252d5;
-  transition: all 0.3s ease-in-out;
+  background-color: rgb(213, 149, 213);
+  color: black;
+  transition: all 0.5s ease-in-out;
+  border-radius: 7px;
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px);
-  background-color: rgb(168, 70, 86);
+  color: #04050F;
+  background-color: #b252d5;
   box-shadow: 0 0 10px #fff;
+}
+
+@keyframes reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.resume, h1, p, small {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: reveal 4s linear;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes colorChange {
+  0% { color: #C0C0C0; }
+  100% { color: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83)); }
+}
+
+.resume {
+  animation: fadeIn 3s, colorChange 5s;
+}
+
+a.nav-link.left {
+  margin-left: 650px;
+
+}
+
+a.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 4px #c867eb;
+  transition: all 0.5s ease-in-out;
 }
