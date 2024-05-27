@@ -9,8 +9,14 @@ exports.ai = async (req, res) => {
   try {
     dotenv.config();
     const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+    const generationConfig = {
+      temperature: 0.5,
+      top_p: 1,
+      top_k: 0,
+      max_output_tokens: 10000,
+    };
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'tunedModels/ai-cv-generator-lm6un7hmr70d', generationConfig });
     const { prompt } = req.body;
     const headers = {
       'Content-Type': 'application/json',
