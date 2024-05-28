@@ -36,7 +36,6 @@ exports.createNew  = async function createNew(req, res) {
     const token = generateToken(savedUser._id);
     // store cookie in httponly
     res.cookie('jwt', token, { httpOnly: true, secure: true });
-    console.log('Generated JWT token:', token);
     return res.status(200).json({
       message: 'Sucessfully signed up!',
       first_name: savedUser.firstName,
@@ -68,4 +67,25 @@ exports.forLogin = async function forLogin(req, res) {
   const token = generateToken(existingUser._id);
   res.cookie('jwt', token, { httpOnly: true, secure: true});
   return res.send('Logged in sucessfully!');
+}
+
+// TO-DO: Test this with front-end
+exports.forLogout = async function forLogout(req, res) {
+  // const jwt = req.cookies.jwt;
+  res.clearCookie('jwt');
+  return res.send('Logged out sucessfully!');
+}
+
+
+exports.getUser = async function getUser(req, res) {
+  const user = await User.findOne({_id: req.params.id});
+  if (!user) {
+    return res.status(404).json({message: 'No user found'});
+  }
+  return res.status(200).json({
+    message: 'User details retrieved',
+    first_name: user.firstName,
+    last_name: user.lastName,
+    email: user.email,
+  })
 }
