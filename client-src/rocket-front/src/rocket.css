@@ -1,0 +1,43 @@
+:root {
+  --primary-color: #050915;
+  --text : #C0C0C0;
+}
+
+div.full-height.right {
+    min-height: 100vh;
+    background-color: #433a43;
+}
+
+a.nav-link.left {
+  margin-left: 450px;
+}
+
+.navbar.navbar-expand-lg {
+  border-radius: 15px;
+  background-color: rgb(183, 165, 183);
+  padding: 20px;
+}
+
+.navbar-nav {
+  font-size: 20px;
+}
+
+a.nav-link {
+  font-size: 23px;
+}
+
+a.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 4px #c867eb;
+  transition: all 0.5s ease-in-out;
+}
+
+.resume {
+  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.resume {
+  animation: fadeIn 3s, colorChange 5s;
+}
