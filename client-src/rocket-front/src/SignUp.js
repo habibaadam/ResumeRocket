@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from './UserContext';
 import './forms.css';
@@ -130,7 +130,7 @@ const handleRegister = async (event) => {
                 </div>
 
                 <p className="text-center mt-5 mb-0">Already have an account? <a href="#!"
-                    className="fw-bold resume text-body"><u>Login here</u></a></p>
+                    className="fw-bold resume text-body"><Link to="/login">Login here</Link></a></p>
                 </form>
 
             </div>
