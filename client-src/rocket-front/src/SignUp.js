@@ -1,14 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
+import { useNavigate } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
+import { UserContext } from './UserContext';
 import './forms.css';
-import './index.css';
 
 export default function SignUp() {
 // setting state of alert to be false
 const [showAlert, setShowAlert] = useState(false);
+// used to navigate to another page
+const navigate = useNavigate();
+const { setUser } = useContext(UserContext);
 
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -33,6 +37,7 @@ const handleRegister = async (event) => {
     if (password !== rPassword) {
       // TO DO: turn this alert to modern day red signal on form
       alert('passwords do not match');
+      return;
     }
 
     try {
@@ -43,10 +48,20 @@ const handleRegister = async (event) => {
         password
       })
       .then((response) => {
+        const user  = response.data;
+        localStorage.setItem('userId', user.id);
+        console.log(localStorage.getItem('userId'));
+        setUser(user);
+
         console.log(response.data);
+
         // TO-DO:  send an email to the user to confirm sign up
         // set the state of the alert to true
         setShowAlert(true);
+        // move to the main ai page but delay 3 seconds
+        setTimeout(() => {
+          navigate(`/rocket/${firstName}`)
+        }, 3000);
       });
     } catch (error) {
       console.error(error.message);
@@ -54,7 +69,7 @@ const handleRegister = async (event) => {
   };
 
   return (
-    <div onClick={() => setShowAlert(false)}>
+    <div className="form-page" onClick={() => setShowAlert(false)}>
        { // display alert
                 showAlert && (<Alert
                   style={{
@@ -77,7 +92,7 @@ const handleRegister = async (event) => {
       }
     <section>
           <div>
-            <div className="containing mt-5">
+            <div className="containing">
               <h2 className="text-uppercase resume text-center mt-0 mb-3">Create an account</h2>
               <form onSubmit={handleRegister}>
                 <div data-mdb-input-init className="form-outline mb-1">

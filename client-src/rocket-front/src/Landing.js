@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <div>
+    <div className="main-land">
       <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
         <div className="container-fluid">
         <a className="navbar-brand" href="ahjsgjhdg">
@@ -20,7 +20,7 @@ export default function Landing() {
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="Namenavbar-toggler-icon"></span>
     </button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
         <Link className="nav-link resume " to="/">ResumeRocket</Link>
         <Link className="nav-link left resume" to="/signup">SignUp</Link>
@@ -43,6 +43,7 @@ export default function Landing() {
                 <div className="scroller"></div>
                 </div>
                 </div>
+
       </div>
       );
 }

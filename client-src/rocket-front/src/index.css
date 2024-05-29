@@ -4,6 +4,13 @@
   --text : #C0C0C0;
 }
 
+body, html {
+  background: none !important;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .resume {
   background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
   -webkit-background-clip: text;
@@ -11,16 +18,16 @@
   -webkit-text-fill-color: transparent;
 }
 
-body {
+div.main-land {
   margin: 0;
-  background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg');
+  background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg') !important;
   height: 100vh;
-  background-size: cover;
+  background-size: cover !important;
   font-family: "Anta", sans-serif;
 }
 
 a.nav-link.left {
-  margin-left: 750px;
+  margin-left: 780px !important;
 }
 
 .navbar.navbar-expand-lg {
