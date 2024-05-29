@@ -1,14 +1,28 @@
 import React from 'react';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
+import { RocketIcon } from "@radix-ui/react-icons"
 import './forms.css';
 import './index.css';
 
 export default function SignUp() {
- // prevent default submission behavior
-  const handleRegister = async (event) => {
-    event.preventDefault();
-  // alert('User tapped on register');
+// setting state of alert to be false
+const [showAlert, setShowAlert] = useState(false);
 
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowAlert(false);
+  }, 3000); // Alert will disappear after 3 seconds
+return () => clearTimeout(timer);
+}, []);
+
+
+const handleRegister = async (event) => {
+   // prevent default submission behavior
+    event.preventDefault();
+
+    // sign up logic required from backend
     const url = 'http://localhost:5000/signup';
     const firstName = document.getElementById('form-first').value;
     const lastName = document.getElementById('form-last').value;
@@ -30,7 +44,9 @@ export default function SignUp() {
       })
       .then((response) => {
         console.log(response.data);
-        // TO-DO: Add some pop up or send an email to the user to confirm sign up
+        // TO-DO:  send an email to the user to confirm sign up
+        // set the state of the alert to true
+        setShowAlert(true);
       });
     } catch (error) {
       console.error(error.message);
@@ -38,10 +54,30 @@ export default function SignUp() {
   };
 
   return (
-    <div>
+    <div onClick={() => setShowAlert(false)}>
+       { // display alert
+                showAlert && (<Alert
+                  style={{
+                  maxWidth: '200px',
+                  margin: '0 auto',
+                  color: 'silver',
+                  backgroundColor: '#050915',
+                  borderRadius: '10px',
+                  position: 'absolute',
+                  zIndex: 1,
+                  left: '80%',
+                  top: 0,
+                 }}>
+                  <RocketIcon className="h-3 w-3" />
+                  <AlertTitle></AlertTitle>
+                  <AlertDescription>
+                  Signed Up!
+                  </AlertDescription>
+                  </Alert>)
+      }
     <section>
           <div>
-            <div className="containing">
+            <div className="containing mt-5">
               <h2 className="text-uppercase resume text-center mt-0 mb-3">Create an account</h2>
               <form onSubmit={handleRegister}>
                 <div data-mdb-input-init className="form-outline mb-1">
@@ -75,11 +111,11 @@ export default function SignUp() {
                 </div>
 
                 <div className="d-flex justify-content-center">
-                  <button type="submit" className="mt-5 btn btn-secondary route-links">Register</button>
+                  <button type="submit" className="mt-2 btn btn-secondary route-links">Register</button>
                 </div>
 
-                <p className="text-center text-muted mt-5 mb-0">Already have an account? <a href="#!"
-                    className="fw-bold text-body"><u>Login here</u></a></p>
+                <p className="text-center mt-5 mb-0">Already have an account? <a href="#!"
+                    className="fw-bold resume text-body"><u>Login here</u></a></p>
                 </form>
 
             </div>
