@@ -40,6 +40,7 @@ exports.createNew  = async function createNew(req, res) {
       message: 'Sucessfully signed up!',
       first_name: savedUser.firstName,
       last_name: savedUser.lastName,
+      id: savedUser._id,
     })
   } catch (error) {
     console.error(error);

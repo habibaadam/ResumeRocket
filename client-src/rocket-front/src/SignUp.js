@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
 import { useNavigate } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
+import { UserContext } from './UserContext';
 import './forms.css';
 
 export default function SignUp() {
@@ -11,6 +12,7 @@ export default function SignUp() {
 const [showAlert, setShowAlert] = useState(false);
 // used to navigate to another page
 const navigate = useNavigate();
+const { setUser } = useContext(UserContext);
 
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -46,7 +48,13 @@ const handleRegister = async (event) => {
         password
       })
       .then((response) => {
+        const user  = response.data;
+        localStorage.setItem('userId', user.id);
+        console.log(localStorage.getItem('userId'));
+        setUser(user);
+
         console.log(response.data);
+
         // TO-DO:  send an email to the user to confirm sign up
         // set the state of the alert to true
         setShowAlert(true);

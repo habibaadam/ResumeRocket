@@ -6,11 +6,13 @@ import Landing from './Landing';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import Rocket from './Rocket';
+import { UserProvider } from './UserContext';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <UserProvider>
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -19,6 +21,7 @@ root.render(
         <Route path="/rocket/:firstName" element={<Rocket />} />
       </Routes>
     </Router>
+    </UserProvider>
   </React.StrictMode>
 );
 reportWebVitals();
