@@ -1,10 +1,24 @@
 import React from 'react';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
+import { RocketIcon } from "@radix-ui/react-icons"
 import './forms.css';
 import './index.css';
 
 export default function Login() {
-  const handleLogin = async (event) => {
+  //setting the state of alert to false
+  const [showAlert, setShowAlert] = useState(false);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowAlert(false);
+  }, 3000); // Alert will disappear after 3 seconds
+return () => clearTimeout(timer);
+}, []);
+  
+  
+const handleLogin = async (event) => {
     event.preventDefault();
 
     const url = 'http://localhost:5000/login';
@@ -18,7 +32,9 @@ export default function Login() {
       })
       .then((response) => {
         console.log(response.data);
-        // TO-DO: Add some pop up or redirect to another page after successful login
+        // TO-DO:  send an email to the user to confirm sign up
+        // set the state of the alert to true
+        setShowAlert(true);
       });
     } catch (error) {
       console.error(error.message);
@@ -26,7 +42,27 @@ export default function Login() {
   };
 
   return (
-    <div>
+     <div onClick={() => setShowAlert(false)}>
+       { // display alert
+                showAlert && (<Alert
+                  style={{
+                  maxWidth: '200px',
+                  margin: '0 auto',
+                  color: 'silver',
+                  backgroundColor: '#050915',
+                  borderRadius: '10px',
+                  position: 'absolute',
+                  zIndex: 1,
+                  left: '80%',
+                  top: 0,
+                 }}>
+                  <RocketIcon className="h-3 w-3" />
+                  <AlertTitle></AlertTitle>
+                  <AlertDescription>
+                  Logged In!
+                  </AlertDescription>
+                  </Alert>)
+      }
       <section>
         <div>
           <div className="containing">
