@@ -5,7 +5,7 @@
 
 div.full-height.right {
     min-height: 100vh;
-    background-color: #433a43;
+    background-color: #837a83;
 }
 
 
@@ -51,7 +51,17 @@ a.nav-link:hover {
   animation: fadeIn 3s, colorChange 5s;
 }
 
+.sexy-box {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 40px auto 0;
+  height: 400px;
+}
+
 .user-spot {
+  display: inline-block;
   width: 60px;
   height: 60px;
   padding: 15px;
@@ -60,7 +70,32 @@ a.nav-link:hover {
   background-color: #aa5fc3;
 }
 
-h2.text-center {
-  font-size: 20px;
+h2 {
+  font-size: 17px;
   color: var(--text);
+}
+
+h2.questions {
+  margin-top: 40px;
+  font-size: 17px;
+  margin-left: 15px;
+}
+
+.input-group .form-control {
+  border-radius: 40px;
+  height: 60px;
+  background-color: #2f2d2f;
+  color: white;
+  margin-top: 140px;
+}
+
+.input-group button {
+  margin-top: 140px;
+  background-color: black;
+}
+
+.input-group .form-control::placeholder {
+  color: rgb(220, 212, 212);
+  line-height: 20px;
+  padding-top: 15px;
 }
