@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import './rocket.css';
+import { Logout } from './Logout';
 import logo from './images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
@@ -36,60 +37,60 @@ export default function Rocket() {
         <div className="full-height col-md-3 bg-dark text-white">
           <Avatar>
             <AvatarImage className="user-spot d-flex mt-3"
-            src="hh"/>
+              src="hh" />
             <AvatarFallback className="user-spot d-flex mt-4">{user.initials}</AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
         </div>
         <div className="full-height right col-md-9">
-                <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
-        <div className="container-fluid">
-        <a className="navbar-brand" href="ahjsgjhdg">
-      <img
-        src={logo}
-        height="40"
-        alt="ResumeRocket Logo"
-        loading="lazy"
-      />
-    </a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="Namenavbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
-        <Link className="nav-link resume " to="/">ResumeRocket</Link>
-        <div className="left-side-links resume">
-        <Link className="nav-link" to="/">About Us</Link>
-        <Link className="nav-link" to="../">Contact</Link>
+          <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
+            <div className="container-fluid">
+              <a className="navbar-brand" href="ahjsgjhdg">
+                <img
+                  src={logo}
+                  height="40"
+                  alt="ResumeRocket Logo"
+                  loading="lazy"
+                />
+              </a>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="Namenavbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                  <Link className="nav-link resume " to="/">ResumeRocket</Link>
+                  <div className="left-side-links resume">
+                    <Link className="nav-link" to="/">About Us</Link>
+                    <Link className="nav-link" to="../">Contact</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <h1 className="text-center mt-4">Hello, <span className="resume">{firstName}</span></h1>
+          <p className="text-center">Kindly answer these questions as accurate as you can! </p>
+
+          <div className="sexy-box bg-dark">
+            <div className="d-flex">
+              <Avatar>
+                <AvatarImage src="hh" className="user-spot d-flex mt-3" />
+                <AvatarFallback className="user-spot mt-4">RR</AvatarFallback>
+              </Avatar>
+              <h2 className="questions" key={currentQindex}>
+                <ReactTyped strings={[questions[currentQindex]]} typeSpeed={20} showCursor={false} />
+              </h2>
+            </div>
+
+            <div className="input-group mt-5">
+              <textarea rows="2" className="form-control" placeholder="Type your answer here..." aria-label="Type your answer here..." aria-describedby="button-addon2" />
+              <button className="btn btn-outline-secondary" onClick={handleAnswer} type="button" id="button-addon2">
+                <FontAwesomeIcon icon={faCheck} />
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
-</div>
-  </div>
-</nav>
-      <h1 className="text-center mt-4">Hello, <span className="resume">{firstName}</span></h1>
-      <p className="text-center">Kindly answer these questions as accurate as you can! </p>
-
-<div className="sexy-box bg-dark">
-<div className="d-flex">
-    <Avatar>
-      <AvatarImage src="hh" className="user-spot d-flex mt-3" />
-      <AvatarFallback className="user-spot mt-4">RR</AvatarFallback>
-    </Avatar>
-      <h2 className="questions" key={currentQindex}>
-        <ReactTyped strings={[questions[currentQindex]]} typeSpeed={20} showCursor={false}/>
-      </h2>
-</div>
-
-<div className="input-group mt-5">
-  <textarea rows="2" className="form-control" placeholder="Type your answer here..." aria-label="Type your answer here..." aria-describedby="button-addon2" />
-  <button className="btn btn-outline-secondary" onClick={handleAnswer} type="button" id="button-addon2">
-    <FontAwesomeIcon icon={faCheck} />
-  </button>
-</div>
-</div>
-
-  </div>
-</div>
-</div>
-);
+    </div>
+  );
 }
