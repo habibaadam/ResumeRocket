@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
 import { RocketIcon } from "@radix-ui/react-icons"
+import { Link } from 'react-router-dom';
 import './forms.css';
-import './index.css';
 
 export default function Login() {
   //setting the state of alert to false
@@ -16,8 +16,8 @@ useEffect(() => {
   }, 3000); // Alert will disappear after 3 seconds
 return () => clearTimeout(timer);
 }, []);
-  
-  
+
+
 const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -42,7 +42,7 @@ const handleLogin = async (event) => {
   };
 
   return (
-     <div onClick={() => setShowAlert(false)}>
+     <div className="form-page" onClick={() => setShowAlert(false)}>
        { // display alert
                 showAlert && (<Alert
                   style={{
@@ -79,11 +79,11 @@ const handleLogin = async (event) => {
               </div>
 
               <div className="d-flex justify-content-center">
-                <button type="submit" className="mt-5 btn btn-secondary route-links">Login</button>
+                <button type="submit" className="mt-3 btn btn-secondary route-links">Login</button>
               </div>
 
               <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#!"
-                  className="fw-bold text-body"><u>Register here</u></a></p>
+                  className="fw-bold text-body"><Link className="resume text-decoration-none" to="/signup">Register here</Link></a></p>
             </form>
           </div>
         </div>

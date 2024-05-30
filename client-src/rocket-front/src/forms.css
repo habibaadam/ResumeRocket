@@ -1,13 +1,15 @@
-.gradient-custom-3 {
-/* Chrome 10-25, Safari 5.1-6 */
-background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg');
-height: 100vh;
-background-size: cover;
+div.form-page {
+    display: flex;
+    justify-content: center;
+    background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg') !important;
+    height: 100vh;
+    background-size: cover !important;
 }
 
 .containing {
-    max-width: 500px;
-    margin: 35px auto;
+    width: 500px;
+    justify-content: center;
+    margin-top: 50px;
     padding: 20px;
     max-height: 600px;
     background-color: rgb(180, 174, 181);
