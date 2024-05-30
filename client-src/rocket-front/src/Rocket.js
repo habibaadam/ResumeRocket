@@ -1,14 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import './rocket.css';
 import logo from './images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { ReactTyped } from "react-typed";
+
 
 export default function Rocket() {
   // main page for questionnaire goes here
   const { firstName } = useParams();
   const { user } = useContext(UserContext);
+  const [currentQindex, setcurrentQindex] = useState(0);
+
+  const questions = [
+    'Can we start by giving me your official first name?',
+    'And your official last name?',
+    'Great! What role in software engineering are you interested in?',
+    'Kindly provide a short summary of what you can do and a company culture you prefer?',
+    'Do you perhaps own a degree? If yes provide the name of the university, your major, and year of graduation, if No, type \'No\''
+  ];
+
+  const handleAnswer = async () => {
+    // when user clicks on button check, display next question
+    if (currentQindex < questions.length - 1) {
+      setcurrentQindex(currentQindex + 1);
+    }
+  }
 
   return (
     <div className="container-fluid h-100">
@@ -46,9 +66,29 @@ export default function Rocket() {
 </div>
   </div>
 </nav>
-      <h1 className="text-center mt-4">Hello, {firstName}</h1>
+      <h1 className="text-center mt-4">Hello, <span className="resume">{firstName}</span></h1>
       <p className="text-center">Kindly answer these questions as accurate as you can! </p>
+
+<div className="sexy-box bg-dark">
+<div className="d-flex">
+    <Avatar>
+      <AvatarImage src="hh" className="user-spot d-flex mt-3" />
+      <AvatarFallback className="user-spot mt-4">RR</AvatarFallback>
+    </Avatar>
+      <h2 className="questions" key={currentQindex}>
+        <ReactTyped strings={[questions[currentQindex]]} typeSpeed={20} showCursor={false}/>
+      </h2>
 </div>
+
+<div className="input-group mt-5">
+  <textarea rows="2" className="form-control" placeholder="Type your answer here..." aria-label="Type your answer here..." aria-describedby="button-addon2" />
+  <button className="btn btn-outline-secondary" onClick={handleAnswer} type="button" id="button-addon2">
+    <FontAwesomeIcon icon={faCheck} />
+  </button>
+</div>
+</div>
+
+  </div>
 </div>
 </div>
 );
