@@ -16,7 +16,7 @@ exports.ai = async (req, res) => {
       max_output_tokens: 10000,
     };
 
-    const model = genAI.getGenerativeModel({ model: 'tunedModels/ai-cv-generator-lm6un7hmr70d', generationConfig });
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro', generationConfig });
     const { prompt } = req.body;
     const headers = {
       'Content-Type': 'application/json',
