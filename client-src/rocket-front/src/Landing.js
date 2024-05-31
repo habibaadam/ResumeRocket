@@ -18,9 +18,9 @@ export default function Landing() {
       />
     </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="Namenavbar-toggler-icon"></span>
+      <span className="Namenavbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div className="navbar-nav">
         <Link className="nav-link resume " to="/">ResumeRocket</Link>
         <Link className="nav-link left resume" to="/signup">SignUp</Link>
