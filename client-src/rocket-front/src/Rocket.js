@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import './rocket.css';
-import { Logout } from './Logout';
+import Logout from './Logout';
 import logo from './images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
@@ -41,6 +41,7 @@ export default function Rocket() {
             <AvatarFallback className="user-spot d-flex mt-4">{user.initials}</AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
+          <Logout />
         </div>
         <div className="full-height right col-md-9">
           <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
