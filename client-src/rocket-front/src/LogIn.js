@@ -1,14 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
+import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
-import { Link } from 'react-router-dom';
+import { UserContext } from './UserContext';
 import './forms.css';
 
 export default function Login() {
   //setting the state of alert to false
   const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
+
 
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -16,7 +20,6 @@ useEffect(() => {
   }, 3000); // Alert will disappear after 3 seconds
 return () => clearTimeout(timer);
 }, []);
-
 
 const handleLogin = async (event) => {
     event.preventDefault();
@@ -30,17 +33,26 @@ const handleLogin = async (event) => {
         email,
         password
       })
-      .then((response) => {
-        console.log(response.data);
+        .then((response) => {
+          const user = response.data;
+          localStorage.setItem('userId', user.id);
+          console.log(localStorage.getItem('userId'));
+          setUser(user);
+          
+         console.log(response.data);
+
         // TO-DO:  send an email to the user to confirm sign up
         // set the state of the alert to true
         setShowAlert(true);
+        // move to the main ai page but delay 3 seconds
+        setTimeout(() => {
+          navigate(`/rocket/${user.first_name}`)
+        }, 3000);
       });
     } catch (error) {
       console.error(error.message);
     }
   };
-
   return (
      <div className="form-page" onClick={() => setShowAlert(false)}>
        { // display alert
