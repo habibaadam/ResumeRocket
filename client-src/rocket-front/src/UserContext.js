@@ -21,8 +21,13 @@ export function UserProvider({children}) {
     getUser();
   }, [user]);
 
+  const clearUser = () => {
+    setUser({ email: '', initials: '' });
+    localStorage.removeItem('userId');
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, clearUser }}>
       {children}
     </UserContext.Provider>
   );

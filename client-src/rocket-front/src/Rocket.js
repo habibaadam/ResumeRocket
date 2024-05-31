@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import './rocket.css';
+import Logout from './Logout';
 import logo from './images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
@@ -49,10 +50,11 @@ export default function Rocket() {
         <div className="full-height col-md-3 bg-dark text-white">
           <Avatar>
             <AvatarImage className="user-spot d-flex mt-3"
-            src="hh"/>
+              src="hh" />
             <AvatarFallback className="user-spot d-flex mt-4">{user.initials}</AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
+          <Logout />
         </div>
 
         <div className="full-height right col-md-9">
@@ -83,16 +85,16 @@ export default function Rocket() {
       <h1 className="text-center mt-4">Hello, <span className="resume">{firstName}</span></h1>
       <p className="text-center">Kindly answer these questions as accurate as you can in sentences! </p>
 
-<div className="sexy-box bg-dark">
-<div className="d-flex">
-    <Avatar>
-      <AvatarImage src="hh" className="user-spot d-flex mt-3" />
-      <AvatarFallback className="user-spot mt-4">RR</AvatarFallback>
-    </Avatar>
-      <h2 className="questions" key={currentQindex}>
-        <ReactTyped strings={[questions[currentQindex]]} typeSpeed={20} showCursor={false}/>
-      </h2>
-</div>
+          <div className="sexy-box bg-dark">
+            <div className="d-flex">
+              <Avatar>
+                <AvatarImage src="hh" className="user-spot d-flex mt-3" />
+                <AvatarFallback className="user-spot mt-4">RR</AvatarFallback>
+              </Avatar>
+              <h2 className="questions" key={currentQindex}>
+                <ReactTyped strings={[questions[currentQindex]]} typeSpeed={20} showCursor={false} />
+              </h2>
+            </div>
 
 <div className="input-group mt-5">
   <textarea rows="2" className="form-control" placeholder="Type your answer here..." aria-label="Type your answer here..." aria-describedby="button-addon2" id="answer"/>
@@ -102,8 +104,8 @@ export default function Rocket() {
 </div>
 </div>
 
-  </div>
-</div>
-</div>
-);
+        </div>
+      </div>
+    </div>
+  );
 }
