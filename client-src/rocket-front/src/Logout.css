@@ -1,13 +1,14 @@
-.logout {
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    color: #000000;
-    text-align: center;
+.btn.btn-secondary.lg {
+    padding: 5px 20px;
+    border: 1px solid #726c74;
+    border-radius: 20px;
+    background-color: #212529;
+    color: #f6eeee;
     cursor: pointer;
+}
+
+.btn.btn-secondary.lg:hover {
+    transform: translateY(-3px);
+    color: #dfe1f1;
+    box-shadow: 0 0 10px #c184c0;
 }
