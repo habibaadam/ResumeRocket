@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import './rocket.css';
+import Logout from './Logout';
 import logo from './images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
@@ -74,6 +75,7 @@ export default function Rocket() {
             <AvatarFallback className="user-spot d-flex mt-4">{user.initials}</AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
+          <Logout />
         </div>
 
         {/* Second side which is the right side takes 9 */}
@@ -134,7 +136,7 @@ export default function Rocket() {
        {/* Generate Cv Button after all questions are answered */}
        {readyButton && (
        <div className="final-button">
-        <button className="btn btn-secondary mt-5"> Generate Cv</button>
+        <button className="btn btn-secondary fn mt-5"> Generate Cv</button>
       </div>
     )}
 

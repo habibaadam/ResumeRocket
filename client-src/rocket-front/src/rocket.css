@@ -112,7 +112,7 @@ h2.questions {
   text-align: center;
 }
 
-.btn.btn-secondary {
+.btn.btn-secondary.fn {
   padding: 15px 20px;
   color: rgb(225, 215, 215) !important;
   background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83)) !important;
@@ -120,7 +120,7 @@ h2.questions {
   border-radius: 10px;
 }
 
-.btn.btn-secondary:hover {
+.btn.btn-secondary.fn:hover {
   transform: translateY(-3px);
   color: #04050F;
   background-color: #33173d;
