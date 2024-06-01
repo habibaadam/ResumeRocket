@@ -155,6 +155,25 @@ small {
   background: white;
   animation: scroller 1s infinite;
 }
+.next-page{
+  margin-top: 20px;
+  min-height: 100vh;
+  width: 1000%;
+  background:rgb(111, 59, 111);
+  background-size: cover !important;
+  font-family: "Anta", sans-serif;
+}
+.colum-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.rows{
+  display: contents;
+  
+}
+
 
 @keyframes mousey {
   0% { opacity: 1; }
