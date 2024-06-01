@@ -11,7 +11,16 @@ div.form-page {
     justify-content: center;
     margin-top: 50px;
     padding: 20px;
-    max-height: 600px;
+    max-height: 720px;
     background-color: rgb(180, 174, 181);
     border-radius: 16px;
+}
+
+p.err {
+    color: red;
+}
+
+p.text-center {
+    margin-top: 12px;
+    color: rgb(152, 125, 169);
 }
