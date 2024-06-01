@@ -16,6 +16,7 @@ exports.ai = async (req, res) => {
       max_output_tokens: 10000,
     };
 
+    //Temporarily using the gemini model on its own
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro', generationConfig });
     const { prompt } = req.body;
     const headers = {
@@ -24,6 +25,7 @@ exports.ai = async (req, res) => {
     const result = await model.generateContent(prompt, { headers });
     const response = await result.response;
     const text = response.text();
+    // Here you can do whatever you want with the text
     res.status(200).json({ text });
   } catch (error) {
     res.status(500).json({ message: error.message });
