@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import './rocket.css';
 import Logout from './Logout';
+import PdfGenerator from './pdfGenerator';
 import logo from './images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
@@ -55,6 +56,7 @@ export default function Rocket() {
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
           <Logout />
+          <PdfGenerator />
         </div>
 
         <div className="full-height right col-md-9">
