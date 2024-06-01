@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
 import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from './UserContext';
+import { useForm } from 'react-hook-form';
 import './forms.css';
 
 export default function Login() {
@@ -21,8 +22,11 @@ useEffect(() => {
 return () => clearTimeout(timer);
 }, []);
 
-const handleLogin = async (event) => {
-    event.preventDefault();
+const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const password = useRef({});
+  password.current = watch("password", "");
+
+const handleLogin = async () => {
 
     const url = 'http://localhost:5000/login';
     const email = document.getElementById('form-email').value;
@@ -38,7 +42,7 @@ const handleLogin = async (event) => {
           localStorage.setItem('userId', user.id);
           console.log(localStorage.getItem('userId'));
           setUser(user);
-          
+
          console.log(response.data);
 
         // TO-DO:  send an email to the user to confirm sign up
@@ -79,15 +83,17 @@ const handleLogin = async (event) => {
         <div>
           <div className="containing">
             <h2 className="text-uppercase resume text-center mt-0 mb-3">Login to your account</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleSubmit(handleLogin)}>
               <div data-mdb-input-init className="form-outline mb-1 ">
-                <input type="email" id="form-email" className="form-control form-control-lg" required/>
-                <label className="form-label resume" htmlFor="form3Example3cg">Email</label>
+                <input  {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })} type="email" id="form-email" className="form-control form-control-lg" required/>
+                                  {errors.email && <p className="err">This field is required</p>}
+                <label className="form-label resume">Email</label>
               </div>
 
               <div data-mdb-input-init className="form-outline mb-1">
-                <input type="password" id="form-pass" className="form-control form-control-lg" required/>
-                <label className="form-label resume" htmlFor="form3Example4cg">Password</label>
+                <input  {...register("password", { required: true, minLength: 8 })} type="password" id="form-pass" className="form-control form-control-lg" required/>
+                                        {errors.password && <p className="err">Password must be at least 8 characters long</p>}
+                <label className="form-label resume" >Password</label>
               </div>
 
               <div className="d-flex justify-content-center">
