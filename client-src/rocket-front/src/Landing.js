@@ -1,12 +1,14 @@
 import React from 'react';
 import './index.css';
+import './manual.css';
 import logo from './images/resume_rocket.png';
 import { Link } from "react-router-dom";
-import { Columlayout } from './Columlayout';
+import Columlayout from './Columlayout';
 
 export default function Landing() {
   return (
-    <div className="main-land">
+    <div>
+<div className="main-land">
       <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
         <div className="container-fluid">
         <a className="navbar-brand" href="ahjsgjhdg">
@@ -25,11 +27,10 @@ export default function Landing() {
         <Link className="nav-link resume " to="/">ResumeRocket</Link>
         <Link className="nav-link left resume" to="/signup">SignUp</Link>
         <Link className="nav-link left-2 resume" to="/login">Log In</Link>
-        <Link className="nav-link left-3 resume" to="../">Home</Link>
       </div>
 </div>
   </div>
-      </nav> 
+      </nav>
           <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
           <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
           <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
@@ -43,10 +44,10 @@ export default function Landing() {
                 <div className="scroller"></div>
         </div>
       </div>
-      <div className="next-page"></div>
-      <div className="column-layout">
-        <Columlayout />
-      </div>
-    </div>
-  );
+</div>
+
+{/* How to get started page */}
+   <Columlayout />
+</div>
+);
 }

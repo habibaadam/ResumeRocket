@@ -1,24 +1,36 @@
 import React from 'react';
-import './index.css';  
-import { Container, Row, Col, Image } from "react-bootstrap";
+import './manual.css';
 
 
-export const Columlayout= () => {
+export default function Columlayout() {
   return (
-    <Container>
-      <Row>
-        <Col xs={12} md={4}>
-          <Image src="images/image1.jpg"className="rows" />
-        </Col> 
-        <Col xs={12} md={4}>
-          <Image src="images/image2.jpg" className="rows" />
-        </Col>
-        <Col xs={12} md={4}>
-          <Image src="images/image3.jpg" className="rows" />
-        </Col>
-      </Row>
-    </Container>
+    <div className="contain">
+      <div className="row h-100">
+        <div className="col-md-3 h-100 bg-red-600">
+          test
+          test
+          test
+          test
+        </div>
+        <div className="col-md-3 h-100 bg-white">
+          test
+          test
+          test
+          test
+        </div>
+        <div className="col-md-3 h-100 bg-slate-600" >
+          test
+          test
+          test
+          test
+        </div>
+        <div className="col-md-3 h-100 bg-yellow-400">
+          test
+          test
+          test
+          test
+        </div>
+      </div>
+    </div>
   );
 }
-
-export default Columlayout;
