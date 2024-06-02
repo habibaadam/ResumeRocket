@@ -9,7 +9,7 @@ body, html {
 }
 
 .resume {
-  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  background: linear-gradient(to right, rgb(155, 86, 129), rgb(60, 16, 83));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -153,15 +153,15 @@ small {
   background: white;
   animation: scroller 1s infinite;
 }
-
-.next-page{
+.next-page {
   margin-top: 20px;
   min-height: 100vh;
-  width: 1000%;
-  background:rgb(111, 59, 111);
+  width: 100%;
+  background: rgb(24, 1, 36);
   background-size: cover !important;
   font-family: "Anta", sans-serif;
 }
+
 .colum-layout{
   display: flex;
   justify-content: center;
