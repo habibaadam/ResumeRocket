@@ -1,13 +1,18 @@
-.generate {
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    color: #000000;
+.final-button {
     text-align: center;
-    cursor: pointer;
+}
+
+.btn.btn-secondary.fn {
+    padding: 15px 20px;
+    color: rgb(225, 215, 215) !important;
+    background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83)) !important;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.btn.btn-secondary.fn:hover {
+    transform: translateY(-3px);
+    color: #04050F;
+    background-color: #33173d;
+    box-shadow: 0 0 10px #fff;
 }

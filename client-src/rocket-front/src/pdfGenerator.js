@@ -19,8 +19,8 @@ export default function PdfGenerator() {
     }
   }
   return (
-    <div>
-      <button className="generate" onClick={handleGeneratePdf}>Generate PDF</button>
+    <div className="final-button">
+      <button className="btn btn-secondary fn mt-5" onClick={handleGeneratePdf}>Generate CV</button>
     </div>
   );
 }
