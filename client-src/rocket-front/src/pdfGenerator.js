@@ -5,8 +5,13 @@ import './pdfGenerator.css';
 export default function PdfGenerator() {
   const handleGeneratePdf = async () => {
     try {
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        throw new Error("User not found in localStorage");
+      }
+    
       const aiResponse = await axios.post("http://localhost:5000/generateCV", {
-        user: "user Id",
+        user: userId,
         prompt: "user peompt",
       });
 
