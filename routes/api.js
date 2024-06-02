@@ -3,7 +3,7 @@ const express = require('express');
 const { ai } = require('../controllers/aiController');
 
 const { createNew, forLogin, forLogout, getUser } = require('../controllers/userController');
-const { createNewCv, getCv, generatePDF } = require('../controllers/cvController');
+const { createNewCv, getCv, generatePDF, generateCv } = require('../controllers/cvController');
 const { createNewRec, getRec } = require('../controllers/recController');
 
 const router = express.Router();
