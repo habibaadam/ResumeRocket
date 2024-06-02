@@ -100,7 +100,7 @@ const handleLogin = async () => {
                 <button type="submit" className="mt-3 btn btn-secondary route-links">Login</button>
               </div>
 
-              <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#!"
+              <p className="text-center forms mt-5 mb-0">Don't have an account? <a href="#!"
                   className="fw-bold text-body"><Link className="resume text-decoration-none" to="/signup">Register here</Link></a></p>
             </form>
           </div>

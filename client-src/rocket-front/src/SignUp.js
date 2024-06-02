@@ -130,7 +130,7 @@ const handleRegister = async () => {
                 </div>
                 </form>
 
-                <p className="text-center mb-0">Already have an account? <a href="#!"
+                <p className="text-center forms mb-0">Already have an account? <a href="#!"
                     className="fw-bold resume text-body"><Link to="/login">Login here</Link></a></p>
             </div>
           </div>
