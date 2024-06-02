@@ -1,9 +1,7 @@
 const express = require('express');
 
-const {
-  createNew, forLogin, forLogout, getUser,
-} = require('../controllers/userController');
-const { ai } = require('../controllers/aiController');
+
+const { ai } = require('../controllers/aiController.js');
 
 const { createNew, forLogin, forLogout, getUser } = require('../controllers/userController');
 const { createNewCv, getCv } = require('../controllers/cvController');
