@@ -6,7 +6,8 @@ import Landing from './Landing';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import Rocket from './Rocket';
-import Logout from './Logout'
+import Logout from './Logout';
+import PdfGenerator from './pdfGenerator';
 import { UserProvider } from './UserContext';
 import reportWebVitals from './reportWebVitals';
 
@@ -21,6 +22,7 @@ root.render(
         <Route path="/login" element={<LogIn />} />
         <Route path="/rocket/:firstName" element={<Rocket />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/pdf" element={<PdfGenerator />} />
       </Routes>
     </Router>
     </UserProvider>
