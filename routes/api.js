@@ -4,7 +4,7 @@ const express = require('express');
 const { ai } = require('../controllers/aiController.js');
 
 const { createNew, forLogin, forLogout, getUser } = require('../controllers/userController');
-const { createNewCv, getCv } = require('../controllers/cvController');
+const { createNewCv, getCv, generateCv } = require('../controllers/cvController');
 const { createNewRec, getRec } = require('../controllers/recController');
 
 const router = express.Router();
