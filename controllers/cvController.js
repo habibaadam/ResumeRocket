@@ -57,9 +57,9 @@ exports.generateCv = async function generateCv(req, res) {
         if (!aiResponse.ok) {
             throw new Error(`Error fetching content from AI: ${await aiResponse.text()}`);
         }
-      
+
         const aiContent = await aiResponse.json();
-    
+
         const createCvResponse = await fetch('http://localhost:5000/newCV', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -70,7 +70,7 @@ exports.generateCv = async function generateCv(req, res) {
         }
 
         const finalResponse = await createCvResponse.json();
-    
+
         return res.status(200).json(finalResponse);
     } catch (error) {
         console.error(error);
@@ -84,14 +84,50 @@ exports.generatePDF = async function generatePDF(req, res) {
         const { content } = req.body;
 
         const pdfDoc = await PDFDocument.create();
-        const page = pdfDoc.addPage([600, 400]);
+        let page = pdfDoc.addPage([595.28, 841.89]);
 
-        page.drawText(content, {
-            x: 50,
-            y: 350,
-            size: 14,
-            color: rgb(0, 0, 0),
-        });
+        const lines = content.split('\n');
+        let y = 800; // start from the top of the page
+        const x = 50; // start from the left of the page
+        const fontSize = 14;
+        const lineHeight = fontSize * 1.5; // space between lines
+        const pageWidth = 595.28;
+
+        for (const line of lines) {
+            const words = line.split(' ');
+            let lineText = '';
+
+            for (const word of words) {
+                const nextLine = lineText + word + ' ';
+                const nextLineWidth = fontSize * nextLine.length; // approximate width of the next line
+
+                if (nextLineWidth > pageWidth - 2 * x) {
+                    // if the next line is too long, draw the current line and start a new one
+                    page.drawText(lineText, { x, y, size: fontSize, color: rgb(0, 0, 0) });
+                    lineText = word + ' ';
+                    y -= lineHeight;
+
+                    if (y < 0) {
+                        // if there's no more space on the page, add a new page
+                        page = pdfDoc.addPage([595.28, 841.89]);
+                        y = 800;
+                    }
+                } else {
+                    // if the next line fits, add the word to the current line
+                    lineText = nextLine;
+                }
+            }
+
+            // draw the last line of text
+            page.drawText(lineText, { x, y, size: fontSize, color: rgb(0, 0, 0) });
+            y -= lineHeight;
+
+            if (y < 0) {
+                // if there's no more space on the page, add a new page
+                page = pdfDoc.addPage([595.28, 841.89]);
+                y = 800;
+            }
+        }
 
         const pdfBytes = await pdfDoc.save();
 

@@ -12,13 +12,14 @@ import { ReactTyped } from "react-typed";
 
 
 export default function Rocket() {
-  // main page for questionnaire goes here
   const { firstName } = useParams();
-  const { user } = useContext(UserContext);
-  const [currentQindex, setcurrentQindex] = useState(0);
-  const [answer, setAnswer] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [readyButton, setReadyButton] = useState(false);
+  const { user } = useContext(UserContext); // carries small user details
+  const [currentQindex, setcurrentQindex] = useState(0); // tracks state of questions
+  const [answer, setAnswer] = useState([]); // tracks users answers
+  const [joinedA, setJoinedA] = useState(''); // state of joined answers
+  const [errorMessage, setErrorMessage] = useState(null); // state of error messages
+  const [readyButton, setReadyButton] = useState(false); // state of cv readiness
+
 
   const questions = [
     'Can we start by giving me your official first name?',
@@ -33,7 +34,7 @@ export default function Rocket() {
     'Any familiarity with cloud platforms(GCP, Azure, AWS)?',
     'Explain or talk about some of your projects, experiences, or academic work. Do not forget to tell me the timeframes with each of them',
     'Sounds like you have been putting in the work! Do you own any kind of certifications? Tell me the names of the providers and year you got them. No pressure if you do not own any!',
-    'List some of your soft or non technical skills please, then generate your cv :)'
+    'List some of your soft or non technical skills please, then Generate Your CV :)'
   ];
 
   const handleAnswer = async () => {
@@ -58,8 +59,9 @@ export default function Rocket() {
     if (currentQindex < questions.length - 1) {
       setcurrentQindex(currentQindex + 1);
     } else {
-      const joinedA = answer.join(' '); // joins answers together
-      console.log(joinedA);
+      const answersJoined = answer.join(' '); // joins answers together
+      setJoinedA(answersJoined);
+      console.log(answersJoined);
       setReadyButton(true);
     }
   }
@@ -136,7 +138,7 @@ export default function Rocket() {
           </div>
 
           {/* Generate Cv Button after all questions are answered */}
-          {readyButton && (<PdfGenerator />)}
+          {readyButton && (<PdfGenerator userPrompt={joinedA}/>)}
 
         </div>
       </div>
