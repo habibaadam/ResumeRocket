@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { UserContext } from './UserContext';
-import './rocket.css';
+import { UserContext } from '../UserContext';
+import '../allStyles/rocket.css';
 import Logout from './Logout';
 import PdfGenerator from './pdfGenerator';
-import logo from './images/resume_rocket.png';
+import logo from '../images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "./app/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "../app/ui/avatar"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { ReactTyped } from "react-typed";

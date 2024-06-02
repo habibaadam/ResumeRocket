@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import './pdfGenerator.css';
+import '../allStyles/pdfGenerator.css';
 
 export default function PdfGenerator() {
   const handleGeneratePdf = async () => {

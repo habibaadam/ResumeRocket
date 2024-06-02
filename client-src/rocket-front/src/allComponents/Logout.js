@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import './Logout.css';
+import '../allStyles/Logout.css';
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../UserContext";
 
 export default function Logout() {
     const [redirect, setRedirect] = useState(false);

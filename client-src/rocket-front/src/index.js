@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Landing from './Landing';
-import SignUp from './SignUp';
-import LogIn from './LogIn';
-import Rocket from './Rocket';
-import Logout from './Logout';
-import PdfGenerator from './pdfGenerator';
+import Landing from './allComponents/Landing';
+import SignUp from './allComponents/SignUp';
+import LogIn from './allComponents/LogIn';
+import Rocket from './allComponents/Rocket';
+import Logout from './allComponents/Logout';
+import PdfGenerator from './allComponents/pdfGenerator';
 import { UserProvider } from './UserContext';
 import reportWebVitals from './reportWebVitals';
 

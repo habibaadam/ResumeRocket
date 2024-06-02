@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css';
-import logo from './images/resume_rocket.png';
+import '../allStyles/index.css';
+import logo from '../images/resume_rocket.png';
 import { Link } from "react-router-dom";
 
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, useContext, useRef } from 'react';
-import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "../app/ui/alert"
 import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
-import { UserContext } from './UserContext';
+import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
-import './forms.css';
+import '../allStyles/forms.css';
 
 export default function SignUp() {
 // setting state of alert to be false
