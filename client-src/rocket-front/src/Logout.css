@@ -1,0 +1,14 @@
+.btn.btn-secondary.lg {
+    padding: 5px 20px;
+    border: 1px solid #726c74;
+    border-radius: 20px;
+    background-color: #212529;
+    color: #f6eeee;
+    cursor: pointer;
+}
+
+.btn.btn-secondary.lg:hover {
+    transform: translateY(-3px);
+    color: #dfe1f1;
+    box-shadow: 0 0 10px #c184c0;
+}

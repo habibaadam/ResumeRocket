@@ -14,7 +14,7 @@ const generateToken = (userId) => {
   return jwt.sign(payload, secret, options);
 }
 
-exports.createNewUser  = async function createNewUser(req, res) {
+exports.createNew  = async function createNew(req, res) {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {
     return res.status(404).json({message: 'No user found'});
@@ -40,6 +40,7 @@ exports.createNewUser  = async function createNewUser(req, res) {
       message: 'Sucessfully signed up!',
       first_name: savedUser.firstName,
       last_name: savedUser.lastName,
+      id: savedUser._id,
     })
   } catch (error) {
     console.error(error);
@@ -66,7 +67,12 @@ exports.forLogin = async function forLogin(req, res) {
   }
   const token = generateToken(existingUser._id);
   res.cookie('jwt', token, { httpOnly: true, secure: true});
-  return res.send('Logged in sucessfully!');
+  return res.json({
+    message: 'Logged in successfully',
+    first_name: existingUser.firstName,
+    last_name: existingUser.lastName,
+    id: existingUser._id,
+  })
 }
 
 // TO-DO: Test this with front-end

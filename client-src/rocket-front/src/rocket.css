@@ -1,0 +1,128 @@
+:root {
+  --primary-color: #050915;
+  --text : #C0C0C0;
+}
+
+div.full-height.right {
+    min-height: 100vh;
+    background-color: #837a83;
+}
+
+
+.navbar.navbar-expand-lg {
+  border-radius: 15px;
+  background-color: rgb(183, 165, 183);
+  padding: 17px;
+}
+
+.navbar-nav {
+  font-size: 20px;
+}
+
+a.nav-link {
+  font-size: 23px;
+}
+
+.left-side-links {
+  display: flex;
+  margin-left: 550px;
+}
+
+.left-side-links:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 4px #c867eb;
+  transition: all 0.5s ease-in-out;
+}
+
+a.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 4px #c867eb;
+  transition: all 0.5s ease-in-out;
+}
+
+.resume {
+  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.resume {
+  animation: fadeIn 3s, colorChange 5s;
+}
+
+.sexy-box {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 40px auto 0;
+  max-height: 600px;
+}
+
+.user-spot {
+  display: inline-block;
+  flex: 1;
+  width: 60px;
+  height: 60px;
+  padding: 15px;
+  border-radius: 50%;
+  margin: 0px auto;
+  background-color: #aa5fc3;
+}
+
+h2 {
+  font-size: 17px;
+  color: var(--text);
+}
+
+h2.questions {
+  flex: 1;
+  margin-top: 33px;
+  font-size: 17px;
+  margin-left: 15px;
+  border: 1px solid rgb(127, 99, 125);
+  padding: 15px;
+  border-radius: 20px;
+  white-space: wrap;
+  overflow-wrap: break-word;
+}
+
+
+.input-group .form-control {
+  border-radius: 40px;
+  height: 60px;
+  background-color: #2f2d2f;
+  color: white;
+  margin-top: 140px;
+}
+
+.input-group button {
+  margin-top: 140px;
+  background-color: black;
+}
+
+.input-group .form-control::placeholder {
+  color: rgb(220, 212, 212);
+  line-height: 20px;
+  padding-top: 15px;
+}
+
+.final-button {
+  text-align: center;
+}
+
+.btn.btn-secondary.fn {
+  padding: 15px 20px;
+  color: rgb(225, 215, 215) !important;
+  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83)) !important;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+.btn.btn-secondary.fn:hover {
+  transform: translateY(-3px);
+  color: #04050F;
+  background-color: #33173d;
+  box-shadow: 0 0 10px #fff;
+}
