@@ -1,5 +1,8 @@
+const { json } = require('express');
 const CV = require('../models/cv');
 const User = require('../models/User');
+const { PDFDocument, rgb } = require('pdf-lib');
+const { ai } = require('./aiController');
 
 exports.createNewCv = async function createNewCv(req, res) {
     const { user, content } = req.body;
@@ -41,4 +44,99 @@ exports.getCv = async function getCv(req, res) {
         user: `${user.firstName} ${user.lastName}`,
         content: cv.content,
     })
+}
+
+exports.generateCv = async function generateCv(req, res) {
+    try {
+        const { user, prompt } = req.body;
+        const aiResponse = await fetch('http://localhost:5000/ai', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ prompt }),
+        });
+        if (!aiResponse.ok) {
+            throw new Error(`Error fetching content from AI: ${await aiResponse.text()}`);
+        }
+
+        const aiContent = await aiResponse.json();
+
+        const createCvResponse = await fetch('http://localhost:5000/newCV', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ user: user, content: JSON.stringify(aiContent) }),
+        });
+        if (!createCvResponse.ok) {
+            throw new Error(`Error creating cv: ${await createCvResponse.text()}`);
+        }
+
+        const finalResponse = await createCvResponse.json();
+
+        return res.status(200).json(finalResponse);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
+}
+
+
+exports.generatePDF = async function generatePDF(req, res) {
+    try {
+        const { content } = req.body;
+
+        const pdfDoc = await PDFDocument.create();
+        let page = pdfDoc.addPage([595.28, 841.89]);
+
+        const lines = content.split('\n');
+        let y = 800; // start from the top of the page
+        const x = 50; // start from the left of the page
+        const fontSize = 14;
+        const lineHeight = fontSize * 1.5; // space between lines
+        const pageWidth = 595.28;
+
+        for (const line of lines) {
+            const words = line.split(' ');
+            let lineText = '';
+
+            for (const word of words) {
+                const nextLine = lineText + word + ' ';
+                const nextLineWidth = fontSize * nextLine.length; // approximate width of the next line
+
+                if (nextLineWidth > pageWidth - 2 * x) {
+                    // if the next line is too long, draw the current line and start a new one
+                    page.drawText(lineText, { x, y, size: fontSize, color: rgb(0, 0, 0) });
+                    lineText = word + ' ';
+                    y -= lineHeight;
+
+                    if (y < 0) {
+                        // if there's no more space on the page, add a new page
+                        page = pdfDoc.addPage([595.28, 841.89]);
+                        y = 800;
+                    }
+                } else {
+                    // if the next line fits, add the word to the current line
+                    lineText = nextLine;
+                }
+            }
+
+            // draw the last line of text
+            page.drawText(lineText, { x, y, size: fontSize, color: rgb(0, 0, 0) });
+            y -= lineHeight;
+
+            if (y < 0) {
+                // if there's no more space on the page, add a new page
+                page = pdfDoc.addPage([595.28, 841.89]);
+                y = 800;
+            }
+        }
+
+        const pdfBytes = await pdfDoc.save();
+
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename=cv.pdf');
+
+        res.send(Buffer.from(pdfBytes));
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
 }
