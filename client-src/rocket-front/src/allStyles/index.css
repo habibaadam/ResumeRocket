@@ -6,13 +6,10 @@
 
 body, html {
   background: none !important;
-  margin: 0;
-  padding: 0;
-  height: 100%;
 }
 
 .resume {
-  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
+  background: linear-gradient(to right, rgb(155, 86, 129), rgb(60, 16, 83));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -22,6 +19,7 @@ div.main-land {
   margin: 0;
   background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg') !important;
   height: 100vh;
+  width: 100%;
   background-size: cover !important;
   font-family: "Anta", sans-serif;
 }
@@ -155,6 +153,26 @@ small {
   background: white;
   animation: scroller 1s infinite;
 }
+.next-page {
+  margin-top: 20px;
+  min-height: 100vh;
+  width: 100%;
+  background: rgb(24, 1, 36);
+  background-size: cover !important;
+  font-family: "Anta", sans-serif;
+}
+
+.colum-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.rows{
+  display: contents;
+
+}
+
 
 @keyframes mousey {
   0% { opacity: 1; }
