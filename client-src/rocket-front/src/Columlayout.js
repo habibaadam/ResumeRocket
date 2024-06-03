@@ -11,7 +11,7 @@ export default function Columlayout() {
       <div className="row h-100">
         <h1 className="guide">Unleash Your Journey: A Visual Guide to Master Our Page</h1>
         <div className="col-md-4 h-100 bg-red-600 d-flex flex-column">
-          <p>SIMPLY CLICK ON GET <br></br> STARTED</p>
+          <p>SIMPLY CLICK <br></br>  GET STARTED</p>
           <img className="image_classs" src={image1} alt="image1" />
           </div>
         <div className="col-md-4 h-100  bg-slate-600 d-flex flex-column">
