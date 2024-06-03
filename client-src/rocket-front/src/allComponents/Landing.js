@@ -1,11 +1,13 @@
 import React from 'react';
 import '../allStyles/index.css';
 import logo from '../images/resume_rocket.png';
+import ColumLayout from './Columlayout';
 import { Link } from "react-router-dom";
 
 
 export default function Landing() {
   return (
+    <div>
     <div className="main-land">
       <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
         <div className="container-fluid">
@@ -43,7 +45,11 @@ export default function Landing() {
                 <div className="scroller"></div>
                 </div>
                 </div>
+                </div>
 
-      </div>
-      );
+                <div>
+                  <ColumLayout />
+                </div>
+    </div>
+);
 }
