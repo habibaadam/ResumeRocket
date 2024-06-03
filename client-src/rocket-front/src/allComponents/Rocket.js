@@ -80,6 +80,10 @@ export default function Rocket() {
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
           <Logout />
+
+          <div className="a4">
+            {/* content coming later*/}
+          </div>
         </div>
 
         {/* Second side which is the right side takes 9 */}
@@ -106,14 +110,14 @@ export default function Rocket() {
           </nav>
 
           {/*Content of right part of page */}
-          <h1 className="text-center mt-4">Hello, <span className="resume">{firstName}</span></h1>
+          <h1 className="text-center mt-5">Hello, <span className="resume">{firstName}</span></h1>
           <p className="text-center">Kindly answer these questions as accurate as you can in sentences! </p>
 
           <div className="container-fluid sexy-box bg-dark">
             <div className="d-flex">
               <Avatar>
                 <AvatarImage src="hh" className="user-spot d-flex mt-3" />
-                <AvatarFallback className="user-spot mt-4">RR</AvatarFallback>
+                <AvatarFallback className="ai user-spot mt-4">RR</AvatarFallback>
               </Avatar>
 
               {errorMessage ? (
