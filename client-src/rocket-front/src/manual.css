@@ -1,42 +1,34 @@
 div.contain {
     min-height: 100vh;
-    background-color: rgb(24, 1, 36);
+    background-color:  rgb(18, 3, 31);
         
 }
 body {
     margin: 0;
     padding: 0;
 }
-.col-md-3 {
+.col-md-4 {
     display: flex;
     flex-direction: column;
     font-weight: bolder;
-
-
 }
 
 .image_classs {
-    order: 1;
-    width: 100%;
-    height: 80%;
+    order: 2;
+    width: 60vh;
+    height: 70vh;
     margin-top: 80px;
-    margin-bottom: 50px;
     border-radius: 5%;
-    
+
 
 }
 
-.col-md-3>p {
-    order: 2; 
-}
-
-.paragraph{
+.paragraph {
     font-size: 20px;
-    color:#C0C0C0;
+    color: #C0C0C0;
     text-align: center;
-    font-family: "Anta",sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bolder;
-    order: 3;
 }
 .guide{
     font-size: 2em;
@@ -44,4 +36,6 @@ body {
     text-align: center;
     font-family: "Anta",sans-serif;
     font-weight: bolder;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
 }
