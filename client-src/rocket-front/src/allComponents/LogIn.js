@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, useContext, useRef } from 'react';
-import { Alert, AlertDescription, AlertTitle } from "./app/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "../app/ui/alert"
 import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
-import { UserContext } from './UserContext';
+import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
-import './forms.css';
+import '../allStyles/forms.css';
 
 export default function Login() {
   //setting the state of alert to false
@@ -100,7 +100,7 @@ const handleLogin = async () => {
                 <button type="submit" className="mt-3 btn btn-secondary route-links">Login</button>
               </div>
 
-              <p className="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#!"
+              <p className="text-center forms mt-5 mb-0">Don't have an account? <a href="#!"
                   className="fw-bold text-body"><Link className="resume text-decoration-none" to="/signup">Register here</Link></a></p>
             </form>
           </div>

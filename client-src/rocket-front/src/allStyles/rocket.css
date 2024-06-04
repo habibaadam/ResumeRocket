@@ -12,7 +12,7 @@ div.full-height.right {
 .navbar.navbar-expand-lg {
   border-radius: 15px;
   background-color: rgb(183, 165, 183);
-  padding: 17px;
+  padding: 13px;
 }
 
 .navbar-nav {
@@ -68,12 +68,17 @@ a.nav-link:hover {
   padding: 15px;
   border-radius: 50%;
   margin: 0px auto;
-  background-color: #aa5fc3;
+  background: linear-gradient(to right, rgb(187, 93, 156), rgb(112, 53, 144));
 }
 
 h2 {
   font-size: 17px;
   color: var(--text);
+}
+
+.ai {
+  color: var(--text);
+  margin: auto;
 }
 
 h2.questions {
@@ -108,21 +113,12 @@ h2.questions {
   padding-top: 15px;
 }
 
-.final-button {
-  text-align: center;
-}
-
-.btn.btn-secondary.fn {
-  padding: 15px 20px;
-  color: rgb(225, 215, 215) !important;
-  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83)) !important;
-  transition: all 0.5s ease-in-out;
-  border-radius: 10px;
-}
-
-.btn.btn-secondary.fn:hover {
-  transform: translateY(-3px);
-  color: #04050F;
-  background-color: #33173d;
-  box-shadow: 0 0 10px #fff;
+.a4 {
+  box-sizing: border-box;
+  margin: 70px auto;
+  width: 20%; /* A4 paper width */
+  height: 500px; /* A4 paper height */
+  background: transparent;
+  box-shadow: 0px 0px 5px rgba(250, 245, 245, 0.5); /* Optional: Add a shadow to make it look like a paper */
+  padding: 150px; /* Add some padding for the content */
 }
