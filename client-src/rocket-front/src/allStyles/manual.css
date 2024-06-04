@@ -1,0 +1,41 @@
+div.contain {
+    min-height: 100vh;
+    background-color:  rgb(18, 3, 31);
+        
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+}
+
+.image_classs {
+    order: 2;
+    width: 60vh;
+    height: 70vh;
+    margin-top: 80px;
+    border-radius: 5%;
+
+
+}
+
+.paragraph {
+    font-size: 20px;
+    color: #C0C0C0;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
+.guide{
+    font-size: 2em;
+    color: #C0C0C0;
+    text-align: center;
+    font-family: "Anta",sans-serif;
+    font-weight: bolder;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}

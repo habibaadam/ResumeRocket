@@ -20,7 +20,7 @@ p.err {
     color: red;
 }
 
-p.text-center {
+p.text-center.forms {
     margin-top: 12px;
-    color: rgb(152, 125, 169);
+    color: rgb(7, 7, 7);
 }
