@@ -59,7 +59,7 @@ export default function Rocket() {
     if (currentQindex < questions.length - 1) {
       setcurrentQindex(currentQindex + 1);
     } else {
-      const answersJoined = answer.join(' '); // joins answers together
+      const answersJoined =  [...answer, currentA].join(' '); // joins answers together
       setJoinedA(answersJoined);
       console.log(answersJoined);
       setReadyButton(true);
@@ -82,8 +82,8 @@ export default function Rocket() {
           <Logout />
 
           <div className="a4">
-            {/* content coming later*/}
-          </div>
+        </div>
+
         </div>
 
         {/* Second side which is the right side takes 9 */}
