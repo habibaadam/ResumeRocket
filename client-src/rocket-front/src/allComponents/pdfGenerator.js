@@ -8,8 +8,6 @@ import fileDownload from 'js-file-download';
 
 export default function PdfGenerator({ userPrompt }) {
   const handleGeneratePdf = async () => {
-    console.log('handleGeneratePdf called');
-    console.log('userPrompt:', userPrompt);
     try {
       const userId = localStorage.getItem('userId');
       if (!userId) {
@@ -20,14 +18,8 @@ export default function PdfGenerator({ userPrompt }) {
         user: userId,
         prompt: userPrompt,
       });
-      console.log(response);
-
-      const content = JSON.parse(response.data.content);
-      const aiResponse = content.text;
+      const aiResponse = JSON.parse(response.data.content);
       console.log('aiResponse:', aiResponse);
-
-      //const forPdf = marked(aiResponse);
-
       const blob = await pdf(<PdfDocument content={aiResponse} />).toBlob();
       fileDownload(blob, 'yourcv.pdf');
     } catch (error) {

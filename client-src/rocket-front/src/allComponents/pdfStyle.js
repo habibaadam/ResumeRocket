@@ -38,7 +38,7 @@ const PdfDocument = ({ content }) => {
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           {mainParts.map((part, index) => (
-            <Text style={index % 2 === 0 ? styles.textSmall : styles.bold}>{part}</Text>
+            <Text key={index} style={index % 2 === 0 ? styles.textSmall : styles.bold}>{part}</Text>
           ))}
         </View>
       </Page>
