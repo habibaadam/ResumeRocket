@@ -116,9 +116,12 @@ h2.questions {
 .a4 {
   box-sizing: border-box;
   margin: 70px auto;
-  width: 20%; /* A4 paper width */
-  height: 500px; /* A4 paper height */
+  width: 20%;
+  height: 500px;
   background: transparent;
-  box-shadow: 0px 0px 5px rgba(250, 245, 245, 0.5); /* Optional: Add a shadow to make it look like a paper */
-  padding: 150px; /* Add some padding for the content */
+  box-shadow: 0px 0px 5px rgba(250, 245, 245, 0.5);
+  padding: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
