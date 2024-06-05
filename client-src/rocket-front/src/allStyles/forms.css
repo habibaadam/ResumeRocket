@@ -1,19 +1,31 @@
 div.form-page {
     display: flex;
     justify-content: center;
-    background-color:#1c031c !important;
+    background-color:#6f4c6f !important;
     height: 100vh;
     background-size: cover !important;
 }
 
+.forlogo {
+    align-items: center;
+}
+h1.resume {
+  background: linear-gradient(to right, rgb(155, 86, 129), rgb(60, 16, 83));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 37px;
+  margin-top: 0px;
+}
+
 .containing {
-    width: 500px;
+    width: 450px;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 20px;
     max-height: 720px;
     background-color: rgb(180, 174, 181);
-    border-radius: 16px;
+    border-radius: 3px;
 }
 
 p.err {

@@ -6,11 +6,13 @@ import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
+import logo from '../images/resume_rocket.png'
 import '../allStyles/forms.css';
 
 export default function Login() {
   //setting the state of alert to false
   const [showAlert, setShowAlert] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
 
@@ -81,6 +83,14 @@ const handleLogin = async () => {
       }
       <section>
         <div>
+          <div className="d-flex justify-content-center align-items-center mt-2">
+                <img
+                 src={logo}
+                 height="50"
+                 alt="ResumeRocket Logo"
+                 loading="lazy"
+                 />
+            </div>
           <div className="containing">
             <h2 className="text-uppercase resume text-center mt-0 mb-3">Login to your account</h2>
             <form onSubmit={handleSubmit(handleLogin)}>
@@ -92,7 +102,7 @@ const handleLogin = async () => {
 
               <div data-mdb-input-init className="form-outline mb-1">
                 <input  {...register("password", { required: true, minLength: 8 })} type="password" id="form-pass" className="form-control form-control-lg" required/>
-                                        {errors.password && <p className="err">Password must be at least 8 characters long</p>}
+                {errors.password && <p className="err">Password must be at least 8 characters long</p>}
                 <label className="form-label resume" >Password</label>
               </div>
 
