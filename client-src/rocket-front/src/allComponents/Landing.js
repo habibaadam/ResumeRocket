@@ -3,6 +3,7 @@ import '../allStyles/index.css';
 import logo from '../images/resume_rocket.png';
 import ColumLayout from './Columlayout';
 import { Link } from "react-router-dom";
+import ContactUs from './ContactUs';
 
 
 export default function Landing() {
@@ -32,24 +33,25 @@ export default function Landing() {
 </div>
   </div>
 </nav>
-          <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
-          <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
-          <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
-          <div className="for-link">
-            <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
-            </div>
-
-            <h3 className="text-center resume">How Does ResumeRocket Work?</h3>
-            <div className="scroll-downs">
-              <div className="mousey">
-                <div className="scroller"></div>
-                </div>
-                </div>
-                </div>
-
-                <div>
-                  <ColumLayout />
-                </div>
+         <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
+      <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
+      <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
+      <div className="for-link">
+        <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
+      </div>
+      <h3 className="text-center resume">How Does ResumeRocket Work?</h3>
+      <div className="scroll-downs">
+        <div className="mousey">
+          <div className="scroller"></div>
+        </div>
+      </div>
+      <div>
+        <ColumLayout />
+      </div>
+      <div>
+        <ContactUs />
+      </div>
     </div>
-);
+    </div>
+   );
 }
