@@ -3,15 +3,28 @@ import '../allStyles/index.css';
 import logo from '../images/resume_rocket.png';
 import ColumLayout from './Columlayout';
 import { Link } from "react-router-dom";
+import ContactUs from './ContactUs';
 
 
 export default function Landing() {
   return (
     <div>
     <div className="main-land">
-      <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
-        <div className="container-fluid">
-        <a className="navbar-brand" href="ahjsgjhdg">
+ <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
+  <div className="container-fluid">
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <a className="navbar-brand" href="/">
       <img
         src={logo}
         height="40"
@@ -19,37 +32,38 @@ export default function Landing() {
         loading="lazy"
       />
     </a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="Namenavbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="navbar-nav ml-auto d-flex justify-content-between">
         <Link className="nav-link resume " to="/">ResumeRocket</Link>
-        <Link className="nav-link left resume" to="/signup">SignUp</Link>
-        <Link className="nav-link left-2 resume" to="/login">Log In</Link>
-        <Link className="nav-link left-3 resume" to="../">Contact</Link>
+        <Link className="nav-link resume" to="/signup">SignUp</Link>
+        <Link className="nav-link resume" to="/login">Log In</Link>
+        <Link className="nav-link resume" to="../">Contact</Link>
+    </div>
+        </div>
+
       </div>
-</div>
+        <div>
+
   </div>
 </nav>
-          <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
-          <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
-          <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
-          <div className="for-link">
-            <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
-            </div>
-
-            <h3 className="text-center resume">How Does ResumeRocket Work?</h3>
-            <div className="scroll-downs">
-              <div className="mousey">
-                <div className="scroller"></div>
-                </div>
-                </div>
-                </div>
-
-                <div>
-                  <ColumLayout />
-                </div>
+         <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
+      <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
+      <small className="text-center">seeking to venture into or are in the tech industry, particularly software engineering</small>
+      <div className="for-link">
+        <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
+      </div>
+      <h3 className="text-center resume">How Does ResumeRocket Work?</h3>
+      <div className="scroll-downs">
+        <div className="mousey">
+          <div className="scroller"></div>
+        </div>
+      </div>
     </div>
-);
+    <ColumLayout/>
+    <ContactUs />
+    </div>
+   );
 }
