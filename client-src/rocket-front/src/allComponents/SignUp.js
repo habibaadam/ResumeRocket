@@ -7,6 +7,7 @@ import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
 import '../allStyles/forms.css';
+import logo from '../images/resume_rocket.png'
 
 export default function SignUp() {
 // setting state of alert to be false
@@ -87,6 +88,17 @@ const handleRegister = async () => {
       }
     <section>
           <div>
+            <div className="d-flex justify-content-center align-items-center mt-2">
+              <Link to="/">
+                <img
+                 src={logo}
+                 height="50"
+                 alt="ResumeRocket Logo"
+                 loading="lazy"
+                 />
+                </Link>
+            </div>
+
             <div className="containing">
               <h2 className="text-uppercase resume text-center mt-0 mb-3">Create an account</h2>
               <form onSubmit={handleSubmit(handleRegister)}>
@@ -130,8 +142,7 @@ const handleRegister = async () => {
                 </div>
                 </form>
 
-                <p className="text-center forms mb-0">Already have an account? <a href="#!"
-                    className="fw-bold resume text-body"><Link to="/login">Login here</Link></a></p>
+                <p className="text-center forms mb-0">Already have an account?<Link className="resume" to="/login">Login here</Link></p>
             </div>
           </div>
 </section>
