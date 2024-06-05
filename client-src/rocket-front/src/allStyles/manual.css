@@ -1,7 +1,7 @@
 div.contain {
-    min-height: 100vh;
+    height: 85vh;
     background-color:  rgb(18, 3, 31);
-        
+    font-family: "Anta", sans-serif;
 }
 body {
     margin: 0;
@@ -11,25 +11,17 @@ body {
     display: flex;
     flex-direction: column;
     font-weight: bolder;
+    align-items: center;
 }
 
 .image_classs {
     order: 2;
     width: 50vh;
     height: 70vh;
-    margin-top: 80px;
+    margin-top: 30px;
     border-radius: 5%;
-
-
 }
 
-.paragraph {
-    font-size: 20px;
-    color: #C0C0C0;
-    text-align: center;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bolder;
-}
 .guide{
     font-size: 2em;
     color: #C0C0C0;
@@ -38,4 +30,8 @@ body {
     font-weight: bolder;
     margin-bottom: 40px;
     padding-bottom: 20px;
+}
+
+p.instruct {
+    color: #C0C0C0;
 }
