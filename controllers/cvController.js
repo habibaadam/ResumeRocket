@@ -1,4 +1,5 @@
 const { json } = require('express');
+const axios = require('axios');
 const CV = require('../models/cv');
 const User = require('../models/User');
 const { PDFDocument, rgb } = require('pdf-lib');
@@ -18,8 +19,10 @@ exports.createNewCv = async function createNewCv(req, res) {
             user,
             content,
         });
-        const existingUser = await User.findOne({ user });
-
+        const existingUser = await User.findOne({ _id: user });
+        if (!existingUser) {
+            return res.status(400).json({ message: 'User not found' });
+        }
         const savedCv = await newCv.save();
         return res.status(200).json({
             message: 'Sucessfully created cv!',
@@ -49,29 +52,28 @@ exports.getCv = async function getCv(req, res) {
 exports.generateCv = async function generateCv(req, res) {
     try {
         const { user, prompt } = req.body;
-        const aiResponse = await fetch('http://localhost:5000/ai', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ prompt }),
+        const aiResponse = await axios.post('http://localhost:5000/ai', {
+            prompt: JSON.stringify(prompt)
         });
-        if (!aiResponse.ok) {
-            throw new Error(`Error fetching content from AI: ${await aiResponse.text()}`);
+        
+        if (aiResponse.status !== 200) {
+            throw new Error(`Error fetching content from AI: ${aiResponse.data}`);
         }
 
-        const aiContent = await aiResponse.json();
-
-        const createCvResponse = await fetch('http://localhost:5000/newCV', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ user: user, content: JSON.stringify(aiContent) }),
+        const aiContent = aiResponse.data;
+        const createCvResponse = await axios.post('http://localhost:5000/newCV', {
+            user: user,
+            content: JSON.stringify(aiContent)
+        }, {
+            headers: {'Content-Type': 'application/json'}
         });
-        if (!createCvResponse.ok) {
-            throw new Error(`Error creating cv: ${await createCvResponse.text()}`);
+
+        if (createCvResponse.status !== 200) {
+            throw new Error(`Error creating CV: ${createCvResponse.data}`)
         }
+        console.log(createCvResponse.data);
 
-        const finalResponse = await createCvResponse.json();
-
-        return res.status(200).json(finalResponse);
+        return res.status(200).json(createCvResponse.data);
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: 'Internal Server Error' });
