@@ -1,9 +1,7 @@
 import { RotatingSquare } from "react-loader-spinner";
 
-export default function LoadingIndicator({ isLoading }) {
+export default function LoadingIndicator() {
   return (
-    <div className="a4">
-      {isLoading && (
         <RotatingSquare
           visible={true}
           width="500"
@@ -13,7 +11,5 @@ export default function LoadingIndicator({ isLoading }) {
           wrapperStyle={{}}
           wrapperClass=""
         />
-      )}
-    </div>
-  );
+      );
 }
