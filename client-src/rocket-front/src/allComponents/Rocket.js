@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../UserContext';
 import '../allStyles/rocket.css';
 import Logout from './Logout';
+import Loader from './Loader';
 import PdfGenerator from './pdfGenerator';
 import logo from '../images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
@@ -14,11 +15,16 @@ import { ReactTyped } from "react-typed";
 export default function Rocket() {
   const { firstName } = useParams();
   const { user } = useContext(UserContext); // carries small user details
+  // eslint-disable-next-line
+  const [startQuestion, setStartQuestion] = useState(false); // eslint-disable-next-line
+  const [firstQuestion, setFirstQuestion] = useState(''); // eslint-disable-next-line
+  const [displayQuestion, setDisplayQuestion] = useState('');
   const [currentQindex, setcurrentQindex] = useState(0); // tracks state of questions
   const [answer, setAnswer] = useState([]); // tracks users answers
   const [joinedA, setJoinedA] = useState(''); // state of joined answers
   const [errorMessage, setErrorMessage] = useState(null); // state of error messages
   const [readyButton, setReadyButton] = useState(false); // state of cv readiness
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const questions = [
@@ -36,6 +42,19 @@ export default function Rocket() {
     'Sounds like you have been putting in the work! Do you own any kind of certifications? Tell me the names of the providers and year you got them. No pressure if you do not own any!',
     'List some of your soft or non technical skills please, then Generate Your CV :)'
   ];
+
+
+  // delaying the first question
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setFirstQuestion(questions[0]);
+    setStartQuestion(true);
+  }, 10000);
+
+  return () => {
+    clearTimeout(timer);
+  }; // eslint-disable-next-line
+}, []);
 
   const handleAnswer = async () => {
     const textarea = document.getElementById('answer');
@@ -76,12 +95,13 @@ export default function Rocket() {
           <Avatar>
             <AvatarImage className="user-spot d-flex mt-3"
               src="hh" />
-            <AvatarFallback className="user-spot d-flex mt-4">{user.initials}</AvatarFallback>
+            <AvatarFallback className="user-spot d-flex mt-4 fs-5">{user.initials}</AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
           <Logout />
 
           <div className="a4">
+            {isLoading && <Loader />}
         </div>
 
         </div>
@@ -89,25 +109,44 @@ export default function Rocket() {
         {/* Second side which is the right side takes 9 */}
         <div className="full-height right col-md-9">
           {/* Navbar structure */}
-          <nav className="navbar navbar-expand-lg mt-2" data-bs-theme="dark">
-            <div className="container-fluid">
-              <a className="navbar-brand" href="ahjsgjhdg">
-                <img src={logo} height="40" alt="ResumeRocket Logo" loading="lazy" />
-              </a>
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="Namenavbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                  <Link className="nav-link resume " to="/">ResumeRocket</Link>
-                  <div className="left-side-links resume">
-                    <Link className="nav-link" to="/">About Us</Link>
-                    <Link className="nav-link" to="../">Contact</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
+           <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
+  <div className="container-fluid">
+    <button
+      data-mdb-collapse-init
+      className="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i className="fas fa-bars"></i>
+    </button>
+
+    <Link className="navbar-brand" to="/">
+      <img
+        src={logo}
+        height="40"
+        alt="ResumeRocket Logo"
+        loading="lazy"
+      />
+    </Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="Namenavbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="navbar-nav ml-auto d-flex justify-content-between">
+        <Link className="nav-link resume " to="/">ResumeRocket</Link>
+        <Link className="nav-link resume" to="/contact">Contact</Link>
+
+    </div>
+        </div>
+
+      </div>
+        <div>
+
+  </div>
+</nav>
 
           {/*Content of right part of page */}
           <h1 className="text-center mt-5">Hello, <span className="resume">{firstName}</span></h1>
@@ -117,7 +156,7 @@ export default function Rocket() {
             <div className="d-flex">
               <Avatar>
                 <AvatarImage src="hh" className="user-spot d-flex mt-3" />
-                <AvatarFallback className="ai user-spot mt-4">RR</AvatarFallback>
+                <AvatarFallback className="ai user-spot mt-4 fs-5">RR</AvatarFallback>
               </Avatar>
 
               {errorMessage ? (
@@ -142,7 +181,7 @@ export default function Rocket() {
           </div>
 
           {/* Generate Cv Button after all questions are answered */}
-          {readyButton && (<PdfGenerator userPrompt={joinedA}/>)}
+          {readyButton && (<PdfGenerator userPrompt={joinedA} setIsLoading={setIsLoading}/>)}
 
         </div>
       </div>

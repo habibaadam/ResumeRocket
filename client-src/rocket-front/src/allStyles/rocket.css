@@ -12,11 +12,11 @@ div.full-height.right {
 .navbar.navbar-expand-lg {
   border-radius: 15px;
   background-color: rgb(183, 165, 183);
-  padding: 13px;
+  padding: 12px;
 }
 
 .navbar-nav {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 a.nav-link {
@@ -102,15 +102,26 @@ h2.questions {
   margin-top: 140px;
 }
 
-.input-group button {
-  margin-top: 140px;
-  background-color: black;
+.input-group textarea {
+  padding-top: 20px; /* Adjust as needed */
+  padding-bottom: 20px; /* Adjust as needed */
 }
 
-.input-group .form-control::placeholder {
+.input-group button {
+  margin-top: 140px;
+  background-color: rgb(35, 23, 44);
+}
+
+.input-group button:hover {
+  background-color: #837a83;
+}
+
+.input-group textarea::placeholder {
   color: rgb(220, 212, 212);
   line-height: 20px;
   padding-top: 15px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .a4 {
