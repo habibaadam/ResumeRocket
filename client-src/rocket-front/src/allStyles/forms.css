@@ -18,13 +18,13 @@ h1.resume {
   margin-top: 0px;
 }
 
-button.resume {
+.form-button.resume {
     border: none;
     cursor: pointer;
     margin-left: 10px;
 }
 
-button.resume:hover {
+.form-button.resume:hover {
     transform: scale(1.1);
     transition: 0.4s;
 }

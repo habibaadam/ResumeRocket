@@ -15,7 +15,7 @@ export default function Login() {
   // const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
-
+//eslint-disable-next-line
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
@@ -108,7 +108,7 @@ const handleLogin = async () => {
                 {...register("password", { required: true, minLength: 8 })}
                 type={showPassword ? "text" : "password"}
                 id="form-pass"
-                className="form-control form-control-lg" 
+                className="form-control form-control-lg"
                 required
                 onChange={(e) => setPassword(e.target.value)}
                 />
