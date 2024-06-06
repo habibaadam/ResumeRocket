@@ -18,7 +18,7 @@ const { setUser } = useContext(UserContext);
 
 const [password, setPassword] = useState('');
 const [showPassword, setShowPassword] = useState(false);
-const [showRPassword, setShowRPassword] = useState(false);
+// const [showRPassword, setShowRPassword] = useState(false);
 
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -151,9 +151,24 @@ const handleRegister = async () => {
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1 ">
-                  <input {...register("rPassword", { required: true, validate: value => value === password.current })} type="password" id="form-rpassword" className="form-control form-control-lg" />
-                        {errors.rPassword && <p className="err">Passwords do not match</p>}
-                  <label className="form-label resume">Repeat your password</label>
+                  <input
+                  {...register("rPassword", { required: true, validate: value => value === password.current })}
+                  type={showPassword ? "text" : "password"}
+                  id="form-rpassword"
+                  className="form-control form-control-lg"
+                  onChange={(e) => setPassword(e.target.value)}
+                  />
+                  {errors.rPassword && <p className="err">Passwords do not match</p>}
+                  <label className="form-label resume">
+                    Repeat your password
+                    <button
+                      type='button'
+                      className='form-button resume'
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? "Hide" : "Show"}
+                    </button>
+                    </label>
                 </div>
 
                 <div className="d-flex justify-content-center">
