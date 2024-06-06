@@ -16,6 +16,10 @@ const [showAlert, setShowAlert] = useState(false);
 const navigate = useNavigate();
 const { setUser } = useContext(UserContext);
 
+const [password, setPassword] = useState('');
+const [showPassword, setShowPassword] = useState(false);
+const [showRPassword, setShowRPassword] = useState(false);
+
 useEffect(() => {
   const timer = setTimeout(() => {
     setShowAlert(false);
@@ -24,8 +28,8 @@ return () => clearTimeout(timer);
 }, []);
 
 const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const password = useRef({});
-  password.current = watch("password", "");
+  const inputPassword = useRef({});
+  inputPassword.current = watch("password", "");
 
 const handleRegister = async () => {
 
@@ -126,9 +130,24 @@ const handleRegister = async () => {
 
                 <div data-mdb-input-init className="form-outline mb-1">
 
-                  <input {...register("password", { required: true, minLength: 8 })} type="password" id="form-pass" className="form-control form-control-lg" />
+                  <input
+                  {...register("password", { required: true, minLength: 8 })}
+                  type={showPassword ? "text" : "password"}
+                  id="form-pass"
+                  className="form-control form-control-lg"
+                  onChange={(e) => setPassword(e.target.value)}
+                  />
                         {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                  <label className="form-label resume">Password</label>
+                  <label className="form-label resume">
+                    Password
+                    <button
+                      type='button'
+                      className='form-button resume'
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? "Hide" : "Show"}
+                    </button>
+                  </label>
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1 ">

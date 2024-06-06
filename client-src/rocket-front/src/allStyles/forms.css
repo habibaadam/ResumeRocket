@@ -18,6 +18,18 @@ h1.resume {
   margin-top: 0px;
 }
 
+button.resume {
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button.resume:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+
 .containing {
     width: 450px;
     justify-content: center;
