@@ -1,6 +1,8 @@
 ## ResumeRocket
 ResumeRocket is an AI-powered resume builder specifically designed for individuals seeking to venture into the tech industry, particularly software engineering. Our goal is to make the process of creating a professional and effective resume as interactive and straightforward as possible.
 
+![landing page image](./resume.png)
+
 ## Authors
 
 - **Habiba Adam Salisu =>** @habibaadam
