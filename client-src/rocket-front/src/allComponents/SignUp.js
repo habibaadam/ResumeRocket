@@ -1,3 +1,4 @@
+
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, useContext, useRef } from 'react';
@@ -137,4 +138,3 @@ const handleRegister = async () => {
 </section>
 </div>
   );
-}

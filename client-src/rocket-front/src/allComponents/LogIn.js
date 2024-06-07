@@ -6,13 +6,18 @@ import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
+import logo from '../images/resume_rocket.png'
 import '../allStyles/forms.css';
 
 export default function Login() {
   //setting the state of alert to false
   const [showAlert, setShowAlert] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
+//eslint-disable-next-line
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
 
 useEffect(() => {
@@ -23,8 +28,8 @@ return () => clearTimeout(timer);
 }, []);
 
 const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const password = useRef({});
-  password.current = watch("password", "");
+  const inputPassword = useRef({});
+  inputPassword.current = watch("password", "");
 
 const handleLogin = async () => {
 
@@ -81,6 +86,14 @@ const handleLogin = async () => {
       }
       <section>
         <div>
+          <div className="d-flex justify-content-center align-items-center mt-2">
+                <img
+                 src={logo}
+                 height="50"
+                 alt="ResumeRocket Logo"
+                 loading="lazy"
+                 />
+            </div>
           <div className="containing">
             <h2 className="text-uppercase resume text-center mt-0 mb-3">Login to your account</h2>
             <form onSubmit={handleSubmit(handleLogin)}>
@@ -91,9 +104,25 @@ const handleLogin = async () => {
               </div>
 
               <div data-mdb-input-init className="form-outline mb-1">
-                <input  {...register("password", { required: true, minLength: 8 })} type="password" id="form-pass" className="form-control form-control-lg" required/>
-                                        {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                <label className="form-label resume" >Password</label>
+                <input
+                {...register("password", { required: true, minLength: 8 })}
+                type={showPassword ? "text" : "password"}
+                id="form-pass"
+                className="form-control form-control-lg"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+                />
+                {errors.password && <p className="err">Password must be at least 8 characters long</p>}
+                <label className="form-label resume" >
+                  Password
+                  <button
+                      type='button'
+                      className='form-button resume'
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? "Hide" : "Show"}
+                    </button>
+                  </label>
               </div>
 
               <div className="d-flex justify-content-center">

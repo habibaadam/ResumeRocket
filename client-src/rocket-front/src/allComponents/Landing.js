@@ -1,3 +1,4 @@
+
 import React from 'react';
 import '../allStyles/index.css';
 import logo from '../images/resume_rocket.png';
@@ -14,24 +15,24 @@ export default function Landing() {
   <div className="container-fluid">
     <button
       data-mdb-collapse-init
-      class="navbar-toggler"
+      className="navbar-toggler"
       type="button"
       data-mdb-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="fas fa-bars"></i>
+      <i className="fas fa-bars"></i>
     </button>
 
-    <a className="navbar-brand" href="/">
+    <Link className="navbar-brand" to="/">
       <img
         src={logo}
         height="40"
         alt="ResumeRocket Logo"
         loading="lazy"
       />
-    </a>
+    </Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="Namenavbar-toggler-icon"></span>
     </button>

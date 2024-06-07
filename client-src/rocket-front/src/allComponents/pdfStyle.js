@@ -1,3 +1,4 @@
+
 import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 
 Font.register({
@@ -47,3 +48,5 @@ const PdfDocument = ({ content }) => {
 };
 
 export default PdfDocument
+
+
