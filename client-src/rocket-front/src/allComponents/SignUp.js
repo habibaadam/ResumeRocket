@@ -16,9 +16,9 @@ const [showAlert, setShowAlert] = useState(false);
 const navigate = useNavigate();
 const { setUser } = useContext(UserContext);
 
+//eslint-disable-next-line
 const [password, setPassword] = useState('');
 const [showPassword, setShowPassword] = useState(false);
-// const [showRPassword, setShowRPassword] = useState(false);
 
 useEffect(() => {
   const timer = setTimeout(() => {
@@ -152,7 +152,7 @@ const handleRegister = async () => {
 
                 <div data-mdb-input-init className="form-outline mb-1 ">
                   <input
-                  {...register("rPassword", { required: true, validate: value => value === password.current })}
+                  {...register("rPassword", { required: true, validate: value => value === inputPassword.current })}
                   type={showPassword ? "text" : "password"}
                   id="form-rpassword"
                   className="form-control form-control-lg"
