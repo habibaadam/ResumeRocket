@@ -1,0 +1,36 @@
+div.contact {
+  height: 30vh;
+  background-color: #C0C0C0;
+  font-family: "Anta", sans-serif;
+}
+
+.icons {
+  display: flex;
+  color: rgb(18, 3, 31);
+}
+
+.links {
+  font-size: 1em;
+  color: rgb(18, 3, 31);
+  font-weight: bolder;
+  line-height: 1.5em;
+}
+
+body::after {
+  content: '';
+  display: flex;
+  border-bottom: 1px solid rgb(30, 2, 55);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.catchphrase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 1em;
+  color: rgb(18, 3, 31);
+}
