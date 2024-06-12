@@ -9,7 +9,7 @@ export default function ContactUs() {
   return (
     <div className="contact">
       <div className="row h-100">
-        <div className="col-md-4 h-100 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="1000">
+        <div className="col-md-4 h-100 d-flex justify-content-center align-items-center">
           <FontAwesomeIcon icon={faLinkedin} className="icons" />
           <p2 className="links">
             <a href="https://www.linkedin.com/in/memory-mukonda-39ba06248" target="_blank" rel="noopener noreferrer">Memory Mukonda</a><br></br>
@@ -18,7 +18,7 @@ export default function ContactUs() {
             <a href="https://www.linkedin.com/in/mark-musili-a96977264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">Mark Musili</a>
           </p2>
         </div>
-        <div className="col-md-4 h-100 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="1000">
+        <div className="col-md-4 h-100 d-flex justify-content-center align-items-center">
           <FontAwesomeIcon icon={faGithub} className="icons" />
           <p3 className="links">
             <a href="https://github.com/mukoe2020" target="_blank" rel="noopener noreferrer">Memory Mukonda</a><br></br>
@@ -27,7 +27,7 @@ export default function ContactUs() {
             <a href="https://github.com/MarkMusili" target="_blank" rel="noopener noreferrer">Mark Musili</a>
           </p3>
         </div>
-        <div className="col-md-4 h-100 d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="1000">
+        <div className="col-md-4 h-100 d-flex justify-content-center align-items-center">
           <FontAwesomeIcon icon={faTwitter} className="icons" />
           <p2 className="links">
             <a href="https://x.com/memoryMukonda" target="_blank" rel="noopener noreferrer">Memory Mukonda</a><br></br>

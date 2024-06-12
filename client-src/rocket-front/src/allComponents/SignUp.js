@@ -110,14 +110,14 @@ const handleRegister = async () => {
 
                   <input {...register("firstName", { required: true })} type="text" id="form-first" className="form-control form-control-lg"/>
                   {errors.firstName && <p className="err">This field is required</p>}
-                  <label className="form-label resume" htmlFor="form3Example1cg">First Name</label>
+                  <label className="form-label" htmlFor="form3Example1cg">First Name</label>
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1">
 
                   <input {...register("lastName", { required: true})} type="text" id="form-last" className="form-control form-control-lg" />
                   {errors.lastName && <p className="err">This field is required</p>}
-                  <label className="form-label resume" htmlFor="form3Example1cg">Last Name</label>
+                  <label className="form-label" htmlFor="form3Example1cg">Last Name</label>
 
                 </div>
 
@@ -125,7 +125,7 @@ const handleRegister = async () => {
 
                   <input {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}type="email" id="form-email" className="form-control form-control-lg" />
                   {errors.email && <p className="err">This field is required</p>}
-                  <label className="form-label resume">Email</label>
+                  <label className="form-label">Email</label>
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1">
@@ -138,7 +138,7 @@ const handleRegister = async () => {
                   onChange={(e) => setPassword(e.target.value)}
                   />
                         {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                  <label className="form-label resume">
+                  <label className="form-label">
                     Password
                     <button
                       type='button'
@@ -159,7 +159,7 @@ const handleRegister = async () => {
                   onChange={(e) => setPassword(e.target.value)}
                   />
                   {errors.rPassword && <p className="err">Passwords do not match</p>}
-                  <label className="form-label resume">
+                  <label className="form-label">
                     Repeat your password
                     <button
                       type='button'
