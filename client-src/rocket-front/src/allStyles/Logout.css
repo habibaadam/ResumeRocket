@@ -12,3 +12,10 @@
     color: #dfe1f1;
     box-shadow: 0 0 10px #c184c0;
 }
+
+@media only screen and (max-width: 900px) {
+    .btn.btn-secondary.lg {
+        padding: 2px 10px;
+        font-size: 10px;
+    }
+}

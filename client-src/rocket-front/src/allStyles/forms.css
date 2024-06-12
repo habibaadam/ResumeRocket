@@ -4,6 +4,7 @@ div.form-page {
     background-color:#6f4c6f;
     height: 100vh;
     background-size: cover !important;
+    border-radius: 10px;
 }
 
 .forlogo {
@@ -52,17 +53,21 @@ p.text-center.forms {
 
 @media only screen and (max-width: 900px) {
     div.form-page {
-       background-color: rgb(132, 93, 132) !important;
+        background: url('https://w0.peakpx.com/wallpaper/687/98/HD-wallpaper-neonspace2-cool-neon-rocket-space.jpg') no-repeat !important;
+        background-size: cover;
     }
 
     .containing {
         width: 300px;
-        margin: 60px 0px auto;
-        background-color: transparent;
+        min-height: 300px; /* minimum height */
+        max-height: 650px;
+        margin: 50px 0px auto;
+        background-color: rgb(195, 195, 219);
+        border-radius: 10px;
     }
 
     .form-control-lg {
-        padding: 7px;
+        padding: 3px;
     }
 
     .form-label {

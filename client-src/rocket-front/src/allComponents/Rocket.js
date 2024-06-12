@@ -91,11 +91,11 @@ useEffect(() => {
       <div className="row h-100">
 
         {/* dividing screen page into two. First side takes 3 */}
-        <div className="full-height col-md-3 bg-dark text-white">
+        <div className="full-height d-none d-md-block col-3 col-md-3 bg-dark text-white">
           <Avatar>
             <AvatarImage className="user-spot d-flex mt-3"
               src="hh" />
-            <AvatarFallback className="user-spot d-flex mt-4 fs-5">{user.initials}</AvatarFallback>
+            <AvatarFallback className="user-spot d-flex mt-4"><span className="fs-5">{user.initials}</span></AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
           <Logout />
@@ -107,23 +107,11 @@ useEffect(() => {
         </div>
 
         {/* Second side which is the right side takes 9 */}
-        <div className="full-height right col-md-9">
+        <div className="full-height right col-12 col-md-9">
           {/* Navbar structure */}
-           <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
-  <div className="container-fluid">
-    <button
-      data-mdb-collapse-init
-      className="navbar-toggler"
-      type="button"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i className="fas fa-bars"></i>
-    </button>
-
-    <Link className="navbar-brand" to="/">
+          <nav className="navbar navbar-expand-lg main fixed-top" data-bs-theme="dark">
+            <div className="container-fluid">
+              <Link className="navbar-brand" to="/">
       <img
         src={logo}
         height="40"
@@ -132,13 +120,12 @@ useEffect(() => {
       />
     </Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="Namenavbar-toggler-icon"></span>
+      <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <div className="navbar-nav ml-auto d-flex justify-content-between">
         <Link className="nav-link resume " to="/">ResumeRocket</Link>
-        <Link className="nav-link resume" to="/contact">Contact</Link>
-
+        <Link className="nav-link resume" to="../">Contact</Link>
     </div>
         </div>
 
@@ -149,14 +136,14 @@ useEffect(() => {
 </nav>
 
           {/*Content of right part of page */}
-          <h1 className="text-center mt-5">Hello, <span className="resume">{firstName}</span></h1>
+          <h1 className="text-center main">Hello, <span className="resume">{firstName}</span></h1>
           <p className="text-center">Kindly answer these questions as accurate as you can in sentences! </p>
 
           <div className="container-fluid sexy-box bg-dark">
             <div className="d-flex">
               <Avatar>
                 <AvatarImage src="hh" className="user-spot d-flex mt-3" />
-                <AvatarFallback className="ai user-spot mt-4 fs-5">RR</AvatarFallback>
+                <AvatarFallback className="ai user-spot mt-4"><span className="fs-5">RR</span></AvatarFallback>
               </Avatar>
 
               {errorMessage ? (

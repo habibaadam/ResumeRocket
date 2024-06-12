@@ -9,29 +9,20 @@ div.full-height.right {
 }
 
 
-.navbar.navbar-expand-lg {
+.navbar.navbar-expand-lg.main {
   border-radius: 15px;
   background-color: rgb(183, 165, 183);
-  padding: 12px;
+  padding: 10px;
+  max-width: 80%;
+  margin-left: 370px;
 }
 
 .navbar-nav {
-  font-size: 17px;
+  font-size: 10px;
 }
 
 a.nav-link {
-  font-size: 23px;
-}
-
-.left-side-links {
-  display: flex;
-  margin-left: 550px;
-}
-
-.left-side-links:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 4px #c867eb;
-  transition: all 0.5s ease-in-out;
+  font-size: 20px;
 }
 
 a.nav-link:hover {
@@ -69,6 +60,10 @@ a.nav-link:hover {
   border-radius: 50%;
   margin: 0px auto;
   background: linear-gradient(to right, rgb(187, 93, 156), rgb(112, 53, 144));
+}
+
+h1.text-center.main {
+  margin-top: 120px;
 }
 
 h2 {
@@ -135,4 +130,74 @@ h2.questions {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+@media only screen and (max-width: 900px) {
+
+  .navbar.navbar-expand-lg.main {
+    margin: 0px auto;
+    padding: 5px;
+  }
+
+  .user-spot {
+    width: 35px;
+    height: 35px;
+  }
+
+  h1.text-center.main {
+    font-size: 1.5rem;
+    margin-top: 100px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  h2 {
+    font-size: 9px;
+  }
+
+
+  h2.questions {
+    font-size: 10px;
+    margin-top: 13px;
+  }
+
+  span.fs-5 {
+    display: flex;
+    font-size: 10px !important;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 20px 0px;
+  }
+
+  .a4 {
+    max-height: 400px;
+    width: 3%;
+    margin: 70px 0px 0px 0px;
+    padding: 40px;
+  }
+
+  .sexy-box {
+    margin: 30px auto;
+    width: 95%;
+  }
+
+  .input-group .form-control {
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .input-group textarea {
+    font-size: 15px;
+    line-height: 1.5;
+    height: auto;
+    padding: 10px auto;
+  }
+
+  .input-group textarea::placeholder {
+    font-size: 10px;
+    line-height: 1.5;
+  }
 }
