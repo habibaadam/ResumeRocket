@@ -142,7 +142,7 @@ useEffect(() => {
           <div className="container-fluid sexy-box bg-dark">
             <div className="d-flex">
               <Avatar>
-                <AvatarImage src="hh" className="user-spot d-flex mt-3" />
+                <AvatarImage src={logo} loading="lazy" className="user-spot d-flex mt-3" />
                 <AvatarFallback className="ai user-spot mt-4"><span className="fs-5">RR</span></AvatarFallback>
               </Avatar>
 
