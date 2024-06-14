@@ -60,7 +60,7 @@ export default function Rocket() {
     if (currentQindex < questions.length - 1) {
       setcurrentQindex(currentQindex + 1);
     } else {
-      const answersJoined =  [...answer, currentA].join(' '); // joins answers together
+      const answersJoined = [...answer, currentA].join(' '); // joins answers together
       setJoinedA(answersJoined);
       console.log(answersJoined);
       setReadyButton(true);
@@ -83,7 +83,7 @@ export default function Rocket() {
           <Logout />
 
           <div className="a4">
-        </div>
+          </div>
 
         </div>
 
@@ -93,28 +93,28 @@ export default function Rocket() {
           <nav className="navbar navbar-expand-lg main fixed-top" data-bs-theme="dark">
             <div className="container-fluid">
               <Link className="navbar-brand" to="/">
-      <img
-        src={logo}
-        height="40"
-        alt="ResumeRocket Logo"
-        loading="lazy"
-      />
-    </Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <div className="navbar-nav ml-auto d-flex justify-content-between">
-        <Link className="nav-link resume " to="/">ResumeRocket</Link>
-        <Link className="nav-link resume" to="../">Contact</Link>
-    </div>
-        </div>
+                <img
+                  src={logo}
+                  height="40"
+                  alt="ResumeRocket Logo"
+                  loading="lazy"
+                />
+              </Link>
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="navbar-nav ml-auto d-flex justify-content-between">
+                  <Link className="nav-link resume " to="/">ResumeRocket</Link>
+                  <Link className="nav-link resume" to="../">Contact</Link>
+                </div>
+              </div>
 
-      </div>
-        <div>
+            </div>
+            <div>
 
-  </div>
-</nav>
+            </div>
+          </nav>
 
           {/*Content of right part of page */}
           <h1 className="text-center main">Hello, <span className="resume">{firstName}</span></h1>
@@ -149,9 +149,10 @@ export default function Rocket() {
           </div>
 
           {/* Generate Cv Button after all questions are answered */}
-          {readyButton && (<PdfGenerator userPrompt={joinedA}/>)}
+          {readyButton && (<PdfGenerator userPrompt={joinedA} />)}
 
         </div>
       </div>
     </div>
   );
+}
