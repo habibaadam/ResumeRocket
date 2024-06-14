@@ -1,6 +1,6 @@
 div.contact {
   height: 30vh;
-  background-color: #C0C0C0;
+  background-color: #848282;
   font-family: "Anta", sans-serif;
 }
 
@@ -29,8 +29,7 @@ body::after {
 .catchphrase {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100px;
+  text-align: center;
   font-size: 1em;
   color: rgb(18, 3, 31);
 }

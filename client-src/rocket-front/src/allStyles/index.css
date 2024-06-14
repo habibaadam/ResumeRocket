@@ -4,10 +4,6 @@
   --text : #C0C0C0;
 }
 
-body, html {
-  background: none !important;
-}
-
 .resume {
   background: linear-gradient(to right, rgb(155, 86, 129), rgb(60, 16, 83));
   -webkit-background-clip: text;
@@ -15,12 +11,14 @@ body, html {
   -webkit-text-fill-color: transparent;
 }
 
+body {
+  background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg');
+  background-size: cover !important;
+}
+
 div.main-land {
-  margin: 0;
-  background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg') !important;
   height: 100vh;
   width: 100%;
-  background-size: cover !important;
   font-family: "Anta", sans-serif;
 }
 
@@ -29,9 +27,9 @@ a.nav-link.left {
 }
 
 nav.navbar.navbar-expand-lg {
-  border-radius: 15px;
+  border-radius: 12px;
   background-color: rgb(183, 165, 183);
-  padding: 15px;
+  padding: 12px;
 }
 
 .navbar-nav {
@@ -39,7 +37,7 @@ nav.navbar.navbar-expand-lg {
 }
 
 a.nav-link {
-  font-size: 30px;
+  font-size: 18px;
 }
 
 a.nav-link:hover {
@@ -53,7 +51,7 @@ h1, h2, h3, p, small {
 }
 
 h1 {
-  margin-top: 120px;
+  margin-top: 160px;
   font-size: 3rem;
 }
 
@@ -184,4 +182,71 @@ small {
   0% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(15px); }
   100% { transform: translateX(-50%) translateY(0); }
+}
+
+
+/* Responsive css */
+
+@media only screen and (max-width: 900px) {
+
+  div.main-land {
+      height: 70vh;
+  }
+
+  nav.navbar.navbar-expand-lg {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgb(183, 165, 183);
+    width: 100%;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    z-index: 1000;
+    top: 62px;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  a.nav-link.resume {
+    font-size: 12px !important;
+    margin-bottom: 0px;
+  }
+
+  button.navbar-toggler {
+    background-color: #313C9B;
+    padding: 4px 8px;
+    margin-right: 5px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    margin-top: 187px;
+  }
+
+  p, small {
+    font-size: 10px;
+  }
+
+  .btn.btn-secondary {
+    padding: 10px 15px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 130px;
+  }
+
+  .scroll-downs {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.mousey {
+  width: 35px;
+  border: 2px solid rgb(183, 165, 183);
+}
 }

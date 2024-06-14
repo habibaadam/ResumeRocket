@@ -1,5 +1,5 @@
 div.contain {
-    height: 85vh;
+    height: 100vh;
     background-color:  rgb(18, 3, 31);
     font-family: "Anta", sans-serif;
 }
@@ -34,4 +34,26 @@ body {
 
 p.instruct {
     color: #C0C0C0;
+}
+
+@media only screen and (max-width: 900px) {
+
+    div.contain, div.row, div.col-md-4 {
+        z-index: 400; /* any number that's lower than the z-index of the navbar */
+    }
+
+    div.contain {
+        height: 130vh;
+    }
+
+    .image_classs {
+        width: 70vw;
+        height:auto;
+    }
+
+    div.col-md-4 {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0px auto;
+    }
 }
