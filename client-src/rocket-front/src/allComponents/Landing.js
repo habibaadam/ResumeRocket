@@ -4,6 +4,7 @@ import '../allStyles/index.css';
 import logo from '../images/resume_rocket.png';
 import ColumLayout from './Columlayout';
 import { Link } from "react-router-dom";
+import ContactUs from './ContactUs';
 
 
 
@@ -51,7 +52,10 @@ export default function Landing() {
         </div>
       </div>
     </div>
-    <ColumLayout/>
+      <ColumLayout />
+
+      <ContactUs />
+
     </div>
    );
 }
