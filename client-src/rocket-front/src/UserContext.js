@@ -10,7 +10,7 @@ export function UserProvider({children}) {
     const getUser = async () => {
       const userId = localStorage.getItem('userId');
       if (userId !== null && userId !== undefined && !user.email) {
-        const response = await axios.get(`http://localhost:5000/user/${userId}`);
+        const response = await axios.get(`https://resumerocket.onrender.com/user/${userId}`);
         const user = response.data;
         const initials = `${user.first_name[0]}${user.last_name[0]}`;
         user.initials = initials

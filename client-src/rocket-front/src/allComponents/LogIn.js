@@ -33,7 +33,7 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
 const handleLogin = async () => {
 
-    const url = 'http://localhost:5000/login';
+    const url = 'https://resumerocket.onrender.com/login';
     const email = document.getElementById('form-email').value;
     const password = document.getElementById('form-pass').value;
 

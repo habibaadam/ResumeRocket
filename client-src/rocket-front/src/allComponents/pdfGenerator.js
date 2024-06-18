@@ -18,7 +18,7 @@ export default function PdfGenerator({ userPrompt, setIsLoading }) {
         throw new Error("User not found in localStorage");
       }
 
-      const response = await axios.post("http://localhost:5000/generateCV", {
+      const response = await axios.post("https://resumerocket.onrender.com/generateCV", {
         user: userId,
         prompt: userPrompt,
       });
