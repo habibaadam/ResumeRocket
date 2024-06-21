@@ -52,7 +52,7 @@ exports.getCv = async function getCv(req, res) {
 exports.generateCv = async function generateCv(req, res) {
     try {
         const { user, prompt } = req.body;
-        const aiResponse = await axios.post('http://localhost:5000/ai', {
+        const aiResponse = await axios.post('https://resumerocket.onrender.com/ai', {
             prompt: JSON.stringify(prompt)
         });
 
@@ -61,7 +61,7 @@ exports.generateCv = async function generateCv(req, res) {
         }
 
         const aiContent = aiResponse.data;
-        const createCvResponse = await axios.post('http://localhost:5000/newCV', {
+        const createCvResponse = await axios.post('https://resumerocket.onrender.com/newCV', {
             user: user,
             content: JSON.stringify(aiContent)
         }, {
