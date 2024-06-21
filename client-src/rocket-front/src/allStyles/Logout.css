@@ -5,6 +5,7 @@
     background-color: #212529;
     color: #f6eeee;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .btn.btn-secondary.lg:hover {

@@ -1,56 +1,58 @@
 import React from 'react';
 import '../allStyles/index.css';
-import logo from '../images/resume_rocket.png';
-import ColumLayout from './Columlayout';
+import rocket from '../images/rocket.jpeg';
+import Columlayout from './Columlayout';
 import { Link } from "react-router-dom";
 
 
 
 export default function Landing() {
   return (
-    <div>
+<div>
     <div className="main-land">
- <nav className="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
+ <nav className="navbar navbar-expand-lg d-flex justify-content-between" data-bs-theme="dark">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/">
-      <img
-        src={logo}
-        height="40"
-        alt="ResumeRocket Logo"
-        loading="lazy"
-      />
-    </Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <div className="navbar-nav ml-auto d-flex justify-content-between">
-        <Link className="nav-link resume " to="/">ResumeRocket</Link>
-        <Link className="nav-link resume" to="/signup">SignUp</Link>
-        <Link className="nav-link resume" to="/login">Log In</Link>
-        <Link className="nav-link resume" to="../">Contact</Link>
-    </div>
+          <Link className="nav-link resume active" to="/">RESUMEROCKET</Link>
+          <Link className="nav-link-left " to="/login">LOG IN</Link>
+          <Link className="nav-link" to="../">CONTACT</Link>
         </div>
 
       </div>
         <div>
-
   </div>
 </nav>
-         <h1 className="text-center">Welcome To <span className="resume">ResumeRocket</span></h1>
-      <p className="text-center">An AI-powered resume builder specifically designed for individuals</p>
-      <small className="text-center">seeking to venture into or are in the tech industry(software engineering)</small>
-      <div className="for-link">
-        <Link className=" mt-5 btn btn-secondary route-links" to="/signup">Get Started</Link>
+<div className="row h-100">
+  <div className="col-md-8">
+    <h1 className="mb-2">Build Resumes Quickly And Effortlessly.</h1>
+    <h2>With Our AI<span className="resume">ResumeRocket</span></h2>
+    <p className="mt-2"> Designed for individuals seeking to venture into or are in the tech industry(software engineering)</p>
+    <div className="for-link">
+        <Link className=" mt-3 btn btn-secondary route-links" to="/signup">Get Started</Link>
+        <Link className=" mt-3 btn btn-secondary route-links" to="/colum">How It Works</Link>
       </div>
-      <h3 className="text-center resume">How Does ResumeRocket Work?</h3>
+</div>
+
+  <div className="col-md-4">
+    <img
+    src={rocket}
+    alt="placeholder-animation"
+    className="img-fluid animation-place"
+    >
+    </img>
       <div className="scroll-downs">
         <div className="mousey">
           <div className="scroller"></div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>
-    <ColumLayout/>
+    <Columlayout />
     </div>
    );
 }

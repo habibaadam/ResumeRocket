@@ -1,37 +1,64 @@
 {
-    "name": "resumerocket",
-    "version": "1.0.0",
-    "description": "AI-powered CV generation tool",
-    "main": "index.js",
-    "scripts": {
-        "start": "nodemon server.js",
-        "dev": "nodemon server.js",
-        "test": "mocha -r esm tests/**/*.test.mjs"
-    },
+    "name": "rocket-front",
+    "version": "0.1.0",
+    "private": true,
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.5.2",
+        "@fortawesome/free-brands-svg-icons": "^6.5.2",
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
+        "@fortawesome/react-fontawesome": "^0.2.2",
+        "@radix-ui/react-avatar": "^1.0.4",
+        "@radix-ui/react-icons": "^1.3.0",
+        "@react-pdf/renderer": "^3.4.4",
+        "@testing-library/jest-dom": "^5.17.0",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "aos": "^2.3.4",
         "axios": "^1.7.2",
-        "bcrypt": "^5.1.1",
-        "chai": "^5.1.1",
-        "cookie-parser": "^1.4.6",
-        "cors": "^2.8.5",
-        "dotenv": "^16.4.5",
-        "express": "^4.19.2",
-        "jsonwebtoken": "^9.0.2",
-        "mocha": "^10.4.0",
-        "mongodb": "^6.6.2",
-        "mongoose": "^6.2.21",
-        "node-fetch": "^2.6.1",
-        "openai": "^4.47.3",
-        "pdf-lib": "^1.17.1",
-        "request": "^2.88.2",
-        "sinon": "^18.0.0",
-        "validator": "^13.7.0"
+        "bootstrap": "^5.3.3",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
+        "js-file-download": "^0.4.12",
+        "lucide-react": "^0.379.0",
+        "marked": "^12.0.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hook-form": "^7.51.5",
+        "react-loader-spinner": "^6.1.6",
+        "react-parallax": "^3.5.1",
+        "react-router-dom": "^6.23.1",
+        "react-scripts": "^5.0.1",
+        "react-typed": "^2.0.12",
+        "tailwind-merge": "^2.3.0",
+        "tailwindcss-animate": "^1.0.7",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "PORT=3001 react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     },
     "devDependencies": {
-        "esm": "^3.2.25",
-        "nodemon": "^3.1.1"
-    },
-    "engines": {
-        "node": ">=16 || ^18"
+        "react-app-rewired": "^2.2.1",
+        "tailwindcss": "^3.4.3"
     }
 }
