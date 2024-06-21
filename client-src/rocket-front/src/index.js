@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landing from './allComponents/Landing';
 import SignUp from './allComponents/SignUp';
 import LogIn from './allComponents/LogIn';
+import Columlayout from './allComponents/Columlayout';
 import Rocket from './allComponents/Rocket';
 import Logout from './allComponents/Logout';
 import ContactUs from './allComponents/ContactUs'
@@ -25,6 +26,7 @@ root.render(
         <Route path="/logout" element={<Logout />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/pdf" element={<PdfGenerator />} />
+        <Route path="/colum" element={<Columlayout />} />
       </Routes>
     </Router>
     </UserProvider>
