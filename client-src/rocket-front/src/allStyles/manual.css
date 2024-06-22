@@ -17,7 +17,8 @@ div.contain {
     width: 50vh;
     height: 70vh;
     margin-top: 30px;
-    border-radius: 5%;
+    border-radius: 2px;
+    border: 2px solid black;
 }
 
 p.instruct {
@@ -28,7 +29,7 @@ p.instruct {
 
 
     div.contain {
-        height: 130vh;
+        height: 180vh;
         width: 100%;
     }
 
