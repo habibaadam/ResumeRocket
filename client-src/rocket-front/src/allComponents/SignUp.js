@@ -7,7 +7,6 @@ import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
 import '../allStyles/forms.css';
-import logo from '../images/resume_rocket.png'
 
 export default function SignUp() {
 // setting state of alert to be false
@@ -71,18 +70,7 @@ const handleRegister = async () => {
   return (
     <div className="form-page" onClick={() => setShowAlert(false)}>
        { // display alert
-                showAlert && (<Alert
-                  style={{
-                  maxWidth: '200px',
-                  margin: '0 auto',
-                  color: 'silver',
-                  backgroundColor: '#050915',
-                  borderRadius: '10px',
-                  position: 'absolute',
-                  zIndex: 1,
-                  left: '80%',
-                  top: 0,
-                 }}>
+                showAlert && (<Alert className="alert-style">
                   <RocketIcon className="h-3 w-3" />
                   <AlertTitle></AlertTitle>
                   <AlertDescription>
@@ -92,40 +80,26 @@ const handleRegister = async () => {
       }
     <section>
           <div>
-            <div className="d-flex justify-content-center align-items-center mt-2">
-              <Link to="/">
-                <img
-                 src={logo}
-                 height="50"
-                 alt="ResumeRocket Logo"
-                 loading="lazy"
-                 />
-                </Link>
-            </div>
-
             <div className="containing">
               <h2 className="text-uppercase resume text-center mt-0 mb-3">Create an account</h2>
               <form onSubmit={handleSubmit(handleRegister)}>
                 <div data-mdb-input-init className="form-outline mb-1">
 
-                  <input {...register("firstName", { required: true })} type="text" id="form-first" className="form-control form-control-lg"/>
+                  <input {...register("firstName", { required: true })} type="text" id="form-first" className="form-control form-control-lg" placeholder="First Name"/>
                   {errors.firstName && <p className="err">This field is required</p>}
-                  <label className="form-label resume" htmlFor="form3Example1cg">First Name</label>
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1">
 
-                  <input {...register("lastName", { required: true})} type="text" id="form-last" className="form-control form-control-lg" />
+                  <input {...register("lastName", { required: true})} type="text" id="form-last" className="form-control form-control-lg" placeholder="Last Name" />
                   {errors.lastName && <p className="err">This field is required</p>}
-                  <label className="form-label resume" htmlFor="form3Example1cg">Last Name</label>
 
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1 ">
 
-                  <input {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}type="email" id="form-email" className="form-control form-control-lg" />
+                  <input {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}type="email" id="form-email" className="form-control form-control-lg" placeholder="Email"/>
                   {errors.email && <p className="err">This field is required</p>}
-                  <label className="form-label resume">Email</label>
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1">
@@ -136,18 +110,16 @@ const handleRegister = async () => {
                   id="form-pass"
                   className="form-control form-control-lg"
                   onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
                   />
                         {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                  <label className="form-label resume">
-                    Password
                     <button
                       type='button'
-                      className='form-button resume'
+                      className='form-button'
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? "Hide" : "Show"}
                     </button>
-                  </label>
                 </div>
 
                 <div data-mdb-input-init className="form-outline mb-1 ">
@@ -157,13 +129,13 @@ const handleRegister = async () => {
                   id="form-rpassword"
                   className="form-control form-control-lg"
                   onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Repeat Password"
                   />
                   {errors.rPassword && <p className="err">Passwords do not match</p>}
-                  <label className="form-label resume">
-                    Repeat your password
+                  <label className="form-label">
                     <button
                       type='button'
-                      className='form-button resume'
+                      className='form-button'
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? "Hide" : "Show"}
@@ -172,11 +144,11 @@ const handleRegister = async () => {
                 </div>
 
                 <div className="d-flex justify-content-center">
-                  <button type="submit" className="mt-2 btn btn-secondary route-links">Register</button>
+                  <button type="submit" className="mt-3 btn btn-secondary route-links">Register</button>
                 </div>
                 </form>
 
-                <p className="text-center forms mb-0">Already have an account?<Link className="resume" to="/login">Login here</Link></p>
+                <p className="text-center forms mb-0">Already have an account?<Link className="form-button" to="/login">Login here</Link></p>
             </div>
           </div>
 </section>

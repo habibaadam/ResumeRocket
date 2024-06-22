@@ -11,18 +11,17 @@
   -webkit-text-fill-color: transparent;
 }
 
-body {
-  background: url('../images/bc.jpg');
-  background-size: cover !important;
+body, html {
   color: var(--text);
+  margin: 0;
+  padding: 0;
 }
 
 div.main-land {
+  background: url('../images/bc.jpg');
+  background-size: cover !important;
   height: 100vh;
-  width: 100%;
   font-family: "Monsterrat", sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 .navbar.navbar-expand-lg {
@@ -36,10 +35,6 @@ a.nav-link {
   font-size: 15px !important ;
   margin: 0 10px;
   color: var(--text);
-}
-
-.col-md-8 {
-  margin-top: 300px;
 }
 
 .active {
@@ -63,6 +58,10 @@ a.nav-link:hover, a.nav-link-left:hover {
 h1, h2, span {
   font-size: 3rem !important;
   margin: 0 10px;
+}
+
+h1.mb-2 {
+  margin-top: 300px;
 }
 
 p {
@@ -106,7 +105,7 @@ p {
 .resume, h1, p, small {
   overflow: hidden;
   white-space: nowrap;
-  animation: reveal 4s linear;
+  animation: reveal 3s linear;
 }
 
 @keyframes fadeIn {
@@ -176,12 +175,11 @@ p {
   }
 
   .col-md-8 {
-    margin-top: 10px;
     height: 20vh;
   }
 
   h1.mb-2 {
-    margin-top:70px !important;
+    margin-top:75px !important;
   }
 
   h1, h2, span {
