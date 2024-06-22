@@ -34,7 +34,7 @@ const { register, handleSubmit, watch, formState: { errors } } = useForm();
 const handleRegister = async () => {
 
     // sign up logic required from backend
-    const url = 'http://localhost:5000/signup';
+    const url = 'https://resumerocket.onrender.com/signup';
     const firstName = document.getElementById('form-first').value;
     const lastName = document.getElementById('form-last').value;
     const email = document.getElementById('form-email').value;

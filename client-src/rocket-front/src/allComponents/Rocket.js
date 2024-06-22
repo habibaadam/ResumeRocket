@@ -92,10 +92,10 @@ useEffect(() => {
 
         {/* dividing screen page into two. First side takes 3 */}
         <div className="full-height d-none d-md-block col-3 col-md-3 bg-dark text-white">
-          <Avatar>
-            <AvatarImage className="user-spot d-flex mt-3"
-              src="hh" />
-            <AvatarFallback className="user-spot d-flex mt-4"><span className="fs-5">{user.initials}</span></AvatarFallback>
+        <Avatar className="avatar-left">
+          <AvatarImage className="user-spot d-flex"
+          src="hh" />
+          <AvatarFallback className="user-spot d-flex"><span className="fs-5">{user.initials}</span></AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
           <Logout />

@@ -25,11 +25,6 @@ a.nav-link {
   font-size: 20px;
 }
 
-a.nav-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 4px #c867eb;
-  transition: all 0.5s ease-in-out;
-}
 
 .resume {
   background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
@@ -49,6 +44,12 @@ a.nav-link:hover {
   width: 90%;
   margin: 40px auto 0;
   max-height: 600px;
+}
+
+.avatar-left {
+  margin: 15px auto 20px;
+  display: block;
+  width: 30%;
 }
 
 .user-spot {
@@ -82,12 +83,20 @@ h2.questions {
   font-size: 17px;
   margin-left: 15px;
   border: 1px solid rgb(127, 99, 125);
-  padding: 15px;
+  padding: 10px;
   border-radius: 20px;
   white-space: wrap;
   overflow-wrap: break-word;
 }
 
+h2.questions span {
+  font-size: 15px !important;
+  margin: 0;
+}
+
+h2.text-center.mt-1 {
+  font-size: 20px !important;
+}
 
 .input-group .form-control {
   border-radius: 40px;

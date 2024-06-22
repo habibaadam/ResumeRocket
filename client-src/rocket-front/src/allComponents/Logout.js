@@ -11,7 +11,7 @@ export default function Logout() {
     const HandleLogout = async (event) => {
         event.preventDefault();
 
-        const url = "http://localhost:5000/logout";
+        const url = "https://resumerocket.onrender.com/logout";
         try {
             const response = await axios.post(url);
             console.log(response.data);
