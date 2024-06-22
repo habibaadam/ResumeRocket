@@ -2,6 +2,7 @@ div.contain {
     height: 100vh;
     background-color:  rgb(18, 3, 31);
     font-family: "Montserrat", sans-serif;
+    width: 100%;
 }
 
 .col-md-4 {
@@ -19,15 +20,6 @@ div.contain {
     border-radius: 5%;
 }
 
-.guide{
-    font-size: 2em;
-    color: #C0C0C0;
-    text-align: center;
-    font-weight: bol;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-}
-
 p.instruct {
     color: #C0C0C0;
 }
@@ -37,6 +29,7 @@ p.instruct {
 
     div.contain {
         height: 130vh;
+        width: 100%;
     }
 
     .image_classs {
@@ -48,5 +41,9 @@ p.instruct {
         width: 100%;
         box-sizing: border-box;
         margin: 0px auto;
+    }
+
+    p.instruct {
+        font-size: 15px !important;
     }
 }

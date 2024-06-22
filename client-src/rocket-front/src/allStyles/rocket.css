@@ -159,6 +159,11 @@ h2.text-center.mt-1 {
     margin-top: 100px;
   }
 
+  h1.text-center.mt-5 {
+    font-size: 25px !important;
+    margin: 0px auto;
+  }
+
   p {
     font-size: 10px;
   }

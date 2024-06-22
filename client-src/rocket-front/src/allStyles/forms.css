@@ -1,14 +1,10 @@
 div.form-page {
     display: flex;
     justify-content: center;
-    background-color:#6f4c6f;
+    background: url('../images/bc.jpg');
     height: 100vh;
     background-size: cover !important;
     border-radius: 10px;
-}
-
-.forlogo {
-    align-items: center;
 }
 
 h2.text-uppercase {
@@ -27,7 +23,10 @@ h1.resume {
 .form-button {
     border: none;
     cursor: pointer;
-    margin-left: 10px;
+    margin: 0px 0px 0px 10px;
+    color: #564CFC;
+    background-color: transparent;
+    text-decoration: none;
 }
 
 .form-button:hover {
@@ -35,15 +34,54 @@ h1.resume {
     transition: 0.4s;
 }
 
+.form-control-lg {
+    background-color: transparent;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.form-control.form-control-lg::placeholder {
+    color: white;
+    opacity: 1;
+    font-size: 15px;
+}
+
+button.mt-3.btn.btn-secondary {
+    padding: 10px 170px;
+    background-color: white;
+}
+
 
 .containing {
     width: 450px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 60px;
     padding: 20px;
     max-height: 720px;
-    background-color: rgb(180, 174, 181);
-    border-radius: 3px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+}
+
+.alert-style {
+    max-width: 200px;
+    margin: 0 auto;
+    color: silver;
+    background-color: #050915;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    left: 80%;
+    top: 0;
+}
+
+.login {
+    margin-top: 170px !important;
+}
+
+.form-label {
+    color: white;
 }
 
 p.err {
@@ -52,30 +90,55 @@ p.err {
 
 p.text-center.forms {
     margin-top: 12px;
-    color: rgb(7, 7, 7);
+    color: rgb(236, 232, 232);
 }
 
 @media only screen and (max-width: 900px) {
-    div.form-page {
-        background: url('https://w0.peakpx.com/wallpaper/687/98/HD-wallpaper-neonspace2-cool-neon-rocket-space.jpg') no-repeat !important;
-        background-size: cover;
-    }
 
     .containing {
         width: 300px;
         min-height: 300px; /* minimum height */
         max-height: 650px;
         margin: 50px 0px auto;
-        background-color: rgb(195, 195, 219);
         border-radius: 10px;
     }
 
     .form-control-lg {
-        padding: 3px;
+        padding: 3px 10px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+
+    .form-control.form-control-lg::placeholder {
+        font-size: 13px;
+    }
+
+    .form-button {
+        font-size: 13px;
     }
 
     .form-label {
         font-size: 12px;
-        color: black;
     }
+
+    button.mt-3.btn.btn-secondary {
+        padding: 5px 85px;
+    }
+
+    .alert-style {
+    font-size: 10px;
+    width: auto;
+    max-width: 100px;
+    height: 100px;
+    padding: 5px; /* Add padding for better spacing */
+    margin: 0 auto;
+    color: silver;
+    background-color: transparent;
+    border-radius: 10px;
+    left: 60%;
+    position: fixed; /* Change position to fixed for consistent positioning */
+    z-index: 1050; /* Increase z-index to ensure it's above most elements */
+    bottom: 0; /* Adjust top position for visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+}
 }
