@@ -54,7 +54,9 @@ export default function Landing() {
         </div>
       </div>
     </div>
-    <Columlayout />
+      <Columlayout />
+      
+      <ContactUs />
     </div>
    );
 }
