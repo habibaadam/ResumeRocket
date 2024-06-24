@@ -1,8 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react';
+
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../UserContext';
 import '../allStyles/rocket.css';
 import Logout from './Logout';
-import Loader from './Loader';
 import PdfGenerator from './pdfGenerator';
 import logo from '../images/resume_rocket.png';
 import { Link, useParams } from "react-router-dom";
@@ -15,16 +15,11 @@ import { ReactTyped } from "react-typed";
 export default function Rocket() {
   const { firstName } = useParams();
   const { user } = useContext(UserContext); // carries small user details
-  // eslint-disable-next-line
-  const [startQuestion, setStartQuestion] = useState(false); // eslint-disable-next-line
-  const [firstQuestion, setFirstQuestion] = useState(''); // eslint-disable-next-line
-  const [displayQuestion, setDisplayQuestion] = useState('');
   const [currentQindex, setcurrentQindex] = useState(0); // tracks state of questions
   const [answer, setAnswer] = useState([]); // tracks users answers
   const [joinedA, setJoinedA] = useState(''); // state of joined answers
   const [errorMessage, setErrorMessage] = useState(null); // state of error messages
   const [readyButton, setReadyButton] = useState(false); // state of cv readiness
-  const [isLoading, setIsLoading] = useState(false);
 
 
   const questions = [
@@ -42,19 +37,6 @@ export default function Rocket() {
     'Sounds like you have been putting in the work! Do you own any kind of certifications? Tell me the names of the providers and year you got them. No pressure if you do not own any!',
     'List some of your soft or non technical skills please, then Generate Your CV :)'
   ];
-
-
-  // delaying the first question
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setFirstQuestion(questions[0]);
-    setStartQuestion(true);
-  }, 10000);
-
-  return () => {
-    clearTimeout(timer);
-  }; // eslint-disable-next-line
-}, []);
 
   const handleAnswer = async () => {
     const textarea = document.getElementById('answer');
@@ -78,7 +60,7 @@ useEffect(() => {
     if (currentQindex < questions.length - 1) {
       setcurrentQindex(currentQindex + 1);
     } else {
-      const answersJoined =  [...answer, currentA].join(' '); // joins answers together
+      const answersJoined = [...answer, currentA].join(' '); // joins answers together
       setJoinedA(answersJoined);
       console.log(answersJoined);
       setReadyButton(true);
@@ -101,8 +83,7 @@ useEffect(() => {
           <Logout />
 
           <div className="a4">
-            {isLoading && <Loader />}
-        </div>
+          </div>
 
         </div>
 
@@ -121,11 +102,11 @@ useEffect(() => {
     </div>
         </div>
 
-      </div>
-        <div>
+            </div>
+            <div>
 
-  </div>
-</nav>
+            </div>
+          </nav>
 
           {/*Content of right part of page */}
           <h1 className="text-center main">Hello, <span className="name resume">{firstName}</span></h1>
@@ -160,7 +141,7 @@ useEffect(() => {
           </div>
 
           {/* Generate Cv Button after all questions are answered */}
-          {readyButton && (<PdfGenerator userPrompt={joinedA} setIsLoading={setIsLoading}/>)}
+          {readyButton && (<PdfGenerator userPrompt={joinedA} />)}
 
         </div>
       </div>

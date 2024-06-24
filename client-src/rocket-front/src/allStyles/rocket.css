@@ -1,6 +1,6 @@
 :root {
   --primary-color: #050915;
-  --text : #C0C0C0;
+  --text: #C0C0C0;
 }
 
 div.full-height.right {
@@ -116,8 +116,10 @@ h2.text-center.mt-1 {
 }
 
 .input-group textarea {
-  padding-top: 20px; /* Adjust as needed */
-  padding-bottom: 20px; /* Adjust as needed */
+  padding-top: 20px;
+  /* Adjust as needed */
+  padding-bottom: 20px;
+  /* Adjust as needed */
 }
 
 .input-group button {

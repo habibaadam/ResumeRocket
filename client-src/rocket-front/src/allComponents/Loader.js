@@ -1,3 +1,4 @@
+
 import { RotatingSquare } from "react-loader-spinner";
 
 export default function LoadingIndicator() {

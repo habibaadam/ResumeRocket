@@ -1,8 +1,10 @@
+
 import React from 'react';
 import '../allStyles/index.css';
 import rocket from '../images/rocket.jpeg';
 import Columlayout from './Columlayout';
 import { Link } from "react-router-dom";
+import ContactUs from './ContactUs';
 
 
 
@@ -52,7 +54,9 @@ export default function Landing() {
         </div>
       </div>
     </div>
-    <Columlayout />
+      <Columlayout />
+      
+      <ContactUs />
     </div>
    );
 }

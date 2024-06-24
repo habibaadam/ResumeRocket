@@ -1,8 +1,9 @@
+
 import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 
 Font.register({
-  family: 'Open Sans',
-  src: `http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf`,
+  family: 'Lato',
+  src: `https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf`,
 });
 
 Font.register({
@@ -21,25 +22,24 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   textSmall: {
-    fontSize: 16,
-    fontFamily: 'Open Sans',
+    fontSize: 10,
+    fontFamily: 'Lato',
   },
   bold: {
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'Lato Bold',
   },
 });
 
 const PdfDocument = ({ content }) => {
-  const parts = content.split('\\n');
+  const mainParts = content.split(/\*\*(.*?)\*\*/g);
 
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
-          {parts.map((part, index) => (
-            part.split(/\*\*(.*?)\*\*/g).map((subPart, subIndex) => (
-              <Text key={`${index}-${subIndex}`} style={subIndex % 2 === 0 ? styles.textSmall : styles.bold}>{subPart}</Text>
-            ))
+          {mainParts.map((part, index) => (
+            <Text key={index} style={index % 2 === 0 ? styles.textSmall : styles.bold}>{part}</Text>
           ))}
         </View>
       </Page>
@@ -47,4 +47,6 @@ const PdfDocument = ({ content }) => {
   );
 };
 
-export default PdfDocument;
+export default PdfDocument
+
+

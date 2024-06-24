@@ -1,32 +1,48 @@
 div.contact {
   height: 30vh;
-  background-color: #848282;
+  background-color: rgb(18, 3, 31);
   font-family: "Anta", sans-serif;
+}
+
+.BackgroundWave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* Ensures it stays in the background */
 }
 
 .icons {
   display: flex;
-  color: rgb(18, 3, 31);
+  color: #C0C0C0;
+  height: 20%;
+  width: 20%;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+.links a {
+  color: #007bff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 8px;
+  display: inline-block
 }
 
-.links {
-  font-size: 1em;
-  color: rgb(18, 3, 31);
-  font-weight: bolder;
-  line-height: 1.5em;
-}
-
-body::after {
-  content: '';
-  display: flex;
-  border-bottom: 1px solid rgb(30, 2, 55);
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.links a:hover,
+.links a:focus {
+  color: #0056b3;
+  /* Darker blue on hover/focus */
+  text-decoration: underline;
+  /* Add underline on hover/focus */
+  transform: scale(1.05);
+  /* Slightly increase size */
 }
 
 .catchphrase {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   text-align: center;

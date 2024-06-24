@@ -1,3 +1,4 @@
+
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect, useContext, useRef } from 'react';
@@ -9,28 +10,24 @@ import { useForm } from 'react-hook-form';
 import '../allStyles/forms.css';
 
 export default function SignUp() {
-// setting state of alert to be false
-const [showAlert, setShowAlert] = useState(false);
-// used to navigate to another page
-const navigate = useNavigate();
-const { setUser } = useContext(UserContext);
+  // setting state of alert to be false
+  const [showAlert, setShowAlert] = useState(false);
+  // used to navigate to another page
+  const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
-//eslint-disable-next-line
-const [password, setPassword] = useState('');
-const [showPassword, setShowPassword] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowAlert(false);
+    }, 3000); // Alert will disappear after 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowAlert(false);
-  }, 3000); // Alert will disappear after 3 seconds
-return () => clearTimeout(timer);
-}, []);
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const password = useRef({});
+  password.current = watch("password", "");
 
-const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const inputPassword = useRef({});
-  inputPassword.current = watch("password", "");
-
-const handleRegister = async () => {
+  const handleRegister = async () => {
 
     // sign up logic required from backend
     const url = 'https://resumerocket.onrender.com/signup';
@@ -46,22 +43,22 @@ const handleRegister = async () => {
         email,
         password
       })
-      .then((response) => {
-        const user  = response.data;
-        localStorage.setItem('userId', user.id);
-        console.log(localStorage.getItem('userId'));
-        setUser(user);
+        .then((response) => {
+          const user = response.data;
+          localStorage.setItem('userId', user.id);
+          console.log(localStorage.getItem('userId'));
+          setUser(user);
 
-        console.log(response.data);
+          console.log(response.data);
 
-        // TO-DO:  send an email to the user to confirm sign up
-        // set the state of the alert to true
-        setShowAlert(true);
-        // move to the main ai page but delay 3 seconds
-        setTimeout(() => {
-          navigate(`/rocket/${firstName}`)
-        }, 3000);
-      });
+          // TO-DO:  send an email to the user to confirm sign up
+          // set the state of the alert to true
+          setShowAlert(true);
+          // move to the main ai page but delay 3 seconds
+          setTimeout(() => {
+            navigate(`/rocket/${firstName}`)
+          }, 3000);
+        });
     } catch (error) {
       console.error(error.message);
     }
@@ -89,20 +86,20 @@ const handleRegister = async () => {
                   {errors.firstName && <p className="err">This field is required</p>}
                 </div>
 
-                <div data-mdb-input-init className="form-outline mb-1">
+              <div data-mdb-input-init className="form-outline mb-1">
 
                   <input {...register("lastName", { required: true})} type="text" id="form-last" className="form-control form-control-lg" placeholder="Last Name" />
                   {errors.lastName && <p className="err">This field is required</p>}
 
-                </div>
+              </div>
 
-                <div data-mdb-input-init className="form-outline mb-1 ">
+              <div data-mdb-input-init className="form-outline mb-1 ">
 
                   <input {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}type="email" id="form-email" className="form-control form-control-lg" placeholder="Email"/>
                   {errors.email && <p className="err">This field is required</p>}
                 </div>
 
-                <div data-mdb-input-init className="form-outline mb-1">
+              <div data-mdb-input-init className="form-outline mb-1">
 
                   <input
                   {...register("password", { required: true, minLength: 8 })}
