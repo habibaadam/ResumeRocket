@@ -131,15 +131,15 @@ p.text-center.forms {
     width: auto;
     max-width: 100px;
     height: 100px;
-    padding: 5px; /* Add padding for better spacing */
+    padding: 5px; 
     margin: 0 auto;
     color: silver;
     background-color: transparent;
     border-radius: 10px;
     left: 60%;
-    position: fixed; /* Change position to fixed for consistent positioning */
-    z-index: 1050; /* Increase z-index to ensure it's above most elements */
-    bottom: 0; /* Adjust top position for visibility */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+    position: fixed;
+    z-index: 1050;
+    bottom: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 }

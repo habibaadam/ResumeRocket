@@ -1,6 +1,6 @@
 div.contact {
-  height: 30vh;
-  background-color: rgb(18, 3, 31);
+  height: 20vh;
+  background-color: rgb(93, 54, 126);
   font-family: "Anta", sans-serif;
 }
 
@@ -22,8 +22,8 @@ div.contact {
   justify-content: space-around;
   border-radius: 20px;
 }
-.links a {
-  color: #007bff;
+
+.links {
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
