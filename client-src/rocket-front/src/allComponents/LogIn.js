@@ -6,7 +6,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { RocketIcon } from "@radix-ui/react-icons"
 import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
-import logo from '../images/resume_rocket.png'
 import '../allStyles/forms.css';
 
 export default function Login() {
@@ -66,17 +65,7 @@ const handleLogin = async () => {
      <div className="form-page" onClick={() => setShowAlert(false)}>
        { // display alert
                 showAlert && (<Alert
-                  style={{
-                  maxWidth: '200px',
-                  margin: '0 auto',
-                  color: 'silver',
-                  backgroundColor: '#050915',
-                  borderRadius: '10px',
-                  position: 'absolute',
-                  zIndex: 1,
-                  left: '80%',
-                  top: 0,
-                 }}>
+                  className="alert-style">
                   <RocketIcon className="h-3 w-3" />
                   <AlertTitle></AlertTitle>
                   <AlertDescription>
@@ -86,21 +75,12 @@ const handleLogin = async () => {
       }
       <section>
         <div>
-          <div className="d-flex justify-content-center align-items-center mt-2">
-                <img
-                 src={logo}
-                 height="50"
-                 alt="ResumeRocket Logo"
-                 loading="lazy"
-                 />
-            </div>
-          <div className="containing">
-            <h2 className="text-uppercase resume text-center mt-0 mb-3">Login to your account</h2>
+          <div className="containing login">
+            <h2 className="text-uppercase resume text-center mt-0 mb-3">Login</h2>
             <form onSubmit={handleSubmit(handleLogin)}>
               <div data-mdb-input-init className="form-outline mb-1 ">
-                <input  {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })} type="email" id="form-email" className="form-control form-control-lg" required/>
+                <input  {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })} type="email" id="form-email" className="form-control form-control-lg" placeholder="Email" required/>
                                   {errors.email && <p className="err">This field is required</p>}
-                <label className="form-label resume">Email</label>
               </div>
 
               <div data-mdb-input-init className="form-outline mb-1">
@@ -111,13 +91,13 @@ const handleLogin = async () => {
                 className="form-control form-control-lg"
                 required
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder='Password'
                 />
                 {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                <label className="form-label resume" >
-                  Password
+                <label className="form-label" >
                   <button
                       type='button'
-                      className='form-button resume'
+                      className='form-button'
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? "Hide" : "Show"}
@@ -129,8 +109,8 @@ const handleLogin = async () => {
                 <button type="submit" className="mt-3 btn btn-secondary route-links">Login</button>
               </div>
 
-              <p className="text-center forms mt-5 mb-0">Don't have an account? <a href="#!"
-                  className="fw-bold text-body"><Link className="resume text-decoration-none" to="/signup">Register here</Link></a></p>
+              <p className="text-center forms mt-5 mb-0">Don't have an account?
+               <Link className="form-button" to="/signup">Register here</Link></p>
             </form>
           </div>
         </div>

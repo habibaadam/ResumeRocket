@@ -5,89 +5,96 @@
 }
 
 .resume {
-  background: linear-gradient(to right, rgb(155, 86, 129), rgb(60, 16, 83));
+  background: linear-gradient(to right, #7F50FC, rgb(60, 16, 83));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-body {
-  background: url('https://img.freepik.com/premium-photo/futuristic-dark-background-ripple-effect-web-pink-dots-big-data-illustration-technologies-artificial-intelligence-effect-particle-oscillation-3d-rendering_710001-333.jpg');
-  background-size: cover !important;
+body, html {
+  color: var(--text);
+  margin: 0;
+  padding: 0;
 }
 
 div.main-land {
+  background: url('../images/bc.jpg');
+  background-size: cover !important;
   height: 100vh;
-  width: 100%;
-  font-family: "Anta", sans-serif;
+  font-family: "Monsterrat", sans-serif;
 }
 
-a.nav-link.left {
-  margin-left: 780px !important;
-}
-
-nav.navbar.navbar-expand-lg {
-  border-radius: 12px;
-  background-color: rgb(183, 165, 183);
-  padding: 12px;
-}
-
-.navbar-nav {
-  font-size: 18px;
+.navbar.navbar-expand-lg {
+  padding: 18px;
+  border-radius: 7px;
+  background-color: #12041F;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a.nav-link {
-  font-size: 18px;
-}
-
-a.nav-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 4px #c867eb;
-  transition: all 0.5s ease-in-out;
-}
-
-h1, h2, h3, p, small {
+  font-size: 15px !important ;
+  margin: 0 10px;
   color: var(--text);
 }
 
-h1 {
-  margin-top: 160px;
-  font-size: 3rem;
+.active {
+  text-decoration: underline;
+  font-weight: bolder;
 }
 
-h3 {
-  margin-top: 180px;
-  font-size: 2rem;
+a.nav-link-left {
+  font-size: 15px;
+  margin-left: 990px;
+  margin-right: 30px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+a.nav-link:hover, a.nav-link-left:hover {
+  text-decoration-line: overline;
+  transition: ease-in-out;
+}
+
+h1, h2, span {
+  font-size: 3rem !important;
+  margin: 0 10px;
+}
+
+h1.mb-2 {
+  margin-top: 300px;
 }
 
 p {
-  margin-bottom: 0px;
-  font-size: 15px;
-  color: #C0C0C0;
-}
-small {
-  display: block;
-  text-align: center;
+  margin: 0 10px;
   font-size: 15px;
   color: #C0C0C0;
 }
 
 .for-link {
-  text-align: center;
+  display: flex;
+  margin: 0 10px;
+  gap: 20px;
 }
+
 .btn.btn-secondary {
-  background-color: rgb(183, 165, 183);
-  color: black;
+  background-color: transparent;
+  color: rgb(225, 90, 178);
   transition: all 0.5s ease-in-out;
-  border-radius: 10px;
-  padding: 15px 20px;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .btn.btn-secondary:hover {
   transform: translateY(-3px);
-  color: #04050F;
-  background-color: #b252d5;
+  background-color: #f2eff4;
   box-shadow: 0 0 10px #fff;
+}
+
+.animation-place {
+  margin-top: 200px;
+  width: 450px;
+  height: 450px;
+  background-color: transparent;
 }
 
 @keyframes reveal {
@@ -98,7 +105,7 @@ small {
 .resume, h1, p, small {
   overflow: hidden;
   white-space: nowrap;
-  animation: reveal 4s linear;
+  animation: reveal 3s linear;
 }
 
 @keyframes fadeIn {
@@ -115,16 +122,9 @@ small {
   animation: fadeIn 3s, colorChange 5s;
 }
 
-
-
-.route-links {
-  text-decoration: none;
-  color: black;
-}
-
 .scroll-downs {
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -151,25 +151,6 @@ small {
   background: white;
   animation: scroller 1s infinite;
 }
-.next-page {
-  margin-top: 20px;
-  min-height: 100vh;
-  width: 100%;
-  background: rgb(24, 1, 36);
-  background-size: cover !important;
-  font-family: "Anta", sans-serif;
-}
-
-.colum-layout{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.rows{
-  display: contents;
-
-}
 
 
 @keyframes mousey {
@@ -190,56 +171,59 @@ small {
 @media only screen and (max-width: 900px) {
 
   div.main-land {
-      height: 70vh;
+      height: 100vh;
+  }
+
+  .col-md-8 {
+    height: 20vh;
+  }
+
+  h1.mb-2 {
+    margin-top:75px !important;
+  }
+
+  h1, h2, span {
+    font-size: 20px !important;
+  }
+
+  p.mt-2 {
+    font-size: 8px;
   }
 
   nav.navbar.navbar-expand-lg {
+    display: flex;
     padding: 5px;
-    border-radius: 4px;
-    background-color: rgb(183, 165, 183);
+    background-color: transparent;
     width: 100%;
   }
 
-  .navbar-collapse {
+   .navbar-collapse {
     position: absolute;
-    z-index: 1000;
     top: 62px;
     width: 100%;
-    background-color: transparent;
   }
 
-  a.nav-link.resume {
-    font-size: 12px !important;
-    margin-bottom: 0px;
-  }
-
-  button.navbar-toggler {
-    background-color: #313C9B;
-    padding: 4px 8px;
-    margin-right: 5px;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-    margin-top: 187px;
-  }
-
-  p, small {
-    font-size: 10px;
+  a.nav-link, a.nav-link-left {
+    font-size: 10px !important;
+    margin: 0 10px;
   }
 
   .btn.btn-secondary {
-    padding: 10px 15px;
+    padding: 5px;
+    margin-top: 20px;
   }
 
-  h3 {
-    font-size: 1.3rem;
-    margin-top: 130px;
+  .animation-place {
+    margin: 0px 0px 40px 0px;
+    width: 300px;
+    height: 300px;
   }
+
 
   .scroll-downs {
+  display: none;
   position: absolute;
-  bottom: 6%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

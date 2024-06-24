@@ -1,12 +1,10 @@
 div.contain {
     height: 100vh;
     background-color:  rgb(18, 3, 31);
-    font-family: "Anta", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
 }
-body {
-    margin: 0;
-    padding: 0;
-}
+
 .col-md-4 {
     display: flex;
     flex-direction: column;
@@ -19,17 +17,8 @@ body {
     width: 50vh;
     height: 70vh;
     margin-top: 30px;
-    border-radius: 5%;
-}
-
-.guide{
-    font-size: 2em;
-    color: #C0C0C0;
-    text-align: center;
-    font-family: "Anta",sans-serif;
-    font-weight: bolder;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
+    border-radius: 2px;
+    border: 2px solid black;
 }
 
 p.instruct {
@@ -38,12 +27,10 @@ p.instruct {
 
 @media only screen and (max-width: 900px) {
 
-    div.contain, div.row, div.col-md-4 {
-        z-index: 400; /* any number that's lower than the z-index of the navbar */
-    }
 
     div.contain {
-        height: 130vh;
+        height: 180vh;
+        width: 100%;
     }
 
     .image_classs {
@@ -55,5 +42,9 @@ p.instruct {
         width: 100%;
         box-sizing: border-box;
         margin: 0px auto;
+    }
+
+    p.instruct {
+        font-size: 15px !important;
     }
 }

@@ -43,8 +43,8 @@ export default function Rocket() {
     const currentA = textarea.value + '.';
 
     // if an answer is not in sentences, send this message
-    if (currentA.length < 20) {
-      setErrorMessage('Invalid answer sent, please answer in sentences and reload the page');
+    if (currentA.length < 15) {
+      setErrorMessage('Invalid answer sent, please answer in sentences => "My first name is <your first name">. All answers need to be in that format');
       textarea.value = '';
       return;
     }
@@ -74,10 +74,10 @@ export default function Rocket() {
 
         {/* dividing screen page into two. First side takes 3 */}
         <div className="full-height d-none d-md-block col-3 col-md-3 bg-dark text-white">
-          <Avatar>
-            <AvatarImage className="user-spot d-flex mt-3"
-              src="hh" />
-            <AvatarFallback className="user-spot d-flex mt-4"><span className="fs-5">{user.initials}</span></AvatarFallback>
+        <Avatar className="avatar-left">
+          <AvatarImage className="user-spot d-flex"
+          src="hh" />
+          <AvatarFallback className="user-spot d-flex"><span className="fs-5">{user.initials}</span></AvatarFallback>
           </Avatar>
           <h2 className="text-center mt-1">{user.email}</h2>
           <Logout />
@@ -92,23 +92,15 @@ export default function Rocket() {
           {/* Navbar structure */}
           <nav className="navbar navbar-expand-lg main fixed-top" data-bs-theme="dark">
             <div className="container-fluid">
-              <Link className="navbar-brand" to="/">
-                <img
-                  src={logo}
-                  height="40"
-                  alt="ResumeRocket Logo"
-                  loading="lazy"
-                />
-              </Link>
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <div className="navbar-nav ml-auto d-flex justify-content-between">
-                  <Link className="nav-link resume " to="/">ResumeRocket</Link>
-                  <Link className="nav-link resume" to="../">Contact</Link>
-                </div>
-              </div>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="navbar-nav">
+        <Link className="nav-link resume " to="/">RESUMEROCKET</Link>
+        <Link className="nav-link resume d-md-none" to="/logout">Log Out</Link>
+    </div>
+        </div>
 
             </div>
             <div>
@@ -117,7 +109,7 @@ export default function Rocket() {
           </nav>
 
           {/*Content of right part of page */}
-          <h1 className="text-center main">Hello, <span className="resume">{firstName}</span></h1>
+          <h1 className="text-center main">Hello, <span className="name resume">{firstName}</span></h1>
           <p className="text-center">Kindly answer these questions as accurate as you can in sentences! </p>
 
           <div className="container-fluid sexy-box bg-dark">

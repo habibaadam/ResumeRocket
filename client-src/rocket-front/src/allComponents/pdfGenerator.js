@@ -34,7 +34,7 @@ export default function PdfGenerator({ userPrompt, setIsLoading }) {
 }
   return (
     <div className="final-button">
-      <button className="btn btn-secondary fn mt-5" data-aos="fade-up" data-aos-duration="2000" onClick={handleGeneratePdf}>Generate CV</button>
+      <button className="btn btn-secondary fn mt-5" data-aos="fade-up" data-aos-duration="2000" onClick={handleGeneratePdf}>Generate Your CV</button>
     </div>
   );
 }
