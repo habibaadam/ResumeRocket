@@ -4,7 +4,7 @@ import '../allStyles/index.css';
 import rocket from '../images/rocket.jpeg';
 import Columlayout from './Columlayout';
 import { Link } from "react-router-dom";
-import ContactUs from './ContactUs';
+import Footer from './Footer';
 
 
 
@@ -17,10 +17,10 @@ export default function Landing() {
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <div className="collapse navbar-collapse landing" id="navbarSupportedContent">
           <Link className="nav-link resume active" to="/">RESUMEROCKET</Link>
           <Link className="nav-link-left " to="/login">LOG IN</Link>
-          <Link className="nav-link" to="../">CONTACT</Link>
+          <Link className="nav-link" to="/contact">CONTACT</Link>
         </div>
 
       </div>
@@ -55,7 +55,7 @@ export default function Landing() {
       </div>
     </div>
       <Columlayout />
-      <ContactUs />
+      <Footer />
     </div>
    );
 }

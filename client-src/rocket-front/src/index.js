@@ -8,7 +8,7 @@ import LogIn from './allComponents/LogIn';
 import Columlayout from './allComponents/Columlayout';
 import Rocket from './allComponents/Rocket';
 import Logout from './allComponents/Logout';
-import ContactUs from './allComponents/ContactUs'
+import Footer from './allComponents/Footer'
 import PdfGenerator from './allComponents/pdfGenerator';
 import { UserProvider } from './UserContext';
 import reportWebVitals from './reportWebVitals';
@@ -24,7 +24,7 @@ root.render(
         <Route path="/login" element={<LogIn />} />
         <Route path="/rocket/:firstName" element={<Rocket />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/contact" element={<Footer />} />
         <Route path="/pdf" element={<PdfGenerator />} />
         <Route path="/colum" element={<Columlayout />} />
       </Routes>

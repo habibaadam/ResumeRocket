@@ -1,0 +1,52 @@
+.wave-parent {
+    position: relative;
+    height: 200px;
+}
+
+.wave-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.icons-parent {
+    display: flex;
+    justify-content: center;
+    align-items :center;
+    position: absolute;
+    gap: 150px;
+    bottom: -40px;
+    width: 100%;
+}
+
+.links-style {
+    color: white;
+    transition: all 2s ease-in-out;
+}
+
+.links-style:hover {
+    color: rgb(226, 98, 226);
+}
+
+@media only screen and (max-width: 900px) {
+    .icons-parent {
+        gap: 20px;
+        bottom: -170px;
+    }
+
+    .res-icon {
+        font-size: 1rem;
+    }
+
+    .wave-parent {
+    width: 180%;
+    height: auto;
+    }
+
+    .wave-content {
+        top: 50%;
+        left: 27%;
+    }
+}

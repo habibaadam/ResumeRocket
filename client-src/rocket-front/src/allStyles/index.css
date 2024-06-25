@@ -13,6 +13,8 @@
 
 body, html {
   color: var(--text);
+  background-color: none;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
