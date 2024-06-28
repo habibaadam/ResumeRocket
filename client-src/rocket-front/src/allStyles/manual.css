@@ -1,24 +1,65 @@
 div.contain {
-    height: 120vh;
-    background-color:  rgb(18, 3, 31);
+    height: 80vh;
+    background-color:rgb(18, 3, 31);
     font-family: "Montserrat", sans-serif;
     width: 100%;
 }
-
 .col-md-4 {
     display: flex;
     flex-direction: column;
     font-weight: bolder;
     align-items: center;
 }
+.para {
+    color: purple;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border-bottom: black 1px solid;
+    padding-bottom: 15px;
 
-.image_classs {
+}
+.info{
+    color: purple;
+    text-align: left;
+    font-weight:600;
+    font-size: large;
+    font-style: italic;
+    margin-top: 10px;
+
+}
+
+.containers {
     order: 2;
     width: 50vh;
-    height: 70vh;
-    margin-top: 30px;
-    border-radius: 2px;
-    border: 2px solid black;
+    height: 40vh;
+    border-radius: 40px;
+    /* Makes corners a little bit round */
+    padding: 10px;
+    border: 5px solid purple;
+    /* Sets the border color to black */
+    display: block;
+    margin: auto;
+    background-color: white;
+}
+
+.para {
+    color: purple;
+    font-size: 25px;
+    margin-top: 20px;
+    text-align: left;
+
+}
+.content {
+    color: rgb(50, 27, 72);
+    display: flex;
+    align-items: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align items to the start of the container */
+    height: 100%;
+    width: 100%;
+    font-size: 40px;
 }
 
 p.instruct {
