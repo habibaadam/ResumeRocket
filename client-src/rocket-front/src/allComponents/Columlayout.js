@@ -19,14 +19,17 @@ export default function Columlayout() {
           data-aos-duration="1000"
         >
           <div className="containers">
-            <div className="content">
+            <div className="icons">
               <FontAwesomeIcon icon={faPlay} />
-              <h6 className="para">Click  the GetStarted Button</h6>
-              <p className="info"> The GetStarted Button<br></br>
-                will lead you to  registering page<br></br>
-                you will provide email details <br></br>
-                and create a password <br></br>
-              </p>
+              <h6 className="para">Click GetStarted </h6>
+              <div className="info">
+                <ul>
+                <li>Click the GetStarted Button </li>
+                <li> lt will lead you to registering page</li>
+                <li>You will provide email details </li>
+                  <li>And create a password </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -36,14 +39,17 @@ export default function Columlayout() {
           data-aos-duration="1000"
         >
           <div className="containers">
-            <div className="content">
+            <div className="icons">
               <FontAwesomeIcon icon={faUserPlus} />
-              <h6 className="para">Register account with email </h6>
-              <p className="info">After  providing account details<br></br>
-                click on the register button<br></br>
-                a succesfull registering prompt<br></br>
-                will pop & direct to next page<br></br>
-              </p>
+              <h6 className="para">Register Account </h6>
+              <div className="info">
+                <ul>
+                  <li>After providing account details</li>
+                  <li>Click on the register button</li>
+                  <li>A succesfull registering prompt</li>
+                  <li>Will pop & direct to next page</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -53,15 +59,16 @@ export default function Columlayout() {
           data-aos-duration="1000"
         >
           <div className="containers">
-            <div className="content">
+            <div className="icons">
               <FontAwesomeIcon icon={faQuestionCircle} />
-              <h6 className="para">Answer and provide your details </h6>
-              <p className="info">the AI page will display your <br></br>
-                Name and you will asked various<br></br>
-                questions including official<br></br>
-                name and qualifications<br></br>
-
-              </p>
+              <h6 className="para">Answer Questions</h6>
+              <div className="info">
+                <ul>
+                  <li>The AI page will display your Name</li>
+                  <li>And you will be asked various Questions </li>
+                  <li>Including official Name & Qualifications</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -71,14 +78,17 @@ export default function Columlayout() {
           data-aos-duration="1000"
         >
           <div className="containers">
-            <div className="content">
+            <div className="icons">
               <FontAwesomeIcon icon={faFileAlt} />
-              <h6 className="para">Generate and download your CV</h6>
-              <p className="info">After answering all questions<br></br>
-                the AI will generate a CV<br></br>
-                and you will be able to<br></br>
-                download it<br></br>
-              </p>
+              <h6 className="para">Generate & Download </h6>
+              <div className="info">
+                <ul>
+                  <li>After answering all questions to your liking</li>
+                  <li>The AI will generate a Resume</li>
+                  <li>And you will be able to</li>
+                  <li>Download  & save your Resume</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
