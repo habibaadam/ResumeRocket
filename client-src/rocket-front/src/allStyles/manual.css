@@ -10,49 +10,53 @@ div.contain {
     font-weight: bolder;
     align-items: center;
 }
-.para {
-    color: purple;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 20px;
-    border-bottom: black 1px solid;
-    padding-bottom: 15px;
 
-}
 .info{
-    color: purple;
-    text-align: left;
+    color: black;
     font-weight:400;
-    font-size: large;
+    font-size: 15px;
     margin-top: 10px;
     font-style: normal;
     padding: 10px;
 
 }
 
+li {
+    list-style: none;
+    text-align: left;
+
+}
+
 .containers {
     order: 2;
     width: 45vh;
-    height: 50vh;
-    border-radius: 40px;
+    height: 33vh;
+    border-radius: 30px;
     /* Makes corners a little bit round */
     padding: 10px;
-    border: 3px solid purple;
+    border: 1px solid purple;
     /* Sets the border color to black */
     display: block;
     margin: auto;
-    background-color: white;
+    background-color: rgb(222, 209, 217);
     margin-top: 2px;
 
 }
 
 .para {
     color: purple;
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 20px;
-    text-align: left;
+    text-align: center;
+    font-weight: bolder;
 
 }
+
+hr {
+    margin:35px 25px 0px 25px;
+
+}
+
 .icons {
     color: rgb(50, 27, 72);
     display: flex;
@@ -70,7 +74,6 @@ p.instruct {
 }
 
 @media only screen and (max-width: 900px) {
-
 
     div.contain {
         height: 180vh;
@@ -90,5 +93,27 @@ p.instruct {
 
     p.instruct {
         font-size: 15px !important;
+    }
+
+    .containers {
+        height: 30vh;
+        width: 35vh;
+        border: 1px solid purple;
+    }
+
+    .info {
+        font-size: 10px;
+    }
+
+    hr {
+        margin-top: 10px;
+    }
+
+    rect {
+        height: 0%;
+    }
+
+    svg {
+        height: 10%;
     }
 }

@@ -33,7 +33,8 @@
 @media only screen and (max-width: 900px) {
     .icons-parent {
         gap: 20px;
-        bottom: -170px;
+        bottom: -100px;
+        margin: 0px auto;
     }
 
     .res-icon {
@@ -41,12 +42,14 @@
     }
 
     .wave-parent {
-    width: 180%;
+    background-color: #12041F;
+    border: none;
+    width: 120%;
     height: auto;
     }
 
     .wave-content {
         top: 50%;
-        left: 27%;
+        left: 37%;
     }
 }
