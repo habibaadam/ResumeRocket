@@ -1,12 +1,10 @@
 
 import React from 'react';
 import '../allStyles/index.css';
-import rocket from '../images/rocket.jpeg';
 import Columlayout from './Columlayout';
 import { Link } from "react-router-dom";
 import Footer from './Footer';
 import Rocketship from '../app/ui/icon';
-import { motion } from 'framer-motion';
 
 
 
