@@ -6,12 +6,6 @@ function Rocketship(props) {
         hidden: {
             y: '-100vh',
         },
-        // visible: {
-        //     y: '10vh',
-        //     transition: {
-        //         duration: 3,
-        //     }
-        // },
         visible: {
             y: ['20vh', '10vh'],
             transition: {
