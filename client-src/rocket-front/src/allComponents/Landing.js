@@ -24,8 +24,6 @@ export default function Landing() {
             </div>
 
           </div>
-          <div>
-          </div>
         </nav>
         <div className="row h-100">
           <div className="col-md-8">
