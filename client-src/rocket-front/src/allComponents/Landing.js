@@ -24,10 +24,8 @@ export default function Landing() {
             </div>
 
           </div>
-          <div>
-          </div>
         </nav>
-        <div className="row h-100">
+        <div className="row intro h-100">
           <div className="col-md-8">
             <h1 className="mb-2">Build Resumes Quickly And Effortlessly.</h1>
             <h2>With Our AI<span className="resume">ResumeRocket</span></h2>

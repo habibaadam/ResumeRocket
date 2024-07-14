@@ -7,7 +7,7 @@ function Rocketship(props) {
             y: '-100vh',
         },
         visible: {
-            y: ['20vh', '10vh', '20vh'],
+            y: ['2vh', '-7vh', '2vh'],
             transition: {
                 duration: 5,
                 y : {
