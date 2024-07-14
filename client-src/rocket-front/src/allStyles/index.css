@@ -5,7 +5,7 @@
 }
 
 .resume {
-  background: linear-gradient(to right, #7F50FC, rgb(60, 16, 83));
+  background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -23,39 +23,40 @@ div.main-land {
   background: url('../images/bc.jpg');
   background-size: cover !important;
   height: 100vh;
-  font-family: "Monsterrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .navbar.navbar-expand-lg {
-  padding: 18px;
-  border-radius: 7px;
+  padding: 16px;
+  border-radius: 15px;
   background-color: #12041F;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-a.nav-link {
-  font-size: 15px !important ;
+.nav-link {
+  font-size: 20px !important ;
   margin: 0 10px;
   color: var(--text);
 }
 
-.active {
-  text-decoration: underline;
-  font-weight: bolder;
+.nav-link, .nav-link-left, .nav-link.resume {
+  transition: transform 0.3s ease;
 }
 
-a.nav-link-left {
-  font-size: 15px;
+
+.nav-link:hover, .nav-link-left:hover, .nav-link.resume:hover {
+  background-color: white;
+  transform: translate(0px, -4px);
+}
+
+
+.nav-link-left {
+  font-size: 20px;
   margin-left: 990px;
   margin-right: 30px;
   color: var(--text);
   text-decoration: none;
 }
 
-a.nav-link:hover, a.nav-link-left:hover {
-  text-decoration-line: overline;
-  transition: ease-in-out;
-}
 
 h1, h2, span {
   font-size: 3rem !important;

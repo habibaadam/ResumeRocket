@@ -18,9 +18,9 @@ export default function Landing() {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse landing" id="navbarSupportedContent">
-              <Link className="nav-link resume active" to="/">RESUMEROCKET</Link>
-              <Link className="nav-link-left " to="/login">LOG IN</Link>
-              <Link className="nav-link" to="/contact">CONTACT</Link>
+              <Link className="nav-link active resume" to="/">ResumeRocket</Link>
+              <Link className="nav-link-left resume" to="/login">Log In</Link>
+              <Link className="nav-link resume" to="/contact">Contact</Link>
             </div>
 
           </div>
@@ -33,8 +33,8 @@ export default function Landing() {
             <h2>With Our AI<span className="resume">ResumeRocket</span></h2>
             <p className="mt-2"> Designed for individuals seeking to venture into or are in the tech industry(software engineering)</p>
             <div className="for-link">
-              <Link className=" mt-3 btn btn-secondary route-links" to="/signup">Get Started</Link>
-              <Link className=" mt-3 btn btn-secondary route-links" to="/colum">How It Works</Link>
+              <Link className=" mt-3 btn btn-secondary route-links resume " to="/signup">Get Started</Link>
+              <Link className=" mt-3 btn btn-secondary route-links resume" to="/colum">How It Works</Link>
             </div>
           </div>
 

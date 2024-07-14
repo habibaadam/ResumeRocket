@@ -20,27 +20,6 @@ div.full-height.right {
   margin-left: 10px;
 }
 
-.navbar-nav {
-  font-size: 15px;
-}
-
-a.nav-link {
-  font-size: 20px;
-  font-weight: bolder;
-
-}
-
-
-.resume {
-  background: linear-gradient(to right, rgb(173, 83, 137), rgb(60, 16, 83));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.resume {
-  animation: fadeIn 2s, colorChange 5s;
-}
 
 span.name.resume {
   margin: 0px;
