@@ -1,48 +1,80 @@
+import React from 'react'
+import '../allStyles/index.css'
+import Columlayout from './Columlayout'
+import AnimatedRocket from './AnimatedRocket'
+import { Link } from 'react-router-dom'
+import Footer from './Footer'
+import AOS from 'aos'
 
-import React from 'react';
-import '../allStyles/index.css';
-import Columlayout from './Columlayout';
-import { Link } from "react-router-dom";
-import Footer from './Footer';
-import Rocketship from '../app/ui/icon';
-
-
+AOS.init()
 
 export default function Landing() {
-  return (
-    <div>
-      <div className="main-land">
-        <nav className="navbar navbar-expand-lg d-flex justify-content-between" data-bs-theme="dark">
-          <div className="container-fluid">
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse landing" id="navbarSupportedContent">
-              <Link className="nav-link active resume" to="/">ResumeRocket</Link>
-              <Link className="nav-link-left resume" to="/login">Log In</Link>
-              <Link className="nav-link resume" to="/contact">Contact</Link>
+    return (
+        <div className="landing-container">
+            {/* Hero Section */}
+            <div className="hero-section">
+                <nav className="navbar">
+                    <div className="nav-brand">
+                        <h1 className="logo-text">ResumeRocket</h1>
+                    </div>
+                    <div className="nav-links">
+                        <Link to="/login" className="nav-link">
+                            Login
+                        </Link>
+                        <Link to="/signup" className="nav-btn">
+                            Get Started
+                        </Link>
+                    </div>
+                </nav>
+
+                <div className="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 className="hero-title">
+                        Launch Your Career with
+                        <span className="gradient-text"> AI-Powered Resumes</span>
+                    </h1>
+                    <p className="hero-subtitle">
+                        Create professional, ATS-optimized resumes in minutes. Let our AI guide you
+                        through crafting the perfect resume that gets you noticed.
+                    </p>
+                    <div className="hero-cta">
+                        <Link to="/register" className="cta-primary">
+                            Create Your Resume
+                        </Link>
+                        <Link to="/login" className="cta-secondary">
+                            Learn More
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="hero-visual" data-aos="fade-up" data-aos-delay="200">
+                    <AnimatedRocket />
+                </div>
             </div>
 
-          </div>
-        </nav>
-        <div className="row intro h-100">
-          <div className="col-md-8">
-            <h1 className="mb-2">Build Resumes Quickly And Effortlessly.</h1>
-            <h2>With Our AI<span className="resume">ResumeRocket</span></h2>
-            <p className="mt-2"> Designed for individuals seeking to venture into or are in the tech industry(software engineering)</p>
-            <div className="for-link">
-              <Link className=" mt-3 btn btn-secondary route-links resume " to="/signup">Get Started</Link>
-              <Link className=" mt-3 btn btn-secondary route-links resume" to="/colum">How It Works</Link>
+            {/* Features Section */}
+            <div className="features-section">
+                <div className="section-header" data-aos="fade-up">
+                    <h2 className="section-title">How It Works</h2>
+                    <p className="section-subtitle">Four simple steps to your perfect resume</p>
+                </div>
+                <Columlayout />
             </div>
-          </div>
 
-          <div className="col-md-4">
-            <Rocketship />
-          </div>
+            {/* CTA Section */}
+            <div className="cta-section" data-aos="fade-up">
+                <div className="cta-content">
+                    <h2 className="cta-title">Ready to Launch Your Career?</h2>
+                    <p className="cta-text">
+                        Join thousands of professionals who've landed their dream jobs with
+                        ResumeRocket
+                    </p>
+                    <Link to="/signup" className="cta-button">
+                        Start Building Now
+                    </Link>
+                </div>
+            </div>
+
+            <Footer />
         </div>
-      </div>
-      <Columlayout />
-      <Footer />
-    </div>
-  );
+    )
 }
