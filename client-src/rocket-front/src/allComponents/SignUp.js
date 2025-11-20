@@ -1,157 +1,264 @@
-import React from 'react';
-import axios from 'axios';
-import { useState, useEffect, useContext, useRef } from 'react';
-import { Alert, AlertDescription, AlertTitle } from "../app/ui/alert"
-import { useNavigate, Link } from 'react-router-dom';
-import { RocketIcon } from "@radix-ui/react-icons"
-import { UserContext } from '../UserContext';
-import { useForm } from 'react-hook-form';
-import '../allStyles/forms.css';
+import React from 'react'
+import axios from 'axios'
+import { useState, useEffect, useContext, useRef } from 'react'
+import { Alert, AlertDescription, AlertTitle } from '../app/ui/alert'
+import { useNavigate, Link } from 'react-router-dom'
+import { RocketIcon } from '@radix-ui/react-icons'
+import { UserContext } from '../UserContext'
+import { useForm } from 'react-hook-form'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash, faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
+import '../allStyles/forms.css'
 
 export default function SignUp() {
-// setting state of alert to be false
-const [showAlert, setShowAlert] = useState(false);
-// used to navigate to another page
-const navigate = useNavigate();
-const { setUser } = useContext(UserContext);
+    const [showAlert, setShowAlert] = useState(false)
+    const navigate = useNavigate()
+    const { setUser } = useContext(UserContext)
+    const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
-//eslint-disable-next-line
-const [password, setPassword] = useState('');
-const [showPassword, setShowPassword] = useState(false);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowAlert(false)
+        }, 3000)
+        return () => clearTimeout(timer)
+    }, [showAlert])
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowAlert(false);
-  }, 3000); // Alert will disappear after 3 seconds
-return () => clearTimeout(timer);
-}, []);
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+    const inputPassword = useRef({})
+    inputPassword.current = watch('password', '')
 
-const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const inputPassword = useRef({});
-  inputPassword.current = watch("password", "");
+    const handleRegister = async () => {
+        const url = 'https://resumerocket.onrender.com/signup'
+        const firstName = document.getElementById('form-first').value
+        const lastName = document.getElementById('form-last').value
+        const email = document.getElementById('form-email').value
+        const password = document.getElementById('form-pass').value
 
-const handleRegister = async () => {
+        try {
+            await axios
+                .post(url, {
+                    firstName,
+                    lastName,
+                    email,
+                    password,
+                })
+                .then((response) => {
+                    const user = response.data
+                    localStorage.setItem('userId', user.id)
+                    console.log(localStorage.getItem('userId'))
+                    setUser(user)
 
-    // sign up logic required from backend
-    const url = 'https://resumerocket.onrender.com/signup';
-    const firstName = document.getElementById('form-first').value;
-    const lastName = document.getElementById('form-last').value;
-    const email = document.getElementById('form-email').value;
-    const password = document.getElementById('form-pass').value;
+                    console.log(response.data)
 
-    try {
-      await axios.post(url, {
-        firstName,
-        lastName,
-        email,
-        password
-      })
-      .then((response) => {
-        const user  = response.data;
-        localStorage.setItem('userId', user.id);
-        console.log(localStorage.getItem('userId'));
-        setUser(user);
-
-        console.log(response.data);
-
-        // TO-DO:  send an email to the user to confirm sign up
-        // set the state of the alert to true
-        setShowAlert(true);
-        // move to the main ai page but delay 3 seconds
-        setTimeout(() => {
-          navigate(`/rocket/${firstName}`)
-        }, 3000);
-      });
-    } catch (error) {
-      console.error(error.message);
+                    setShowAlert(true)
+                    setTimeout(() => {
+                        navigate(`/rocket/${firstName}`)
+                    }, 3000)
+                })
+        } catch (error) {
+            console.error(error.message)
+        }
     }
-  };
 
-  return (
-    <div className="form-page" onClick={() => setShowAlert(false)}>
-       { // display alert
-                showAlert && (<Alert className="alert-style">
-                  <RocketIcon className="h-3 w-3" />
-                  <AlertTitle></AlertTitle>
-                  <AlertDescription>
-                  Signed Up!
-                  </AlertDescription>
-                  </Alert>)
-      }
-    <section>
-          <div>
-            <div className="containing">
-              <h2 className="text-uppercase resume text-center mt-0 mb-3">Create an account</h2>
-              <form onSubmit={handleSubmit(handleRegister)}>
-                <div data-mdb-input-init className="form-outline mb-1">
+    return (
+        <div className="auth-page">
+            {showAlert && (
+                <Alert className="success-alert">
+                    <RocketIcon className="alert-icon" />
+                    <AlertTitle>Success!</AlertTitle>
+                    <AlertDescription>
+                        Account Created Successfully! Redirecting...
+                    </AlertDescription>
+                </Alert>
+            )}
 
-                  <input {...register("firstName", { required: true })} type="text" id="form-first" className="form-control form-control-lg" placeholder="First Name"/>
-                  {errors.firstName && <p className="err">This field is required</p>}
+            <div className="auth-container">
+                {/* Left Side - Branding */}
+                <div className="auth-branding">
+                    <div className="branding-content">
+                        <Link to="/" className="brand-logo">
+                            <RocketIcon className="logo-icon" />
+                            <span>ResumeRocket</span>
+                        </Link>
+                        <h1 className="branding-title">Join Us Today!</h1>
+                        <p className="branding-subtitle">
+                            Start creating professional, AI-powered resumes that land you interviews
+                        </p>
+                        <div className="branding-features">
+                            <div className="feature-item">
+                                <div className="feature-icon">🚀</div>
+                                <span>Quick & Easy Setup</span>
+                            </div>
+                            <div className="feature-item">
+                                <div className="feature-icon">💼</div>
+                                <span>Professional Templates</span>
+                            </div>
+                            <div className="feature-item">
+                                <div className="feature-icon">🎓</div>
+                                <span>Career Boost</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div data-mdb-input-init className="form-outline mb-1">
+                {/* Right Side - Signup Form */}
+                <div className="auth-form-section">
+                    <div className="auth-form-wrapper">
+                        <div className="form-header">
+                            <h2 className="form-title">Create Account</h2>
+                            <p className="form-subtitle">
+                                Get started with your professional resume journey
+                            </p>
+                        </div>
 
-                  <input {...register("lastName", { required: true})} type="text" id="form-last" className="form-control form-control-lg" placeholder="Last Name" />
-                  {errors.lastName && <p className="err">This field is required</p>}
+                        <form onSubmit={handleSubmit(handleRegister)} className="auth-form">
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label className="form-label">First Name</label>
+                                    <div className="input-wrapper">
+                                        <FontAwesomeIcon icon={faUser} className="input-icon" />
+                                        <input
+                                            {...register('firstName', { required: true })}
+                                            type="text"
+                                            id="form-first"
+                                            className={`form-input ${
+                                                errors.firstName ? 'input-error' : ''
+                                            }`}
+                                            placeholder="Enter first name"
+                                        />
+                                    </div>
+                                    {errors.firstName && (
+                                        <span className="error-message">
+                                            First name is required
+                                        </span>
+                                    )}
+                                </div>
 
+                                <div className="form-group">
+                                    <label className="form-label">Last Name</label>
+                                    <div className="input-wrapper">
+                                        <FontAwesomeIcon icon={faUser} className="input-icon" />
+                                        <input
+                                            {...register('lastName', { required: true })}
+                                            type="text"
+                                            id="form-last"
+                                            className={`form-input ${
+                                                errors.lastName ? 'input-error' : ''
+                                            }`}
+                                            placeholder="Enter last name"
+                                        />
+                                    </div>
+                                    {errors.lastName && (
+                                        <span className="error-message">Last name is required</span>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label">Email Address</label>
+                                <div className="input-wrapper">
+                                    <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+                                    <input
+                                        {...register('email', {
+                                            required: true,
+                                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                        })}
+                                        type="email"
+                                        id="form-email"
+                                        className={`form-input ${
+                                            errors.email ? 'input-error' : ''
+                                        }`}
+                                        placeholder="Enter your email"
+                                    />
+                                </div>
+                                {errors.email && (
+                                    <span className="error-message">
+                                        Please enter a valid email address
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label">Password</label>
+                                <div className="input-wrapper">
+                                    <FontAwesomeIcon icon={faLock} className="input-icon" />
+                                    <input
+                                        {...register('password', { required: true, minLength: 8 })}
+                                        type={showPassword ? 'text' : 'password'}
+                                        id="form-pass"
+                                        className={`form-input ${
+                                            errors.password ? 'input-error' : ''
+                                        }`}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Create a password"
+                                    />
+                                    <button
+                                        type="button"
+                                        className="toggle-password"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                    >
+                                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                                    </button>
+                                </div>
+                                {errors.password && (
+                                    <span className="error-message">
+                                        Password must be at least 8 characters long
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label">Confirm Password</label>
+                                <div className="input-wrapper">
+                                    <FontAwesomeIcon icon={faLock} className="input-icon" />
+                                    <input
+                                        {...register('rPassword', {
+                                            required: true,
+                                            validate: (value) => value === inputPassword.current,
+                                        })}
+                                        type={showPassword ? 'text' : 'password'}
+                                        id="form-rpassword"
+                                        className={`form-input ${
+                                            errors.rPassword ? 'input-error' : ''
+                                        }`}
+                                        placeholder="Confirm your password"
+                                    />
+                                    <button
+                                        type="button"
+                                        className="toggle-password"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                    >
+                                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                                    </button>
+                                </div>
+                                {errors.rPassword && (
+                                    <span className="error-message">Passwords do not match</span>
+                                )}
+                            </div>
+
+                            <button type="submit" className="submit-btn">
+                                <span>Create Account</span>
+                                <RocketIcon className="btn-icon" />
+                            </button>
+
+                            <div className="form-footer">
+                                <p className="footer-text">
+                                    Already have an account?
+                                    <Link className="footer-link" to="/login">
+                                        Sign In
+                                    </Link>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
-                <div data-mdb-input-init className="form-outline mb-1 ">
-
-                  <input {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}type="email" id="form-email" className="form-control form-control-lg" placeholder="Email"/>
-                  {errors.email && <p className="err">This field is required</p>}
-                </div>
-
-                <div data-mdb-input-init className="form-outline mb-1">
-
-                  <input
-                  {...register("password", { required: true, minLength: 8 })}
-                  type={showPassword ? "text" : "password"}
-                  id="form-pass"
-                  className="form-control form-control-lg"
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                  />
-                        {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                    <button
-                      type='button'
-                      className='form-button'
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? "Hide" : "Show"}
-                    </button>
-                </div>
-
-                <div data-mdb-input-init className="form-outline mb-1 ">
-                  <input
-                  {...register("rPassword", { required: true, validate: value => value === inputPassword.current })}
-                  type={showPassword ? "text" : "password"}
-                  id="form-rpassword"
-                  className="form-control form-control-lg"
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Repeat Password"
-                  />
-                  {errors.rPassword && <p className="err">Passwords do not match</p>}
-                  <label className="form-label">
-                    <button
-                      type='button'
-                      className='form-button'
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? "Hide" : "Show"}
-                    </button>
-                    </label>
-                </div>
-
-                <div className="d-flex justify-content-center">
-                  <button type="submit" className="mt-3 btn btn-secondary route-links">Register</button>
-                </div>
-                </form>
-
-                <p className="text-center forms mb-0">Already have an account?<Link className="form-button" to="/login">Login here</Link></p>
             </div>
-          </div>
-</section>
-</div>
-  );
+        </div>
+    )
 }

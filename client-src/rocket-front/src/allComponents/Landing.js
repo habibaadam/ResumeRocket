@@ -1,5 +1,5 @@
 import React from 'react'
-import '../allStyles/index.css'
+import '../allStyles/landing.css'
 import Columlayout from './Columlayout'
 import AnimatedRocket from './AnimatedRocket'
 import { Link } from 'react-router-dom'

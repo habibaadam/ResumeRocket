@@ -1,120 +1,189 @@
-import React from 'react';
-import axios from 'axios';
-import { useState, useEffect, useContext, useRef } from 'react';
-import { Alert, AlertDescription, AlertTitle } from "../app/ui/alert"
-import { useNavigate, Link } from 'react-router-dom';
-import { RocketIcon } from "@radix-ui/react-icons"
-import { UserContext } from '../UserContext';
-import { useForm } from 'react-hook-form';
-import '../allStyles/forms.css';
+import React from 'react'
+import axios from 'axios'
+import { useState, useEffect, useContext, useRef } from 'react'
+import { Alert, AlertDescription, AlertTitle } from '../app/ui/alert'
+import { useNavigate, Link } from 'react-router-dom'
+import { RocketIcon } from '@radix-ui/react-icons'
+import { UserContext } from '../UserContext'
+import { useForm } from 'react-hook-form'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+import '../allStyles/forms.css'
 
 export default function Login() {
-  //setting the state of alert to false
-  const [showAlert, setShowAlert] = useState(false);
-  // const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
-  const { setUser } = useContext(UserContext);
-//eslint-disable-next-line
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+    const [showAlert, setShowAlert] = useState(false)
+    const navigate = useNavigate()
+    const { setUser } = useContext(UserContext)
+    const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowAlert(false)
+        }, 3000)
+        return () => clearTimeout(timer)
+    }, [showAlert])
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowAlert(false);
-  }, 3000); // Alert will disappear after 3 seconds
-return () => clearTimeout(timer);
-}, []);
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+    const inputPassword = useRef({})
+    inputPassword.current = watch('password', '')
 
-const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const inputPassword = useRef({});
-  inputPassword.current = watch("password", "");
+    const handleLogin = async () => {
+        const url = 'https://resumerocket.onrender.com/login'
+        const email = document.getElementById('form-email').value
+        const password = document.getElementById('form-pass').value
 
-const handleLogin = async () => {
+        try {
+            await axios
+                .post(url, {
+                    email,
+                    password,
+                })
+                .then((response) => {
+                    const user = response.data
+                    localStorage.setItem('userId', user.id)
+                    console.log(localStorage.getItem('userId'))
+                    setUser(user)
 
-    const url = 'https://resumerocket.onrender.com/login';
-    const email = document.getElementById('form-email').value;
-    const password = document.getElementById('form-pass').value;
+                    console.log(response.data)
 
-    try {
-      await axios.post(url, {
-        email,
-        password
-      })
-        .then((response) => {
-          const user = response.data;
-          localStorage.setItem('userId', user.id);
-          console.log(localStorage.getItem('userId'));
-          setUser(user);
-
-         console.log(response.data);
-
-        // TO-DO:  send an email to the user to confirm sign up
-        // set the state of the alert to true
-        setShowAlert(true);
-        // move to the main ai page but delay 3 seconds
-        setTimeout(() => {
-          navigate(`/rocket/${user.first_name}`)
-        }, 3000);
-      });
-    } catch (error) {
-      console.error(error.message);
+                    setShowAlert(true)
+                    setTimeout(() => {
+                        navigate(`/rocket/${user.first_name}`)
+                    }, 3000)
+                })
+        } catch (error) {
+            console.error(error.message)
+        }
     }
-  };
-  return (
-     <div className="form-page" onClick={() => setShowAlert(false)}>
-       { // display alert
-                showAlert && (<Alert
-                  className="alert-style">
-                  <RocketIcon className="h-3 w-3" />
-                  <AlertTitle></AlertTitle>
-                  <AlertDescription>
-                  Logged In!
-                  </AlertDescription>
-                  </Alert>)
-      }
-      <section>
-        <div>
-          <div className="containing login">
-            <h2 className="text-uppercase resume text-center mt-0 mb-3">Login</h2>
-            <form onSubmit={handleSubmit(handleLogin)}>
-              <div data-mdb-input-init className="form-outline mb-1 ">
-                <input  {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })} type="email" id="form-email" className="form-control form-control-lg" placeholder="Email" required/>
-                                  {errors.email && <p className="err">This field is required</p>}
-              </div>
 
-              <div data-mdb-input-init className="form-outline mb-1">
-                <input
-                {...register("password", { required: true, minLength: 8 })}
-                type={showPassword ? "text" : "password"}
-                id="form-pass"
-                className="form-control form-control-lg"
-                required
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder='Password'
-                />
-                {errors.password && <p className="err">Password must be at least 8 characters long</p>}
-                <label className="form-label" >
-                  <button
-                      type='button'
-                      className='form-button'
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? "Hide" : "Show"}
-                    </button>
-                  </label>
-              </div>
+    return (
+        <div className="auth-page">
+            {showAlert && (
+                <Alert className="success-alert">
+                    <RocketIcon className="alert-icon" />
+                    <AlertTitle>Success!</AlertTitle>
+                    <AlertDescription>Logged In Successfully! Redirecting...</AlertDescription>
+                </Alert>
+            )}
 
-              <div className="d-flex justify-content-center">
-                <button type="submit" className="mt-3 btn btn-secondary route-links">Login</button>
-              </div>
+            <div className="auth-container">
+                {/* Left Side - Branding */}
+                <div className="auth-branding">
+                    <div className="branding-content">
+                        <Link to="/" className="brand-logo">
+                            <RocketIcon className="logo-icon" />
+                            <span>ResumeRocket</span>
+                        </Link>
+                        <h1 className="branding-title">Welcome Back!</h1>
+                        <p className="branding-subtitle">
+                            Continue your journey to creating the perfect resume powered by AI
+                        </p>
+                        <div className="branding-features">
+                            <div className="feature-item">
+                                <div className="feature-icon">✨</div>
+                                <span>AI-Powered Generation</span>
+                            </div>
+                            <div className="feature-item">
+                                <div className="feature-icon">⚡</div>
+                                <span>Lightning Fast</span>
+                            </div>
+                            <div className="feature-item">
+                                <div className="feature-icon">🎯</div>
+                                <span>ATS-Optimized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-              <p className="text-center forms mt-5 mb-0">Don't have an account?
-               <Link className="form-button" to="/signup">Register here</Link></p>
-            </form>
-          </div>
+                {/* Right Side - Login Form */}
+                <div className="auth-form-section">
+                    <div className="auth-form-wrapper">
+                        <div className="form-header">
+                            <h2 className="form-title">Sign In</h2>
+                            <p className="form-subtitle">
+                                Enter your credentials to access your account
+                            </p>
+                        </div>
+
+                        <form onSubmit={handleSubmit(handleLogin)} className="auth-form">
+                            <div className="form-group">
+                                <label className="form-label">Email Address</label>
+                                <div className="input-wrapper">
+                                    <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+                                    <input
+                                        {...register('email', {
+                                            required: true,
+                                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                        })}
+                                        type="email"
+                                        id="form-email"
+                                        className={`form-input ${
+                                            errors.email ? 'input-error' : ''
+                                        }`}
+                                        placeholder="Enter your email"
+                                        required
+                                    />
+                                </div>
+                                {errors.email && (
+                                    <span className="error-message">
+                                        Please enter a valid email address
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label">Password</label>
+                                <div className="input-wrapper">
+                                    <FontAwesomeIcon icon={faLock} className="input-icon" />
+                                    <input
+                                        {...register('password', { required: true, minLength: 8 })}
+                                        type={showPassword ? 'text' : 'password'}
+                                        id="form-pass"
+                                        className={`form-input ${
+                                            errors.password ? 'input-error' : ''
+                                        }`}
+                                        required
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Enter your password"
+                                    />
+                                    <button
+                                        type="button"
+                                        className="toggle-password"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                    >
+                                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                                    </button>
+                                </div>
+                                {errors.password && (
+                                    <span className="error-message">
+                                        Password must be at least 8 characters long
+                                    </span>
+                                )}
+                            </div>
+
+                            <button type="submit" className="submit-btn">
+                                <span>Sign In</span>
+                                <RocketIcon className="btn-icon" />
+                            </button>
+
+                            <div className="form-footer">
+                                <p className="footer-text">
+                                    Don't have an account?
+                                    <Link className="footer-link" to="/signup">
+                                        Create Account
+                                    </Link>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-    </div>
-  );
+    )
 }
